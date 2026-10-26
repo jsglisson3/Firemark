@@ -65,14 +65,22 @@ Why the site looks, reads and works the way it does. Newest first within each se
 ## Hero: the street map
 - **Decision:** Concept 1 of 3. A quiet drawn street map of a Colony-style grid with Main St, S Colony Blvd and Hwy 121. A flame pin drops onto Main St, then a listing card appears ("Your bakery, Open now, Call / Directions / Website"). The headline is still "Put your business on the map."
 - **Why:** it shows the literal promise (being found on a map) instead of talking about it, and it is the one memorable element. The rest of the page stays calm.
-- The map is drawn, not traced from real map data, so there are no license questions. It is not geographically exact. **[CONFIRM]** whether Jeremy wants it traced from the real streets later.
+- Round 3 replaced the drawn map with real streets (see below).
 - Motion: one load sequence (pin, ring, card at 350/600/900 ms), shown once. With reduced motion or no JavaScript, the final state shows at once.
 - Concepts 2 and 3 were reference only and are not kept in the repository.
 
-## Buttons
+## Round 3: Jeremy's notes (Oct 26, evening)
+- **Hero: concepts 1 and 2 blended.** Jeremy liked both and not 3. The listing card now starts as a search: "bakery near me" types in, the pin drops onto Main St, and "Your bakery" appears as the result with Call / Directions / Website. One sequence of about 2 seconds, played once.
+- **Real streets.** Jeremy chose real streets over the drawn map. The hero map is traced from an OpenStreetMap export he downloaded on Oct 26, 2026, covering Main St and S Colony Blvd (bounds 33.0721 to 33.0875 N, 96.9023 to 96.8686 W). It shows real roads, buildings and the Lewisville Lake shoreline, in the same quiet style. The pin is on the real Main St × S Colony Blvd intersection.
+  - **License:** OpenStreetMap data is under the ODbL. That requires the visible credit "Map data © OpenStreetMap contributors", linked to openstreetmap.org/copyright. It sits under the map on the homepage and on the share image. Don't remove it.
+  - The source file and the two scripts that turn it into the SVG are in design-system/firemark/map-source/.
+- **Orange buttons by default.** Burnt orange (Ember #B23F0E, white text 5.6:1) with a gold dot. The charcoal version is kept as the switch `data-buttons="charcoal"` on `<html>`.
+- **Less cartoony type.** Jeremy found the text cartoony. Headings were Bricolage at weight 800 with the optical size at 96 (the poster cut, with ink traps and squeezed letters). They are now weight 620 with optical size pinned at 32, a calmer cut of the same font, so the one-typeface rule still holds. The "firemark" wordmark was re-outlined at weight 660, optical size 32, and the badges were redone to match. Other faces were tried (Inter Tight, Geist, Instrument Sans, Schibsted Grotesk). The calmer Bricolage cut was kept because it fixes the problem without adding a second font.
+
+## Buttons (superseded in round 3: orange is now the default)
 - **Decision:** primary buttons are charcoal with white text and a small orange ember dot, not solid orange. Secondary is a charcoal outline.
 - **Why:** keeps orange subtle, per Jeremy's note. **[CONFIRM]** if he wants more orange.
-- **Alternative built and ready:** burnt-orange buttons (Ember #B23F0E with white text, which passes AA, and a gold dot). Switch on by changing `<html lang="en">` to `<html lang="en" data-buttons="orange">` in src/index.html and tools/build.py, then rebuild. Plain Flame orange is not used for buttons, because white text on it fails contrast.
+- Plain Flame orange is never used for buttons, because white text on it fails contrast.
 
 ## Polish pass (same day)
 - Redrew the side streets as a believable suburban network: gently bowed streets that meet the main roads, short cross streets and cul-de-sacs. The first version used loose wavy lines that read as texture, not streets.
@@ -91,4 +99,4 @@ Why the site looks, reads and works the way it does. Newest first within each se
 - axe-core: 0 violations on every page at 390px and 1440px.
 - No sideways scrolling at 320, 360, 390, 1440 and 1920px. Hero screenshots checked at 320, 390, 768, 1024, 1100, 1240, 1280, 1440 and 1920.
 - Motion: with reduced motion, the pin, glow and card are fully visible at once. Without JavaScript they're visible too. With motion, they start hidden and are all in place by 2 seconds.
-- Lighthouse mobile (local, after the polish pass): Performance 99, Accessibility 100, Best Practices 100, SEO 69 (low only because the draft is noindex). LCP 2.0s, CLS 0.
+- Lighthouse mobile (local, after round 3): Performance 99, LCP 2.2s, total page weight 207 KiB, Accessibility 100, Best Practices 100, SEO 69 (low only because the draft is noindex). CLS 0.

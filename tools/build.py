@@ -116,11 +116,14 @@ if pages_py.exists():
     mod.form = form
     spec.loader.exec_module(mod)
 
-# 4) 404 must work at any address on the final domain, so its links start with "/"
+# 4) 404 must work at any address, so its links start from the site's root folder.
+#    The preview lives at jsglisson3.github.io/Firemark/, so the root is "/Firemark/".
+#    When firemarktech.com is connected, change SITE_ROOT to "/" and rebuild.
+SITE_ROOT = '/Firemark/'
 p404 = DOCS / '404.html'
 if p404.exists():
     s = p404.read_text(encoding='utf-8')
-    s = re.sub(r'(href|src)="(?!https?:|#|mailto:|/)([^"]+)"', r'\1="/\2"', s)
+    s = re.sub(r'(href|src)="(?!https?:|#|mailto:|/)([^"]+)"', lambda m: f'{m.group(1)}="{SITE_ROOT}{m.group(2)}"', s)
     p404.write_text(s, encoding='utf-8')
     print('404.html made root-relative')
 

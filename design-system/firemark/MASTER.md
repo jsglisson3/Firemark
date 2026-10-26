@@ -28,12 +28,12 @@ Jeremy dropped the lake teal. He wants light pages, charcoal and gray, and orang
 
 **Where it's dark:** only the "Why Firemark" story band and the footer. Everything else is light.
 
-**Where the orange goes:** the logo's fire, the hero pin and its glow, the lit dot on every main button, link underlines, the focus ring, the big step numbers, and ticks and icons in Ember. That's all.
+**Where the orange goes:** the logo's fire, the hero pin and its glow, the main buttons (Ember), link underlines, the focus ring, the big step numbers, and ticks and icons in Ember. That's all.
 
 ## Type
 - **Bricolage Grotesque** (variable: weight 200 to 800, optical size 12 to 96) for everything, self-hosted.
-- Display: weight 800, tracking -0.045em, line-height 0.95.
-- Headings: weight 750 to 800, tracking -0.03em.
+- Display and headings: weight 620 with optical size pinned to 32 (`font-variation-settings: "opsz" 32`), tracking -0.03 to -0.035em, line-height about 0.97. Jeremy found the display cut at 800 (opsz 96) cartoony on Oct 26, 2026, so don't go back to it.
+- Small headings: weight 650, opsz 24.
 - Body: weight 400, 17 to 19px, line-height 1.55, optical sizing on.
 - Labels and buttons: weight 600 to 700, sentence case. Never all caps.
 
@@ -48,7 +48,7 @@ Jeremy dropped the lake teal. He wants light pages, charcoal and gray, and orang
 - Everything else is still, except state changes people trigger (menu, FAQ, form).
 
 ## Components
-- **Primary button:** Charcoal background, white text, with a small lit Flame dot before the label. 14px radius, at least 48px tall. On charcoal sections it flips to Paper with charcoal text. Alternative, switched off: `data-buttons="orange"` on `<html>` makes it Ember (#B23F0E) with white text and a gold dot. Never Flame, which fails contrast with white text.
+- **Primary button:** Ember (#B23F0E) background, white text (5.6:1), with a small gold "ember" dot before the label. 14px radius, at least 48px tall. Never Flame as a button background, because white text on it fails contrast. Alternative, switched off: `data-buttons="charcoal"` on `<html>` gives a charcoal button with a Flame dot.
 - **Secondary action:** underlined text link (Flame underline). `.btn-outline` (charcoal border) for a second button on light bands; `.btn-ghost` on charcoal.
 - **Chips:** pill, Paper background, Charcoal text, used for project scope and map actions.
 - **Form:** visible labels. Required fields are marked with * plus hidden "required" text, and optional fields say "(optional)", following Baymard. Fields validate on blur, errors clear as soon as they're fixed, valid fields get a check, and a focusable error summary appears on a failed submit.

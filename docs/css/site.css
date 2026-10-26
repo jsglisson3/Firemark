@@ -80,10 +80,12 @@ body {
 }
 img, svg { display: block; max-width: 100%; }
 img { height: auto; }
-h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; text-wrap: balance; }
-h1 { font-size: var(--step-4); letter-spacing: -0.045em; line-height: 0.95; }
-h2 { font-size: var(--step-3); letter-spacing: -0.04em; }
-h3 { font-size: var(--step-1); line-height: 1.15; letter-spacing: -0.02em; font-weight: 750; }
+/* Headings use Bricolage's text-size cut (opsz 32) at 620 instead of its display cut at 800. The display cut's ink traps
+   and squeeze read as cartoony at headline size; this keeps the same family but calmer and more grown-up. */
+h1, h2, h3 { margin: 0; font-weight: 620; font-variation-settings: "opsz" 32; letter-spacing: -0.03em; line-height: 1.02; text-wrap: balance; }
+h1 { font-size: var(--step-4); letter-spacing: -0.035em; line-height: 0.97; }
+h2 { font-size: var(--step-3); letter-spacing: -0.03em; }
+h3 { font-size: var(--step-1); line-height: 1.15; letter-spacing: -0.015em; font-weight: 650; font-variation-settings: "opsz" 24; }
 p { margin: 0; text-wrap: pretty; }
 p + p { margin-top: 0.9em; }
 ul, ol { margin: 0; padding: 0; }
@@ -136,19 +138,18 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
   text-decoration: none; cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
-.btn-flame { background: var(--ink); color: var(--white); }
-.btn-flame:hover { background: #34322F; text-decoration: none; }
+/* Primary button: burnt orange (Ember, not Flame, so white text passes AA at 5.6:1) with a small gold "ember" dot. */
+.btn-flame { background: var(--ember); color: var(--white); }
+.btn-flame:hover { background: #96350B; text-decoration: none; }
 .tone-deep .btn-flame { background: var(--paper); color: var(--ink); }
 .tone-deep .btn-flame:hover { background: var(--white); }
-/* The ember: a small lit dot on every main button. It's where the orange lives. */
-.btn-flame::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--flame); box-shadow: 0 0 0 3px rgba(236, 78, 28, 0.25); flex: none; }
+.btn-flame::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--core); box-shadow: 0 0 0 3px rgba(255, 178, 46, 0.3); flex: none; }
 .btn-flame:active { transform: scale(0.98); }
-/* Alternative: orange primary buttons. Switch on by changing <html lang="en"> to
-   <html lang="en" data-buttons="orange"> in src/index.html and tools/build.py.
-   Ember, not Flame, so white text still passes AA (5.6:1). */
-[data-buttons="orange"] .btn-flame { background: var(--ember); color: var(--white); }
-[data-buttons="orange"] .btn-flame:hover { background: #96350B; }
-[data-buttons="orange"] .btn-flame::before { background: var(--core); box-shadow: 0 0 0 3px rgba(255, 178, 46, 0.3); }
+/* Alternative: the quieter charcoal button with an orange dot. Switch on by changing <html lang="en"> to
+   <html lang="en" data-buttons="charcoal"> in src/index.html and tools/build.py. */
+[data-buttons="charcoal"] .btn-flame { background: var(--ink); }
+[data-buttons="charcoal"] .btn-flame:hover { background: #34322F; }
+[data-buttons="charcoal"] .btn-flame::before { background: var(--flame); box-shadow: 0 0 0 3px rgba(236, 78, 28, 0.25); }
 .btn-ghost, .tone-deep .btn-ghost { background: transparent; color: var(--white); border-color: var(--mist-on-dark); }
 .btn-ghost:hover { border-color: var(--white); }
 .btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
@@ -221,17 +222,23 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 .hero-map { order: 3; }
 .hero .lead { order: 4; max-width: 29em; color: var(--graphite); }
 .hero .actions { order: 5; margin-top: var(--space-m); }
+.map-credit { order: 3; margin: -1rem 0 0.75rem; font-size: 0.75rem; color: var(--graphite); text-align: right; }
+.map-credit a { color: inherit; }
 .hero-note { order: 6; margin-top: var(--space-s); margin-bottom: var(--space-l); font-size: var(--step--1); color: var(--graphite); max-width: 30em; }
 
 /* The map. Positions are percentages of the 1200 x 720 drawing, so the pin always sits on Main St at S Colony Blvd. */
-.hero-map { position: relative; margin: 0.5rem 0 1.25rem; height: 21rem; overflow: hidden;
+.hero-map { position: relative; margin: 0.5rem 0 1.25rem; height: 24rem; overflow: hidden;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 90%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 90%, transparent); }
-.map-frame { position: absolute; top: -6rem; bottom: 0; aspect-ratio: 5 / 3; left: calc(50% - 0.6367 * 27rem * 5 / 3); }
+.map-frame { position: absolute; top: -6rem; bottom: 0; aspect-ratio: 5 / 3; left: calc(50% - 0.6367 * 30rem * 5 / 3); }
 .map-art { display: block; width: 100%; height: 100%; }
 .m-lake { fill: var(--water); }
 .map-art path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.m-lake { stroke: none; }
+.map-art .m-lake { fill: var(--water); stroke: none; }
+/* Real streets and buildings from OpenStreetMap (© OpenStreetMap contributors, ODbL), drawn in the site's quiet style */
+.map-art .m-bld path { fill: #EAE7E2; stroke: none; }
+.map-art .m-park path { fill: #EFEDE8; stroke: none; }
+.m-svc path { stroke: #E2DED7; stroke-width: 1; }
 .m-minor path { stroke: #D5D1CA; stroke-width: 1.2; }
 .m-col path { stroke: #C9C4BC; stroke-width: 2.6; }
 .m-art-case path { stroke: #D2CDC5; stroke-width: 10; }
@@ -246,8 +253,14 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 .map-pin .mark { width: 100%; height: 100%; }
 .place-card { position: absolute; left: 63.67%; top: calc(60% + 1.4rem); transform: translateX(-50%); width: 17rem;
   background: var(--white); border-radius: var(--r-card); padding: 0.9rem 1.05rem 1rem; box-shadow: var(--shadow-card), 0 0 0 1px rgba(29, 28, 26, 0.06); }
+/* The search that led here (from hero concept 2): a search field on top of the result card */
+.pc-search { display: flex; align-items: center; gap: 0.5rem; min-height: 2.4rem; margin: -0.2rem -0.25rem 0.75rem; padding: 0 0.85rem;
+  border-radius: 999px; background: var(--paper); font-size: 0.95rem; font-weight: 500; color: var(--ink); }
+.pc-search .icon { width: 1rem; height: 1rem; color: var(--graphite); flex: none; }
+.pc-search [data-q]::after { content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 1px; vertical-align: -0.15em; background: var(--flame); opacity: 0; }
+.hero-typing .pc-search [data-q]::after { opacity: 1; }
 .pc-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
-.pc-top b { font-size: 1.1rem; font-weight: 750; letter-spacing: -0.015em; }
+.pc-top b { font-size: 1.1rem; font-weight: 650; letter-spacing: -0.015em; }
 .pc-open { font-size: 0.8rem; font-weight: 650; color: var(--ok); }
 .pc-meta { display: block; color: var(--graphite); font-size: 0.9rem; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; }
@@ -259,7 +272,7 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 @media (min-width: 40rem) and (max-width: 61.99rem) {
   .hero-map { height: 23rem; }
   .map-frame { top: -14rem; bottom: -5rem; left: calc(55% - 0.6367 * 42rem * 5 / 3); }
-  .place-card { left: calc(63.67% + 2.4rem); top: calc(60% - 3.4rem); transform: none; }
+  .place-card { left: calc(63.67% + 2.4rem); top: calc(60% - 6.6rem); transform: none; }
 }
 @media (min-width: 62rem) {
   .hero { min-height: clamp(36rem, calc(100svh - 7.5rem), 50rem); align-items: center; }
@@ -271,10 +284,11 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
   .hero .lead { margin-top: var(--space-m); }
   .hero-note { margin-bottom: 0; }
   .hero-map { position: absolute; inset: 0; height: auto; margin: 0; -webkit-mask-image: none; mask-image: none; }
+  .map-credit { position: absolute; right: var(--gutter); bottom: 0.6rem; margin: 0; z-index: 1; }
   .map-frame { top: 0; bottom: 0; left: auto; right: 0;
     -webkit-mask-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.22) 33%, #000 52%);
     mask-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.22) 33%, #000 52%); }
-  .place-card { left: calc(63.67% + 2.4rem); top: calc(60% - 3.4rem); transform: none; }
+  .place-card { left: calc(63.67% + 2.4rem); top: calc(60% - 6.6rem); transform: none; }
 }
 /* Wide screens: the map's left edge would sit under the headline, so push it right a little */
 @media (min-width: 62rem) and (max-width: 89.99rem) {
@@ -292,26 +306,26 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 @media (min-width: 62rem) and (max-width: 79.99rem) {
   .place-card { left: 63.67%; top: calc(60% + 1.6rem); transform: translateX(-50%); }
 }
-/* S Colony Blvd's label runs off the right edge until the screen is wide enough to show it whole */
-@media (max-width: 89.99rem) { .m-label text:nth-child(2) { display: none; } }
 
-/* One orchestrated moment: the pin drops onto Main St, the ring opens, the listing card appears. About 1.5 seconds, then it stops.
-   A tiny script in the page head adds .hero-motion before first paint, so the parts start hidden instead of flashing.
-   Without JavaScript, or with reduced motion, the finished picture shows straight away. */
+/* One orchestrated moment, about 2 seconds, played once: the search types in, the pin drops onto Main St, the glow opens,
+   and your business appears as the result. A tiny script in the page head adds .hero-motion before first paint so the parts
+   start hidden instead of flashing. Without JavaScript, or with reduced motion, the finished picture shows straight away. */
 @media (prefers-reduced-motion: no-preference) {
   .hero-motion .map-pin:not(.is-shown) { opacity: 0; translate: 0 -2.75rem; }
   .hero-motion .map-ring:not(.is-shown) { opacity: 0; scale: 0.3; }
   .hero-motion .place-card:not(.is-shown) { opacity: 0; translate: 0 0.9rem; }
+  .hero-motion .place-card:not(.is-found) .pc-result { opacity: 0; translate: 0 0.4rem; }
   .map-pin.is-shown { transition: opacity 0.25s ease, translate 0.6s cubic-bezier(0.3, 1.45, 0.5, 1); }
   .map-ring.is-shown { transition: opacity 0.6s ease, scale 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .place-card.is-shown { transition: opacity 0.45s ease, translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .place-card.is-found .pc-result { transition: opacity 0.4s ease, translate 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
 }
 
 /* Problem: the customer's path (a real sequence) */
 .path { list-style: none; display: grid; gap: var(--space-m); counter-reset: step; margin-top: var(--space-l); }
 @media (min-width: 52rem) { .path { grid-template-columns: repeat(3, 1fr); } }
 .path li { position: relative; display: grid; gap: 0.5rem; align-content: start; padding-top: 1.25rem; border-top: 2px solid var(--ink); counter-increment: step; }
-.path li::before { content: counter(step); font-weight: 800; font-size: 2.6rem; line-height: 1; color: var(--flame); letter-spacing: -0.04em; }
+.path li::before { content: counter(step); font-weight: 620; font-variation-settings: "opsz" 32; font-size: 2.6rem; line-height: 1; color: var(--flame); letter-spacing: -0.03em; }
 .path h3 { color: var(--ink); }
 .path p { color: var(--graphite); }
 .problem-grid { display: grid; gap: var(--space-m); }
@@ -467,7 +481,7 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 
 /* Inner pages */
 .page-head { padding-block: var(--space-l) var(--space-m); }
-.page-head h1 { font-size: var(--step-3); color: var(--teal); max-width: 15em; letter-spacing: -0.04em; line-height: 1; }
+.page-head h1 { font-size: var(--step-3); color: var(--teal); max-width: 15em; letter-spacing: -0.03em; line-height: 1; }
 .page-head .lead { margin-top: var(--space-s); max-width: 34em; }
 .prose { max-width: 44rem; display: grid; gap: var(--space-m); padding-bottom: var(--space-xl); }
 .prose section { border-top: 1px solid var(--line); padding-top: var(--space-s); }
@@ -488,7 +502,7 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 .case-top h2 { color: var(--teal); }
 .case-grid { display: grid; gap: var(--space-l); margin-top: var(--space-l); }
 @media (min-width: 60rem) { .case-grid { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); align-items: start; } }
-.case-col h3 { font-size: 1.15rem; font-weight: 750; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.case-col h3 { font-size: 1.15rem; font-weight: 650; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
 .case-col > * + h3 { margin-top: var(--space-m); }
 .case-col p { color: var(--shore); }
 .build-list { list-style: none; display: grid; gap: 1rem; }
@@ -546,7 +560,7 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 .brand-block > .wrap { display: contents; }
 section.wrap.brand-block { padding-bottom: var(--space-xl); }
 .brand-block h2 { color: var(--teal); }
-.brand-block h3 { font-size: 1.15rem; font-weight: 750; letter-spacing: -0.01em; margin-top: var(--space-m); }
+.brand-block h3 { font-size: 1.15rem; font-weight: 650; letter-spacing: -0.01em; margin-top: var(--space-m); }
 .logo-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); margin-top: var(--space-s); }
 .logo-grid.small { grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); }
 .logo-tile { margin: 0; border-radius: var(--r-card); border: 1px solid var(--line); overflow: hidden; background: var(--white); display: grid; grid-template-rows: auto 1fr; }
@@ -574,8 +588,8 @@ section.wrap.brand-block { padding-bottom: var(--space-xl); }
 .swatch .ratio:empty { display: none; }
 .type-specimen { display: grid; gap: 0.25rem; margin-top: var(--space-s); }
 .type-specimen .ts-label { color: var(--shore); font-size: var(--step--1); padding-bottom: var(--space-m); margin-bottom: var(--space-s); border-bottom: 1px solid var(--line); }
-.ts-display { font-size: var(--step-4); font-weight: 800; line-height: 0.95; letter-spacing: -0.045em; color: var(--teal); max-width: 9em; }
-.ts-h2 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: var(--teal); }
+.ts-display { font-size: var(--step-4); font-weight: 620; font-variation-settings: "opsz" 32; line-height: 0.97; letter-spacing: -0.035em; color: var(--teal); max-width: 9em; }
+.ts-h2 { font-size: var(--step-3); font-weight: 620; font-variation-settings: "opsz" 32; letter-spacing: -0.03em; line-height: 1.05; color: var(--teal); }
 .ts-lead { font-size: var(--step-1); color: var(--shore); max-width: 32em; }
 .ts-body { max-width: 36em; }
 .voice-grid { display: grid; gap: var(--space-m); margin-top: var(--space-xs); }
@@ -583,7 +597,7 @@ section.wrap.brand-block { padding-bottom: var(--space-xl); }
 .voice-col h3 { margin-top: var(--space-s); margin-bottom: 0.8rem; }
 .lines { list-style: none; display: grid; gap: 0; max-width: 46rem; }
 .lines li { display: grid; gap: 0.15rem; padding-block: 0.9rem; border-top: 1px solid var(--line); }
-.lines strong { font-size: var(--step-1); font-weight: 750; letter-spacing: -0.02em; }
+.lines strong { font-size: var(--step-1); font-weight: 650; letter-spacing: -0.02em; }
 .lines span { color: var(--shore); font-size: var(--step--1); }
 .cards { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); margin-top: var(--space-s); max-width: 50rem; }
 .biz-card { aspect-ratio: 3.5 / 2; border-radius: 12px; box-shadow: var(--shadow-card); padding: 7%; display: grid; }
@@ -592,7 +606,7 @@ section.wrap.brand-block { padding-bottom: var(--space-xl); }
 .biz-card.front span { font-weight: 650; font-size: 0.95rem; }
 .biz-card.back { background: var(--white); border: 1px solid var(--line); grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; gap: 0.4rem 1rem; align-items: start; }
 .biz-card.back img { width: 2.3rem; height: auto; grid-row: span 2; }
-.biz-card.back strong { display: block; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.biz-card.back strong { display: block; font-size: 1.3rem; font-weight: 650; letter-spacing: -0.02em; }
 .biz-card.back div span { color: var(--shore); font-size: 0.95rem; }
 .biz-card.back ul { list-style: none; align-self: end; font-size: 0.85rem; color: var(--shore); display: grid; gap: 0.15rem; }
 .project .chip { background: var(--white); border: 1px solid var(--line); }

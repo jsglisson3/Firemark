@@ -343,9 +343,9 @@ brand_body = f'''    <section class="wrap brand-block" aria-labelledby="b-logo">
         <p class="muted measure">One family, Bricolage Grotesque, from Google Fonts (free, open license). Headings are heavy and tight; body text is regular and roomy. Sentence case everywhere, never all caps.</p>
         <div class="type-specimen">
           <p class="ts-display">Put your business on the map.</p>
-          <p class="ts-label">Display, 800 weight, tight spacing</p>
+          <p class="ts-label">Display, 620 weight, text optical size (opsz 32)</p>
           <p class="ts-h2">Get found. Stay found.</p>
-          <p class="ts-label">Section heading, 800 weight</p>
+          <p class="ts-label">Section heading, 620 weight</p>
           <p class="ts-lead">One starter project puts you on the map. A small monthly plan keeps you there.</p>
           <p class="ts-label">Lead text, 400 weight</p>
           <p class="ts-body">Firemark looks at how your business shows up on Google today and sends a short, plain-English report. No cost, no pressure.</p>

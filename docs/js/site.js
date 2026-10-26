@@ -36,14 +36,22 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* The one orchestrated moment: the pin drops onto Main St, the ring opens, the listing card arrives. Runs once.
-     With reduced motion (or no JavaScript) the final state shows immediately. */
+  /* The one orchestrated moment: the search types in, the pin drops onto Main St, the glow opens, and your business
+     appears as the result. Runs once. With reduced motion (or no JavaScript) the finished picture shows immediately. */
   var hero = document.querySelector('[data-hero]');
   if (hero && !reduceMotion) {
-    var parts = ['.map-pin', '.map-ring', '.place-card'].map(function (sel) { return hero.querySelector(sel); });
-    [350, 600, 900].forEach(function (ms, k) {
-      setTimeout(function () { if (parts[k]) parts[k].classList.add('is-shown'); }, ms);
-    });
+    var pin = hero.querySelector('.map-pin'), ring = hero.querySelector('.map-ring'), card = hero.querySelector('.place-card');
+    var q = hero.querySelector('[data-q]'), query = q ? q.textContent : '';
+    var show = function (el, cls) { if (el) el.classList.add(cls || 'is-shown'); };
+    if (q) { q.textContent = ''; hero.classList.add('hero-typing'); }
+    setTimeout(function () { show(card); }, 250);
+    for (var i = 1; i <= query.length; i++) {
+      (function (n) { setTimeout(function () { q.textContent = query.slice(0, n); }, 500 + n * 45); })(i);
+    }
+    var t = 500 + query.length * 45 + 200;
+    setTimeout(function () { hero.classList.remove('hero-typing'); show(pin); }, t);
+    setTimeout(function () { show(ring); }, t + 250);
+    setTimeout(function () { show(card, 'is-found'); }, t + 450);
   }
 
   /* Free check form.
