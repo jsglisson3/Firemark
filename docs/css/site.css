@@ -217,7 +217,7 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 .hero-copy { display: contents; }
 .hero-copy > * { margin-inline: var(--gutter); }
 .hero-place { order: 1; margin-top: clamp(1.75rem, 1rem + 3vw, 3rem); display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--step--1); font-weight: 620; color: var(--graphite); }
-.hero-place .mark { width: 0.8rem; height: 1.26rem; flex: none; }
+.hero-place .mark { width: 0.85rem; height: 1.3rem; flex: none; }
 .hero h1 { order: 2; margin-top: 0.9rem; color: var(--ink); max-width: 8.4em; }
 .hero-map { order: 3; }
 .hero .lead { order: 4; max-width: 29em; color: var(--graphite); }

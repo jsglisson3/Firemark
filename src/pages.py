@@ -134,7 +134,7 @@ about_body = f'''    <section class="about-who" aria-labelledby="who-h">
           </figure>
           <svg class="arrow icon"><use href="#i-arrow"/></svg>
           <figure>
-            <svg class="art" viewBox="0 0 74 116"><use href="#fm-mark"/></svg>
+            <svg class="art" viewBox="0 0 77 119"><use href="#fm-mark"/></svg>
             <figcaption>Now: on the map</figcaption>
           </figure>
         </div>
@@ -263,7 +263,7 @@ def swatch(name, hexv, use, ratio, dark=False):
 
 brand_body = f'''    <section class="wrap brand-block" aria-labelledby="b-logo">
       <h2 id="b-logo">Logo</h2>
-      <p class="muted measure">One shape that reads two ways: a flame, and a map pin pointing at your spot. The charcoal body is the 1752 fire mark, and the orange-and-gold fire is lit inside it. Use the charcoal mark on light backgrounds and the white one on charcoal. The one-color versions have the fire cut out, so they work for a single-color print, a sign or a truck decal.</p>
+      <p class="muted measure">One shape that reads two ways: a flame, and a map pin pointing at your spot. The charcoal body is the 1752 fire mark, and the orange-and-gold fire is lit inside it. Use the charcoal logo on light backgrounds and the paper one on charcoal. The one-color versions have the fire cut out, so they work for single-color print, a sign or a truck decal. Below 32 pixels, use the charcoal app tile instead of the bare pin.</p>
       <div class="logo-grid">
         {tile("firemark-logo.svg", "Logo", "t-mist", "For light backgrounds")}
         {tile("firemark-logo-reverse.svg", "Logo, reverse", "t-deep", "For dark backgrounds")}
@@ -275,6 +275,9 @@ brand_body = f'''    <section class="wrap brand-block" aria-labelledby="b-logo">
         {tile("firemark-symbol-reverse.svg", "Symbol, reverse", "t-deep")}
         {tile("firemark-symbol-mono-dark.svg", "Symbol, one color", "t-white")}
         {tile("firemark-symbol-mono-white.svg", "Symbol, white", "t-teal")}
+        {tile("firemark-app-icon.svg", "App tile", "t-mist", "Favicons and phone home screens")}
+      </div>
+      <div class="logo-grid small">
         {tile("site-by-firemark-badge.svg", "Site by Firemark", "t-white", "For client site footers")}
         {tile("site-by-firemark-badge-reverse.svg", "Site by Firemark, reverse", "t-deep", "For dark client footers")}
       </div>

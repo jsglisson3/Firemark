@@ -116,3 +116,8 @@ Jeremy said the site felt cookie-cutter and asked for it to be simpler. The home
 - **Kept on purpose:** the real-streets map, the search-to-result moment, the fire-mark story and the case studies. That's where the personality is.
 
 - **Cache:** site.css and site.js are now linked as `?v=4`. Bump that number in src/index.html and tools/build.py whenever either file changes, so returning visitors get the new version.
+
+
+# Logo update (v6, Oct 26, 2026)
+
+The logo is now the flame pin with a capital-F "Firemark" wordmark. Full notes, runner-ups and small-size rules: design-system/firemark/DECISIONS-v6-logo.md. This replaces the logo entry in the v3 addendum above.
