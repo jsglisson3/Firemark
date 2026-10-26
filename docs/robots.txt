@@ -1,0 +1,6 @@
+# Draft: every page also carries a noindex tag until launch (LAUNCHED in tools/build.py).
+User-agent: *
+Allow: /
+Disallow: /brand.html
+
+Sitemap: https://firemarktech.com/sitemap.xml

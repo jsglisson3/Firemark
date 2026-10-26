@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firemark direction C: On the Map</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-grotesque-latin-opsz-normal.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+:root {
+  --mist: #EAF3F3; --teal: #0F5C6E; --deep: #0B2A33; --flame: #FF5A1F; --muted: #3D5D66; --land: #DCE8E6; --water: #A9D3D9; --sand: #F6E3BC;
+  --font: "Bricolage Grotesque", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--mist); color: var(--deep); font-family: var(--font); font-optical-sizing: auto; font-size: 1.0625rem; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.wrap { max-width: 84rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+.nav { display: flex; align-items: center; gap: 2rem; padding: 1.25rem 0; }
+.brand { display: flex; align-items: center; gap: .5rem; margin-right: auto; text-decoration: none; }
+.brand svg { width: 30px; height: 36px; }
+.brand span { font-weight: 800; font-size: 1.65rem; letter-spacing: -.03em; color: var(--deep); line-height: 1; }
+.links { display: flex; gap: 1.75rem; font-weight: 500; color: var(--muted); }
+.links a { text-decoration: none; }
+.btn { display: inline-flex; align-items: center; min-height: 3.1rem; padding: .85rem 1.5rem; background: var(--flame); color: var(--deep); border-radius: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.btn.small { min-height: 2.75rem; padding: .55rem 1.1rem; border-radius: 12px; }
+.hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; padding: clamp(1.5rem, 4vw, 3.5rem) 0 clamp(2rem, 5vw, 4rem); }
+h1 { font-weight: 800; font-size: clamp(3rem, 1.2rem + 5.6vw, 6.4rem); line-height: .95; letter-spacing: -.045em; margin: 0 0 1.5rem; color: var(--teal); }
+.lead { font-size: clamp(1.1rem, 1rem + .45vw, 1.3rem); color: var(--muted); max-width: 30em; margin: 0 0 2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+.actions .link { font-weight: 600; text-underline-offset: .25em; color: var(--deep); }
+.small-note { margin-top: 1.1rem; font-size: .92rem; color: var(--muted); }
+.map { position: relative; border-radius: 28px; overflow: hidden; background: var(--land); border: 1px solid #C9DCDA; aspect-ratio: 1.12; }
+.map > svg { width: 100%; height: 100%; display: block; }
+.search { position: absolute; left: 5%; top: 6%; right: 26%; display: flex; align-items: center; gap: .6rem; background: #fff; border-radius: 999px; padding: .75rem 1.1rem; box-shadow: 0 8px 24px -10px rgba(11,42,51,.35); font-weight: 500; }
+.search svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.card { position: absolute; left: 5%; bottom: 6%; width: min(17rem, 46%); background: #fff; border-radius: 18px; padding: 1rem 1.1rem; box-shadow: 0 16px 40px -14px rgba(11,42,51,.45); }
+.card b { display: block; font-size: 1.15rem; letter-spacing: -.01em; }
+.card span { color: var(--muted); font-size: .92rem; }
+.card .chips { display: flex; gap: .4rem; margin-top: .6rem; }
+.card .chip { font-size: .8rem; font-weight: 600; background: var(--mist); color: var(--teal); border-radius: 999px; padding: .2rem .65rem; }
+@media (max-width: 820px) {
+  .links, .nav .btn { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .map { aspect-ratio: 1.05; }
+  .search { right: 5%; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="pinflame" viewBox="8 2 48 62">
+      <path d="M32 4C45 4 54 13.5 54 26C54 42 32 62 32 62S10 42 10 26C10 13.5 19 4 32 4Z" fill="#FF5A1F"/>
+      <path d="M32 12.5C36 18.5 40 22 40 28.5C40 33.5 36.4 37 32 37C27.6 37 24 33.5 24 28.5C24 25 26 22.5 28 20.5C28 23.5 29.5 25.5 31.2 26C30.5 21.5 30.8 17 32 12.5Z" fill="#fff"/>
+    </symbol>
+    <symbol id="pin" viewBox="0 0 24 30"><path fill="#3D5D66" fill-rule="evenodd" d="M12 0C5.4 0 0 5.2 0 11.6 0 20.3 12 30 12 30s12-9.7 12-18.4C24 5.2 18.6 0 12 0Zm0 7.3a4.3 4.3 0 1 1 0 8.6 4.3 4.3 0 0 1 0-8.6Z"/></symbol>
+  </defs>
+</svg>
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="#"><svg aria-hidden="true"><use href="#pinflame"/></svg><span>firemark</span></a>
+    <nav class="links" aria-label="Main"><a href="#">Work</a><a href="#">About</a><a href="#">Pricing</a></nav>
+    <a class="btn small" href="#">Get my free check</a>
+  </header>
+  <main class="hero">
+    <div>
+      <h1>Put your business on the map.</h1>
+      <p class="lead">Firemark builds websites and Google listings for independent shops and services around The Colony, then keeps them running. So when someone nearby searches, they find you.</p>
+      <div class="actions"><a class="btn" href="#">Get my free check</a><a class="link" href="#">See my work</a></div>
+      <p class="small-note">Free, no strings. You talk to Jeremy, not a sales team.</p>
+    </div>
+    <figure class="map" style="margin:0" aria-label="Illustration: a map search where your business shows up with a Firemark pin">
+      <svg viewBox="0 0 640 570" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path fill="#A9D3D9" d="M0 0H250C232 40 262 70 238 112C214 154 168 150 160 196C152 240 196 262 176 304C158 342 104 340 92 386C80 430 112 470 84 520C72 545 40 560 0 570Z"/>
+        <path fill="#A9D3D9" d="M250 0H330C318 22 300 30 296 52C292 72 270 78 262 60C252 40 262 22 250 0Z"/>
+        <g fill="none" stroke="#fff" stroke-linecap="round">
+          <path stroke-width="14" d="M190 330C300 312 420 340 640 318"/>
+          <path stroke-width="14" d="M420 0C410 120 440 260 428 570"/>
+          <path stroke-width="8" d="M250 160C330 200 360 250 420 300"/>
+          <path stroke-width="8" d="M430 170C500 176 560 150 640 160"/>
+          <path stroke-width="8" d="M150 470C260 450 330 470 428 455"/>
+          <path stroke-width="8" d="M520 330C530 400 520 480 540 570"/>
+        </g>
+        <use href="#pin" x="318" y="236" width="22" height="28"/>
+        <use href="#pin" x="548" y="230" width="22" height="28"/>
+        <use href="#pin" x="250" y="410" width="22" height="28"/>
+        <circle cx="474" cy="402" r="54" fill="#FF5A1F" opacity=".12"/>
+        <circle cx="474" cy="402" r="32" fill="#FF5A1F" opacity=".18"/>
+        <use href="#pinflame" x="450" y="340" width="48" height="62"/>
+      </svg>
+      <div class="search" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="#3D5D66" stroke-width="2.4" stroke-linecap="round" d="M10.5 18a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15ZM16 16l5 5"/></svg>bakery near me</div>
+      <div class="card" aria-hidden="true"><b>Your bakery</b><span>Open now. 2 minutes away.</span><div class="chips"><span class="chip">Call</span><span class="chip">Directions</span><span class="chip">Website</span></div></div>
+    </figure>
+  </main>
+</div>
+</body>
+</html>

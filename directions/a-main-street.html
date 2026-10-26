@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firemark direction A: Main Street</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+@font-face { font-family: "Rokkitt"; src: url("fonts/rokkitt-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Libre Franklin"; src: url("fonts/libre-franklin-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+:root {
+  --enamel: #10211B; --enamel-2: #173026; --gilt: #D9A94A; --limestone: #E9E4D8; --sage: #B9C2B9; --ember: #E86A3A;
+  --display: "Rokkitt", Rockwell, "Roboto Slab", Georgia, serif;
+  --body: "Libre Franklin", "Franklin Gothic", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--enamel); color: var(--limestone); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.frame { min-height: 100svh; padding: clamp(10px, 1.6vw, 22px); }
+.window { position: relative; min-height: calc(100svh - 2 * clamp(10px, 1.6vw, 22px)); border: 1px solid rgba(217,169,74,.55); outline: 1px solid rgba(217,169,74,.22); outline-offset: 5px; display: grid; grid-template-rows: auto 1fr auto; }
+.nav { display: flex; align-items: center; gap: 2rem; padding: 1.25rem clamp(1rem, 3vw, 2.5rem); border-bottom: 1px solid rgba(217,169,74,.25); }
+.brand { display: flex; align-items: center; gap: .7rem; margin-right: auto; text-decoration: none; }
+.brand svg { width: 34px; height: 38px; }
+.brand span { font-family: var(--display); font-weight: 800; font-size: 1.75rem; letter-spacing: .01em; color: var(--gilt); line-height: 1; }
+.links { display: flex; gap: 1.75rem; font-size: .95rem; }
+.links a { text-decoration: none; color: var(--sage); }
+.btn { display: inline-flex; align-items: center; min-height: 3rem; padding: .8rem 1.4rem; background: var(--ember); color: var(--enamel); font-weight: 650; border-radius: 4px; text-decoration: none; white-space: nowrap; }
+.btn.small { min-height: 2.6rem; padding: .55rem 1rem; font-size: .95rem; }
+.hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 3.5rem); }
+h1 { font-family: var(--display); font-weight: 800; color: var(--gilt); font-size: clamp(3.6rem, 1.5rem + 8vw, 8.6rem); line-height: .92; letter-spacing: -.01em; margin: 0 0 1.75rem; }
+.rule { height: 0; border-top: 1px solid var(--gilt); border-bottom: 1px solid var(--gilt); padding-top: 3px; width: min(26rem, 70%); margin: 0 0 1.75rem; opacity: .8; }
+.lead { font-size: clamp(1.1rem, 1rem + .5vw, 1.35rem); max-width: 30em; color: var(--limestone); margin: 0 0 2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+.actions .link { color: var(--limestone); font-weight: 600; text-underline-offset: .25em; }
+.plaque-wrap { display: grid; justify-items: center; gap: 1.1rem; text-align: center; }
+.plaque-wrap svg { width: min(100%, 300px); height: auto; filter: drop-shadow(0 18px 40px rgba(0,0,0,.45)); }
+.plaque-wrap p { margin: 0; font-size: .9rem; color: var(--sage); max-width: 19rem; }
+.proof { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(217,169,74,.35); }
+.proof div { padding: 1.1rem clamp(1rem, 3vw, 2.5rem); font-size: .95rem; color: var(--sage); }
+.proof div + div { border-left: 1px solid rgba(217,169,74,.25); }
+.proof b { display: block; color: var(--limestone); font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.2; }
+@media (max-width: 820px) {
+  .links { display: none; }
+  .hero { grid-template-columns: 1fr; padding-top: 2rem; }
+  .plaque-wrap { order: -1; justify-items: start; text-align: left; }
+  .plaque-wrap svg { width: 120px; }
+  .plaque-wrap p { display: none; }
+  .proof { grid-template-columns: 1fr; }
+  .proof div + div { border-left: 0; border-top: 1px solid rgba(217,169,74,.25); }
+  .nav .btn { display: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="plaque" viewBox="0 0 64 72">
+      <path d="M8 4H56V40C56 55 45 63 32 68C19 63 8 55 8 40Z" fill="#173026" stroke="#D9A94A" stroke-width="2.6"/>
+      <path d="M12.5 8.5H51.5V40C51.5 52 43 58.5 32 63C21 58.5 12.5 52 12.5 40Z" fill="none" stroke="#D9A94A" stroke-width=".9" opacity=".7"/>
+      <path d="M32 14C38 24 44 30 44 40C44 48 38.6 54 32 54C25.4 54 20 48 20 40C20 34 23 30 26 26C26 31 28 34 31 35C30 28 30 21 32 14Z" fill="#E86A3A"/>
+      <path d="M32 36C35 40 37 42 37 46C37 49 34.8 51 32 51C29.2 51 27 49 27 46C27 42 30 39 32 36Z" fill="#D9A94A"/>
+    </symbol>
+  </defs>
+</svg>
+<div class="frame">
+  <div class="window">
+    <header class="nav">
+      <a class="brand" href="#"><svg aria-hidden="true"><use href="#plaque"/></svg><span>Firemark</span></a>
+      <nav class="links" aria-label="Main"><a href="#">Work</a><a href="#">About</a><a href="#">Pricing</a></nav>
+      <a class="btn small" href="#">Get my free check</a>
+    </header>
+    <main class="hero">
+      <div>
+        <h1>Get found.<br>Stay found.</h1>
+        <div class="rule" aria-hidden="true"></div>
+        <p class="lead">Websites and Google listings for the independent shops and services of The Colony, Texas. Built by hand, kept running, and one person to call: me.</p>
+        <div class="actions"><a class="btn" href="#">Get my free check</a><a class="link" href="#">See my work</a></div>
+      </div>
+      <div class="plaque-wrap">
+        <svg viewBox="0 0 64 72" role="img" aria-label="The Firemark plaque"><use href="#plaque"/></svg>
+        <p>In 1752, a fire mark on the wall told the whole street someone had that building's back.</p>
+      </div>
+    </main>
+    <footer class="proof">
+      <div><b>Based in The Colony</b>Your neighbor, not a call center.</div>
+      <div><b>A handful of clients a year</b>So yours gets my full attention.</div>
+      <div><b>10+ years in IT</b>Enterprise know-how, close to home.</div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
