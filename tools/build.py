@@ -116,9 +116,9 @@ if pages_py.exists():
     spec.loader.exec_module(mod)
 
 # 4) 404 must work at any address, so its links start from the site's root folder.
-#    The preview lives at jsglisson3.github.io/Firemark/, so the root is "/Firemark/".
-#    When firemarktech.com is connected, change SITE_ROOT to "/" and rebuild.
-SITE_ROOT = '/Firemark/'
+#    The site is served from firemarktech.com, so the root is "/".
+#    (It was "/Firemark/" while the preview lived at jsglisson3.github.io/Firemark/.)
+SITE_ROOT = '/'
 p404 = DOCS / '404.html'
 if p404.exists():
     s = p404.read_text(encoding='utf-8')

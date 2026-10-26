@@ -47,22 +47,21 @@ It is still a **draft**. Every page carries a yellow draft banner and a noindex 
 - [ ] Work links: the two live-site links go to jsglisson3.github.io, which shows your last name in the address. Fine for now; switch them to the clients' own domains once those exist.
 
 ### Set up
-- [ ] **Buy the domain.**
+- [x] **Buy the domain.** Bought 2026-10-26 at Cloudflare Registrar and connected to GitHub Pages the same day: https://firemarktech.com (and www) serve the site over HTTPS, still as a hidden draft. See **Domain** under Notes.
 - [ ] **Email at the domain** (for example Google Workspace or Microsoft 365).
 - [ ] **Form service.** Without one, the form opens a pre-filled email. That works, but a service is smoother. Formspree, Basin and Web3Forms all work with a static site. Put the service's form address in `data-endpoint=""` in `src/partials/form.html`, rebuild, send a test, and name the service on the privacy page.
 - [ ] **Trademark check.** Search "Firemark" at the USPTO (tmsearch.uspto.gov) before you print cards or signs.
 - [ ] **Firemark's own Google Business Profile** as a service-area business (it can hide your home address). You'll be doing this for clients, so it's good practice.
 
 ### Launch day
-1. In `tools/build.py`, set `LAUNCHED = True` (and `DOMAIN` if it changed), then run `python tools/build.py`. That removes the draft banners and the noindex tags. The brand sheet and the 404 page stay hidden from search.
-2. Commit and sync in VS Code.
-3. GitHub: **Settings > Pages > Deploy from a branch > main > /docs**. Add your domain under **Custom domain**. GitHub creates a `docs/CNAME` file, so pull it afterwards. Turn on **Enforce HTTPS** once it's offered.
-4. At the domain registrar, point the domain at GitHub Pages. Use the A records GitHub lists for apex domains (currently 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153), plus a `www` CNAME to `jsglisson3.github.io`. Check GitHub's "Managing a custom domain" page for current values.
-5. **Don't add the CNAME file before the domain is live.** If you do, the github.io preview starts redirecting to a domain that doesn't exist yet.
-6. After launch: add the site to Google Search Console, submit `sitemap.xml`, send yourself a test free check, and run Lighthouse on your phone.
+The domain is already connected, so launch is just switching the draft off.
+1. In `tools/build.py`, set `LAUNCHED = True`, then run `python tools/build.py`. That removes the draft banners and the noindex tags. The brand sheet and the 404 page stay hidden from search. (Your PC has no Python, so ask Claude to run the build.)
+2. Commit and sync in VS Code. Don't delete `docs/CNAME`; it holds the domain.
+3. After launch: add the site to Google Search Console, submit `sitemap.xml`, send yourself a test free check, and run Lighthouse on your phone.
 
 ## Notes
 
+- **Domain:** firemarktech.com is registered at Cloudflare. Its DNS has four A records for @ (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and a CNAME for www to jsglisson3.github.io, all set to DNS only (grey cloud). Leave them grey: the orange proxy gets in the way of GitHub's certificate. GitHub Pages has the custom domain set (that's what `docs/CNAME` is) and Enforce HTTPS on. The old jsglisson3.github.io/Firemark/ address redirects to the domain. `SITE_ROOT` in `tools/build.py` is "/" to match.
 - **Edit `src/`, not `docs/*.html`.** The build overwrites the pages in `docs/`. CSS (`docs/css/site.css`) and the script (`docs/js/site.js`) are edited directly.
 - **v1** is still in `Documents\Firemark`. Nothing in v2 depends on it.
 - **Logo files on Windows:** SVGs copied to your computer through the Claude app may get a small `<metadata>` block (content credentials) added at the top. It's harmless, and browsers ignore it.
