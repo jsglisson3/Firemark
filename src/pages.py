@@ -1,24 +1,12 @@
 """Content for the inner pages. tools/build.py runs this file and provides two names:
    page(file, title, desc, h1, lead, body, banner=..., current=None)  writes docs/<file>
    form                                                               the free check form (src/partials/form.html)
+The Work page list comes from src/sites.py (SITES and site_list are provided by the build too).
 Voice: brand first ("Firemark does..."), never "we", Jeremy by first name only.
 Anything not yet true or not yet decided is marked [PLACEHOLDER] or [CONFIRM] and listed in PICKUP.md."""
 
 CHECK = '<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>'
 CROSS = '<svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>'
-
-
-def ticks(items):
-    return '<ul class="build-list">' + ''.join(
-        f'<li>{CHECK}<span><strong>{a}</strong> {b}</span></li>' for a, b in items) + '</ul>'
-
-
-def media(slug, alt_desktop, alt_phone, first=False):
-    load = 'fetchpriority="high"' if first else 'loading="lazy"'
-    return f'''<div class="project-media">
-          <div class="shot-desktop"><img src="images/work/{slug}-desktop-960.webp" srcset="images/work/{slug}-desktop-640.webp 640w, images/work/{slug}-desktop-960.webp 960w, images/work/{slug}-desktop-1440.webp 1440w" sizes="(min-width: 66rem) 57rem, calc(100vw - 5rem)" width="1440" height="900" {load} decoding="async" alt="{alt_desktop}"></div>
-          <div class="shot-phone"><img src="images/work/{slug}-phone-300.webp" srcset="images/work/{slug}-phone-300.webp 300w, images/work/{slug}-phone-600.webp 600w" sizes="(min-width: 40rem) 11rem, 7.5rem" width="600" height="1298" loading="lazy" decoding="async" alt="{alt_phone}"></div>
-        </div>'''
 
 
 def cta_band(hid, heading, text, tone='tone-stone'):
@@ -33,72 +21,16 @@ def cta_band(hid, heading, text, tone='tone-stone'):
 
 # ---------------------------------------------------------------- Work
 
-glp = f'''      <article class="case" aria-labelledby="glp-h">
-        <div class="case-top">
-          <h2 id="glp-h">GLP Home Options</h2>
-          <p class="lead">A home-buying business in Chattanooga, Tennessee.</p>
-        </div>
-        {media("glp", "Screenshot of the GLP Home Options homepage. The headline reads: Real home options. Clear next steps. Beside it is a photo of the two co-founders.", "The same homepage on a phone.", first=True)}
-        <div class="case-grid">
-          <div class="case-col">
-            <h3>The job</h3>
-            <p>People who call a home-buying company are often in a hard spot: an inherited house, a move, repairs they can't afford. GLP wanted a site that lays out every option, including the ones where they don't buy the house, so people can trust them.</p>
-            <h3>What was built</h3>
-            {ticks([
-              ("A seller net sheet.", "Homeowners type what they owe and what the house might sell for, then see what they'd keep from listing versus a cash offer. It updates as they type and prints for the kitchen table."),
-              ("Every option, side by side.", "Selling direct, listing with an agent and keeping the home, each with who it's best for and how long it takes."),
-              ("Plain-English writing.", "No jargon and no pressure. Terms like seller financing get a short explanation right where they come up."),
-              ("A short contact form.", "Only a name and phone number are required. Everything else is optional."),
-            ])}
-            <h3>The details</h3>
-            <p>A privacy policy and terms page, a clean preview when the link is texted or posted, and a layout that works well on phones.</p>
-            <p class="case-link"><a href="https://jsglisson3.github.io/GLP-Home-Options/" target="_blank" rel="noopener">Visit the GLP Home Options site<span class="visually-hidden"> (opens in a new tab)</span></a></p>
-          </div>
-          <figure class="feature-shot">
-            <a href="images/work/glp-netsheet-1200.webp"><img src="images/work/glp-netsheet-800.webp" srcset="images/work/glp-netsheet-800.webp 800w, images/work/glp-netsheet-1200.webp 1200w" sizes="(min-width: 60rem) 36rem, calc(100vw - 2.5rem)" width="1200" height="948" loading="lazy" decoding="async" alt="The seller net sheet: inputs for mortgage owed, sale price and a cash offer on the left, and two columns comparing what the owner keeps from listing and from selling direct on the right. Opens the full-size image."></a>
-            <figcaption>The seller net sheet. Change a number and both columns update. Tap the image to see it full size.</figcaption>
-          </figure>
-        </div>
-      </article>'''
-
-fotcpl = f'''      <article class="case" aria-labelledby="fotcpl-h">
-        <div class="case-top">
-          <span class="concept-tag">Volunteer concept, not the official site</span>
-          <h2 id="fotcpl-h">Friends of The Colony Public Library</h2>
-          <p class="lead">A redesign concept for the library's nonprofit friends group, built as a volunteer.</p>
-        </div>
-        {media("fotcpl", "Screenshot of the redesign concept for Friends of The Colony Public Library. The headline reads: Supporting The Colony Public Library, beside photos of library programs.", "The same concept on a phone.")}
-        <div class="case-grid">
-          <div class="case-col">
-            <h3>The job</h3>
-            <p>The Friends do a lot for the library: technology grants, book donations, genealogy projects and Little Free Libraries. The concept shows how a site could make that work visible, and make it easy to join, give and follow along.</p>
-            <h3>What was built</h3>
-            {ticks([
-              ("Membership up front.", "What it costs, what members get and one clear button to join or renew."),
-              ("Easy ways to help.", "Kroger Community Rewards with a one-tap copy of the organization number, North Texas Giving Day and book donations."),
-              ("Library moments, in one place.", "A photo gallery, every newsletter and a link to the library's events calendar."),
-              ("Built for everyone.", "An accessibility statement and a privacy page, written in plain English."),
-            ])}
-            <p class="case-link"><a href="https://jsglisson3.github.io/FOTCL/" target="_blank" rel="noopener">See the redesign concept<span class="visually-hidden"> (opens in a new tab)</span></a></p>
-          </div>
-          <figure class="feature-shot">
-            <a href="images/work/fotcpl-join-1200.webp"><img src="images/work/fotcpl-join-800.webp" srcset="images/work/fotcpl-join-800.webp 800w, images/work/fotcpl-join-1200.webp 1200w" sizes="(min-width: 60rem) 36rem, calc(100vw - 2.5rem)" width="1200" height="554" loading="lazy" decoding="async" alt="The Become a Friend section: membership is 15 dollars a year, with buttons to see membership levels or join online, and four member benefits. Opens the full-size image."></a>
-            <figcaption>Membership, front and center: the price, the benefits and one button to join. Tap the image to see it full size.</figcaption>
-          </figure>
-        </div>
-      </article>'''
-
-work_body = f'''    <div class="wrap">
-{glp}
-{fotcpl}
-      <p class="case-note"><span class="ph">[CONFIRM with the Friends that the library program photos in these screenshots are OK to show, since some include children.]</span></p>
+work_body = f'''    <div class="wrap work-page">
+      {site_list(SITES, h='h2')}
+      <p class="case-note"><span class="ph">[CONFIRM with the Friends that the library program photos in the screenshot are OK to show, since some include children.]</span></p>
     </div>
 {cta_band("work-cta-h", "Want a site like these for your business?", "Start with a free check. Firemark looks at how your business shows up on Google today and sends a short, plain-English report.")}'''
 
 page('work.html', 'Work | Firemark',
-     'Two websites designed and built by hand: GLP Home Options in Chattanooga, and a redesign concept for Friends of The Colony Public Library.',
-     'Two sites, built by hand.',
-     'What each one needed to do, and how it was built to do that.',
+     'Websites Firemark has designed and built by hand for independent businesses and local groups.',
+     'Recent work',
+     'Websites designed and built by hand. Tap any one to see it live.',
      work_body, current='work.html')
 
 

@@ -5,10 +5,11 @@ Sources live in src/ (not published):
   src/partials/sprite.html  icons and the Firemark pin
   src/partials/form.html    the free check form (homepage and contact page)
   src/pages.py              content for the inner pages
+  src/sites.py              the list of websites on the Work page and the homepage
 
 Run from the project folder:  python tools/build.py
 """
-import pathlib, re, subprocess, sys, importlib.util
+import pathlib, re, subprocess, sys, importlib.util, html as htmlesc
 
 # ---- Launch settings: the only lines you should need to change ----
 DOMAIN = 'firemarktech.com'   # the domain you bought, no https:// (for example 'firemarktech.co')
@@ -37,8 +38,36 @@ DOCS = ROOT / 'docs'
 sprite = (SRC / 'partials' / 'sprite.html').read_text(encoding='utf-8')
 form = (SRC / 'partials' / 'form.html').read_text(encoding='utf-8')
 
+
+def load(name):
+    spec = importlib.util.spec_from_file_location(name, SRC / f'{name}.py')
+    mod = importlib.util.module_from_spec(spec)
+    return spec, mod
+
+spec, sites_mod = load('sites')
+spec.loader.exec_module(sites_mod)
+SITES = sites_mod.SITES
+HOME_SITES = 4   # how many sites "Recent work" on the homepage shows
+
+
+def site_list(sites, h='h3'):
+    """One card per site from src/sites.py: screenshot, name, one line, link."""
+    cards = []
+    for s in sites:
+        name, about = htmlesc.escape(s['name'], quote=False), htmlesc.escape(s['about'], quote=False)
+        img, tag = s['image'], s.get('tag', '')
+        tag_html = f'\n          <span class="concept-tag">{htmlesc.escape(tag, quote=False)}</span>' if tag else ''
+        cards.append(f'''        <li class="site">
+          <div class="site-shot"><img src="images/work/{img}-desktop-640.webp" srcset="images/work/{img}-desktop-640.webp 640w, images/work/{img}-desktop-960.webp 960w" sizes="(min-width: 64rem) 30rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)" width="1440" height="900" loading="lazy" decoding="async" alt=""></div>
+          <{h} class="site-name">{name}</{h}>
+          <p class="site-about">{about}</p>{tag_html}
+          <a class="site-link" href="{htmlesc.escape(s['link'])}" target="_blank" rel="noopener">Visit the site<span class="visually-hidden">: {name} (opens in a new tab)</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>''')
+    return '<ul class="site-list" role="list">\n' + '\n'.join(cards) + '\n      </ul>'
+
 # 1) Homepage
 home = (SRC / 'index.html').read_text(encoding='utf-8').replace('{{SPRITE}}', sprite).replace('{{FORM}}', form)
+home = home.replace('{{WORK_LIST}}', site_list(SITES[:HOME_SITES]))
 (DOCS / 'index.html').write_text(finish('index.html', home), encoding='utf-8')
 print('built index.html')
 
@@ -73,7 +102,7 @@ HEAD = '''<!doctype html>
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=7">
+  <link rel="stylesheet" href="css/site.css?v=8">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -99,7 +128,7 @@ def page(file, title, desc, h1, lead, body, banner='Draft preview. Contact detai
   </main>
 
 ''' + footer + '''
-  <script src="js/site.js?v=7" defer></script>
+  <script src="js/site.js?v=8" defer></script>
 </body>
 </html>
 '''
@@ -109,10 +138,11 @@ def page(file, title, desc, h1, lead, body, banner='Draft preview. Contact detai
 # 3) Inner pages (content in src/pages.py)
 pages_py = SRC / 'pages.py'
 if pages_py.exists():
-    spec = importlib.util.spec_from_file_location('pages', pages_py)
-    mod = importlib.util.module_from_spec(spec)
+    spec, mod = load('pages')
     mod.page = page
     mod.form = form
+    mod.SITES = SITES
+    mod.site_list = site_list
     spec.loader.exec_module(mod)
 
 # 4) 404 must work at any address, so its links start from the site's root folder.

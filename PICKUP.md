@@ -6,7 +6,7 @@ Last updated Oct 26, 2026, during the afternoon build session.
 
 The v2 site is built and checked. Everything is in `docs/`:
 - the homepage, with the map animation
-- Work (two case studies), About and the free check page
+- Work (a simple list of sites, one card each), About and the free check page
 - Privacy, the 404 page and a brand sheet (`brand.html`, not linked from the site)
 - the icons, the link-preview image, the sitemap and robots.txt
 
@@ -19,6 +19,16 @@ Checks on the latest build:
 It is still a **draft**. Every page carries a yellow draft banner and a noindex tag, so search engines skip it. Contact details are placeholders.
 
 **To continue in a new chat:** attach or paste this file plus `BRIEF.md` and `DECISIONS.md`, and say what you want to do next. If you make a Claude project for Firemark, keep it lean: those three files are enough.
+
+## Add a site to Work
+
+Work and the homepage's "Recent work" are a plain list: one card per site with a screenshot, the name, one short line and a link. No write-up per site. The list lives in one file, `src/sites.py`.
+
+1. Open `src/sites.py`. Copy one block, from `{` down to `},`, and paste it at the top of the list so the newest site comes first.
+2. Change the words: `name`, `about` (one line: what kind of business, and where), `link` (the full address), `image` (a short lowercase name, like `bakery`) and `tag` (leave it `""`, or use "Volunteer concept, not the official site" for a concept).
+3. Send Claude the site's link. Claude takes the screenshot, saves it as `docs/images/work/<image>-desktop-640.webp` and `-960.webp`, runs the build and hands back a drop-in (or pushes it).
+
+The homepage shows the first 4 sites and links to Work for the rest. Ask the business before you list their site.
 
 ## Settled Oct 26
 

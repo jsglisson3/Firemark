@@ -121,3 +121,8 @@ Jeremy said the site felt cookie-cutter and asked for it to be simpler. The home
 # Logo update (v6, Oct 26, 2026)
 
 The logo is now the flame pin with a capital-F "Firemark" wordmark. Full notes, runner-ups and small-size rules: design-system/firemark/DECISIONS-v6-logo.md. This replaces the logo entry in the v3 addendum above.
+
+
+# Work as a simple list (v8, Oct 26, 2026)
+
+Jeremy plans to keep adding sites and can't write a case study for each, so Work and the homepage's "Recent work" are now a plain list: one card per site with a screenshot, the name, one short line (what kind of business, where) and a link. The case-study write-ups (the job, what was built, the feature screenshots) are gone. The list comes from `src/sites.py`, so adding a site is one copied block plus a screenshot (steps in PICKUP.md). The homepage shows the first 4; Work shows all. Concepts keep the "not the official site" tag. CSS and JS are now `?v=8`.
