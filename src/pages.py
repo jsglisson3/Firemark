@@ -16,7 +16,7 @@ def ticks(items):
 def media(slug, alt_desktop, alt_phone, first=False):
     load = 'fetchpriority="high"' if first else 'loading="lazy"'
     return f'''<div class="project-media">
-          <div class="shot-desktop"><img src="images/work/{slug}-desktop-960.webp" srcset="images/work/{slug}-desktop-640.webp 640w, images/work/{slug}-desktop-960.webp 960w, images/work/{slug}-desktop-1440.webp 1440w" sizes="(min-width: 66rem) 57rem, 88vw" width="1440" height="900" {load} decoding="async" alt="{alt_desktop}"></div>
+          <div class="shot-desktop"><img src="images/work/{slug}-desktop-960.webp" srcset="images/work/{slug}-desktop-640.webp 640w, images/work/{slug}-desktop-960.webp 960w, images/work/{slug}-desktop-1440.webp 1440w" sizes="(min-width: 66rem) 57rem, calc(100vw - 5rem)" width="1440" height="900" {load} decoding="async" alt="{alt_desktop}"></div>
           <div class="shot-phone"><img src="images/work/{slug}-phone-300.webp" srcset="images/work/{slug}-phone-300.webp 300w, images/work/{slug}-phone-600.webp 600w" sizes="(min-width: 40rem) 11rem, 7.5rem" width="600" height="1298" loading="lazy" decoding="async" alt="{alt_phone}"></div>
         </div>'''
 
@@ -55,7 +55,7 @@ glp = f'''      <article class="case" aria-labelledby="glp-h">
             <p class="case-link"><a href="https://jsglisson3.github.io/GLP-Home-Options/" target="_blank" rel="noopener">Visit the GLP Home Options site<span class="visually-hidden"> (opens in a new tab)</span></a></p>
           </div>
           <figure class="feature-shot">
-            <a href="images/work/glp-netsheet-1200.webp"><img src="images/work/glp-netsheet-800.webp" srcset="images/work/glp-netsheet-800.webp 800w, images/work/glp-netsheet-1200.webp 1200w" sizes="(min-width: 60rem) 36rem, 88vw" width="1200" height="948" loading="lazy" decoding="async" alt="The seller net sheet: inputs for mortgage owed, sale price and a cash offer on the left, and two columns comparing what the owner keeps from listing and from selling direct on the right. Opens the full-size image."></a>
+            <a href="images/work/glp-netsheet-1200.webp"><img src="images/work/glp-netsheet-800.webp" srcset="images/work/glp-netsheet-800.webp 800w, images/work/glp-netsheet-1200.webp 1200w" sizes="(min-width: 60rem) 36rem, calc(100vw - 2.5rem)" width="1200" height="948" loading="lazy" decoding="async" alt="The seller net sheet: inputs for mortgage owed, sale price and a cash offer on the left, and two columns comparing what the owner keeps from listing and from selling direct on the right. Opens the full-size image."></a>
             <figcaption>The seller net sheet. Change a number and both columns update. Tap the image to see it full size.</figcaption>
           </figure>
         </div>
@@ -82,7 +82,7 @@ fotcpl = f'''      <article class="case" aria-labelledby="fotcpl-h">
             <p class="case-link"><a href="https://jsglisson3.github.io/FOTCL/" target="_blank" rel="noopener">See the redesign concept<span class="visually-hidden"> (opens in a new tab)</span></a></p>
           </div>
           <figure class="feature-shot">
-            <a href="images/work/fotcpl-join-1200.webp"><img src="images/work/fotcpl-join-800.webp" srcset="images/work/fotcpl-join-800.webp 800w, images/work/fotcpl-join-1200.webp 1200w" sizes="(min-width: 60rem) 36rem, 88vw" width="1200" height="554" loading="lazy" decoding="async" alt="The Become a Friend section: membership is 15 dollars a year, with buttons to see membership levels or join online, and four member benefits. Opens the full-size image."></a>
+            <a href="images/work/fotcpl-join-1200.webp"><img src="images/work/fotcpl-join-800.webp" srcset="images/work/fotcpl-join-800.webp 800w, images/work/fotcpl-join-1200.webp 1200w" sizes="(min-width: 60rem) 36rem, calc(100vw - 2.5rem)" width="1200" height="554" loading="lazy" decoding="async" alt="The Become a Friend section: membership is 15 dollars a year, with buttons to see membership levels or join online, and four member benefits. Opens the full-size image."></a>
             <figcaption>Membership, front and center: the price, the benefits and one button to join. Tap the image to see it full size.</figcaption>
           </figure>
         </div>
@@ -91,7 +91,7 @@ fotcpl = f'''      <article class="case" aria-labelledby="fotcpl-h">
 work_body = f'''    <div class="wrap">
 {glp}
 {fotcpl}
-      <p class="case-note"><span class="ph">[CONFIRM with GLP and with the Friends that their sites can be shown here.]</span></p>
+      <p class="case-note"><span class="ph">[CONFIRM with the Friends that the library program photos in these screenshots are OK to show, since some include children.]</span></p>
     </div>
 {cta_band("work-cta-h", "Want a site like these for your business?", "Start with a free check. Firemark looks at how your business shows up on Google today and sends a short, plain-English report.")}'''
 
@@ -115,7 +115,7 @@ about_body = f'''    <section class="about-who" aria-labelledby="who-h">
           <p class="lead">Firemark is Jeremy, based here in The Colony. He has spent more than 10 years in IT and online sales: leading a team of developers, testers and analysts, running large online ordering channels, and connecting the systems behind large businesses. He has a degree in Management Information Systems. Firemark brings that know-how to independents, one business at a time.</p>
           <h2 class="small-h">Who it's for</h2>
           <p>Independent, owner-run businesses: the barber, the bakery, the plumber, the shop on the corner. If you're a franchise with a head office, a large online store, or you need a full agency team, Firemark probably isn't the right fit, and you'll hear that up front.</p>
-          <h2 class="small-h">How it works with Jeremy</h2>
+          <h2 class="small-h">Working with Jeremy</h2>
           <p>Everything is in plain English. Nothing goes live until you've seen it and said yes. Your domain and your content are yours to keep. <span class="ph">[CONFIRM]</span></p>
         </div>
       </div>
@@ -141,7 +141,7 @@ about_body = f'''    <section class="about-who" aria-labelledby="who-h">
         <div class="story-text measure">
           <h2 id="story-h">Why the name</h2>
           <p style="margin-top: var(--space-s)">In 1752, Benjamin Franklin helped start what's now America's oldest fire insurance company. Every building it covered got a fire mark: a plaque of four clasped hands, mounted out front where anyone could see it. It told the whole street that someone had that building's back.</p>
-          <p>Today, people meet your business on a phone first, through a website and a Google listing. Firemark makes sure yours are there, and stay right.</p>
+          <p>Today, people meet your business on a phone first, through a website and a Google listing. Firemark makes sure yours are there, and stay up to date.</p>
           <p class="strong">The logo is a map pin with a fire inside: the old mark, made for the map.</p>
         </div>
       </div>
@@ -173,7 +173,6 @@ contact_body = f'''    <div class="wrap contact contact-page">
           <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Call or text <span class="ph">[PLACEHOLDER: phone]</span></span></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg><span><a href="#main" data-booking-link>Book a 15-minute call</a> <span class="ph">[PLACEHOLDER: booking link]</span></span></li>
         </ul>
-        <p class="muted area-note">Based in The Colony, working with independent businesses across Dallas–Fort Worth.</p>
         <h2 class="small-h">Questions</h2>
         <div class="faq faq-compact">
           <details>
@@ -187,6 +186,10 @@ contact_body = f'''    <div class="wrap contact contact-page">
           <details>
             <summary>How long does it take?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <p>Most starter websites go live about 30 days after you give the go-ahead.</p>
+          </details>
+          <details>
+            <summary>Who owns the website?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>You do. Your domain is registered in your name, and your content is yours to keep. Once your site is live, Firemark may show it as an example of recent work. <span class="ph">[CONFIRM]</span></p>
           </details>
           <details>
             <summary>What area do you cover?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
@@ -209,7 +212,6 @@ privacy_sections = [
     ('What Firemark collects', '<p>Only what you send. When you fill out the free check form, that\'s your name, your business name, your email and anything else you choose to add, like a phone number, a link or a note.</p>'),
     ('How it\'s used', '<p>To reply to you and do your free check. That\'s it. Your details aren\'t sold, and you won\'t be added to a mailing list. <span class="ph">[CONFIRM]</span></p>'),
     ('Where it\'s kept', '<p><span class="ph">[PLACEHOLDER: the form service, once chosen, and where it stores messages. Until then, the form opens an email to Firemark instead.]</span></p>'),
-    ('Cookies and tracking', '<p>This site doesn\'t use cookies, ads or tracking. Everything on it, including the fonts and images, is served from the site itself. <span class="ph">[CONFIRM at launch, and update this if analytics are added.]</span></p>'),
     ('Hosting', '<p>The site is hosted on GitHub Pages. Like most web hosts, GitHub keeps basic technical logs, such as IP addresses, to keep the service secure.</p>'),
     ('Deleting your details', '<p>Email <span class="ph">[PLACEHOLDER: hello@firemarktech.com]</span> and ask. Anything Firemark has from you will be deleted.</p>'),
     ('Changes', '<p>If this page changes, the date below changes too. Last updated <span class="ph">[PLACEHOLDER: date at launch]</span>.</p>'),

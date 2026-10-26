@@ -473,7 +473,7 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 .field-error { color: var(--error); font-size: 0.9rem; font-weight: 650; }
 .error-summary { border: 2px solid var(--error); border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 1.25rem; }
 .error-summary:focus-visible { outline: 3px solid var(--deep); outline-offset: 3px; }
-.error-summary h3 { font-size: 1.1rem; color: var(--error); margin-bottom: 0.4rem; }
+.error-summary h2 { font-size: 1.1rem; color: var(--error); margin-bottom: 0.4rem; }
 .error-summary ul { padding-left: 1.2rem; }
 .error-summary a { color: var(--error); font-weight: 600; }
 .form-actions { display: grid; gap: 0.75rem; margin-top: 1.4rem; justify-items: start; }

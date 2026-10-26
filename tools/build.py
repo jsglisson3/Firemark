@@ -73,7 +73,7 @@ HEAD = '''<!doctype html>
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=6">
+  <link rel="stylesheet" href="css/site.css?v=7">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -99,7 +99,7 @@ def page(file, title, desc, h1, lead, body, banner='Draft preview. Contact detai
   </main>
 
 ''' + footer + '''
-  <script src="js/site.js?v=6" defer></script>
+  <script src="js/site.js?v=7" defer></script>
 </body>
 </html>
 '''

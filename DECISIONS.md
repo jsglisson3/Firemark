@@ -37,7 +37,7 @@ Why the site looks, reads and works the way it does. Newest first within each se
 
 - Every claim is true. Anything unknown is a yellow **[PLACEHOLDER]**. Any promise Jeremy must approve is a yellow **[CONFIRM]**. All of them are listed in PICKUP.md.
 - Facts about Jeremy come only from the brief's list. No employer names anywhere.
-- Left out on purpose: testimonials, reviews, client logos, ratings and stats (there aren't any yet), prices, stock photos, analytics and a cookie banner (the site sets no cookies).
+- Left out on purpose: testimonials, reviews, client logos, ratings and stats (there aren't any yet), prices, stock photos, analytics and a cookie banner (the site sets no cookies today). Oct 26: the privacy page no longer promises "no cookies or tracking", so analytics can be added later; add a privacy section if they are.
 
 ## Technical
 

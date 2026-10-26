@@ -33,17 +33,17 @@ It is still a **draft**. Every page carries a yellow draft banner and a noindex 
 - [ ] Home, What it costs: "the price comes after the free check, in writing, before anything starts."
 - [ ] Home, Stay found: what the monthly plan includes ("New hours, a new photo, a menu change. Send a note and it's handled.").
 - [ ] Home, What it costs: "Domain and email accounts are billed by those providers at their regular prices."
-- [ ] Home FAQ, Who owns the website: "You do. Your domain is registered in your name, and your content is yours to keep." (About repeats it: "You own it.")
+- [ ] Contact FAQ, Who owns the website: "You do. Your domain is registered in your name, and your content is yours to keep. Once your site is live, Firemark may show it as an example of recent work." (About repeats the ownership part.) Put the same portfolio line in your written quote or agreement.
 - [ ] Privacy: "Your details aren't sold, and you won't be added to a mailing list."
-- [ ] Privacy: "This site doesn't use cookies, ads or tracking." Still true at launch? (Yes, unless you add analytics.)
-- [ ] Work: permission from GLP (Joey and Ethan) to show their site, and from the Friends of The Colony Public Library to show the concept. Its screenshots include photos from library programs, some of them with children, so ask about those specifically.
+- [x] Work: permission from GLP and from the Friends of The Colony Public Library to show their sites (given Oct 26).
+- [ ] Work: ask the Friends specifically about the library program photos in the screenshots, some of which show children.
 
 ### Fill in these blanks (yellow [PLACEHOLDER] tags)
 - [ ] Email address: placeholder hello@firemarktech.com. Set it up at your domain, then also put it in `data-fallback-email` in `src/partials/form.html` and in the homepage's structured data (`src/index.html`, search for PLACEHOLDER).
 - [ ] Phone number: footer, contact page, homepage and structured data.
 - [ ] Booking link for "Book a 15-minute call" (Calendly, Cal.com or Google Calendar booking pages all work). Put the address in the `href` of the two links marked `data-booking-link`.
 - [ ] Photo: the current one is a placeholder. Use a local headshot, or delete the photo blocks on Home and About.
-- [ ] Privacy page: the form service's name and where it stores messages, plus the "last updated" date.
+- [ ] Privacy page: the form service's name and where it stores messages, plus the "last updated" date. If you add analytics, add a short section saying what it collects.
 - [ ] Work links: the two live-site links go to jsglisson3.github.io, which shows your last name in the address. Fine for now; switch them to the clients' own domains once those exist.
 
 ### Set up

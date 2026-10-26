@@ -40,7 +40,7 @@ What the site says, page by page, and the words it uses for things. The live tex
 
 **Free check** (`contact.html`): "Get your free check." What happens next in three steps, other ways to reach out, and the form.
 
-**Privacy** (`privacy.html`): a plain-English draft. What's collected, how it's used, where it's kept, cookies, hosting, deleting your details, changes.
+**Privacy** (`privacy.html`): a plain-English draft. What's collected, how it's used, where it's kept, hosting, deleting your details, changes.
 
 **404**: "This page isn't on the map." Links back to Home, Work, About and the free check.
 
