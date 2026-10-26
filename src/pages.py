@@ -104,64 +104,19 @@ page('work.html', 'Work | Firemark',
 
 # ---------------------------------------------------------------- About
 
-PRINCIPLES = [
-    ('Built for your business.', 'Every site is made by hand around what you do, not squeezed into a template.'),
-    ('Plain English.', 'No jargon. Anything technical gets explained in everyday words.'),
-    ('You approve everything.', 'Nothing goes live until you\'ve seen it and said yes.'),
-    ('One person to call.', 'No help desk and no tickets. You deal directly with the person who built your site.'),
-    ('Honest advice.', 'If a few fixes are all you need, that\'s what you\'ll hear.'),
-    ('You own it.', 'Your domain and your content are yours to keep. <span class="ph">[CONFIRM]</span>'),
-]
-
-about_body = f'''    <section class="wrap about-for" aria-labelledby="for-h">
-      <h2 class="small-h" id="for-h">Who Firemark is for</h2>
-      <div class="fit">
-        <div>
-          <h3>A good fit</h3>
-          <ul class="fit-list">
-            <li>{CHECK}<span>Independent, owner-run businesses: the barber, the bakery, the plumber, the shop on the corner</span></li>
-            <li>{CHECK}<span>Owners who make the decisions and sign the checks</span></li>
-            <li>{CHECK}<span>Businesses that want more people nearby to find them</span></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Probably not the right fit</h3>
-          <ul class="fit-list not">
-            <li>{CROSS}<span>Franchises, which usually have a head office that handles this</span></li>
-            <li>{CROSS}<span>Large online stores with hundreds of products</span></li>
-            <li>{CROSS}<span>Companies that need a full agency team</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section tone-white" aria-labelledby="how-h">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="how-h">What you can count on</h2>
-        </div>
-        <ul class="principles">
-          {''.join(f'<li>{CHECK}<strong>{a}</strong><span>{b}</span></li>' for a, b in PRINCIPLES)}
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="who-h">
+about_body = f'''    <section class="about-who" aria-labelledby="who-h">
       <div class="wrap who who-top">
         <div class="who-photo">
           <img src="images/jeremy-placeholder.webp" width="200" height="200" loading="lazy" alt="Jeremy, who runs Firemark.">
           <span class="ph">[PLACEHOLDER: photo, optional]</span>
         </div>
-        <div class="measure">
+        <div class="measure about-text">
           <h2 id="who-h">Who you'll work with</h2>
-          <p class="lead">Firemark is Jeremy, based here in The Colony. He has spent more than 10 years in IT and online sales, leading online ordering channels and working on the systems behind large businesses. Firemark brings that know-how to independents, one business at a time.</p>
-          <ul class="tick-list who-list">
-            <li>{CHECK}<span>10+ years in IT and online sales</span></li>
-            <li>{CHECK}<span>Led a team of developers, testers and analysts</span></li>
-            <li>{CHECK}<span>Ran large-scale online ordering channels</span></li>
-            <li>{CHECK}<span>Dozens of projects connecting business systems</span></li>
-            <li>{CHECK}<span>Degree in Management Information Systems</span></li>
-          </ul>
+          <p class="lead">Firemark is Jeremy, based here in The Colony. He has spent more than 10 years in IT and online sales: leading a team of developers, testers and analysts, running large online ordering channels, and connecting the systems behind large businesses. He has a degree in Management Information Systems. Firemark brings that know-how to independents, one business at a time.</p>
+          <h2 class="small-h">Who it's for</h2>
+          <p>Independent, owner-run businesses: the barber, the bakery, the plumber, the shop on the corner. If you're a franchise with a head office, a large online store, or you need a full agency team, Firemark probably isn't the right fit, and you'll hear that up front.</p>
+          <h2 class="small-h">How it works with Jeremy</h2>
+          <p>Everything is in plain English. Nothing goes live until you've seen it and said yes. Your domain and your content are yours to keep. <span class="ph">[CONFIRM]</span></p>
         </div>
       </div>
     </section>
@@ -219,6 +174,25 @@ contact_body = f'''    <div class="wrap contact contact-page">
           <li><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg><span><a href="#main" data-booking-link>Book a 15-minute call</a> <span class="ph">[PLACEHOLDER: booking link]</span></span></li>
         </ul>
         <p class="muted area-note">Based in The Colony, working with independent businesses across Dallas–Fort Worth.</p>
+        <h2 class="small-h">Questions</h2>
+        <div class="faq faq-compact">
+          <details>
+            <summary>I already have a Facebook page. Isn't that enough?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Facebook is great for staying in touch with people who already know you. When someone searches Google or Maps for what you do, a website and a Google listing are what show up.</p>
+          </details>
+          <details>
+            <summary>I already have a website. Can you help?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Start with the free check. You'll get an honest read on whether it's working or whether a fresh start makes more sense.</p>
+          </details>
+          <details>
+            <summary>How long does it take?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Most starter websites go live about 30 days after you give the go-ahead.</p>
+          </details>
+          <details>
+            <summary>What area do you cover?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Firemark is based in The Colony and works with independent businesses across Dallas–Fort Worth.</p>
+          </details>
+        </div>
       </div>
     </div>'''
 

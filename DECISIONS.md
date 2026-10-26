@@ -100,3 +100,19 @@ Why the site looks, reads and works the way it does. Newest first within each se
 - No sideways scrolling at 320, 360, 390, 1440 and 1920px. Hero screenshots checked at 320, 390, 768, 1024, 1100, 1240, 1280, 1440 and 1920.
 - Motion: with reduced motion, the pin, glow and card are fully visible at once. Without JavaScript they're visible too. With motion, they start hidden and are all in place by 2 seconds.
 - Lighthouse mobile (local, after round 3): Performance 99, LCP 2.2s, total page weight 207 KiB, Accessibility 100, Best Practices 100, SEO 69 (low only because the draft is noindex). CLS 0.
+
+
+# DECISIONS addendum: v4, simpler site
+
+Append this to DECISIONS.md, after the v3 addendum.
+
+## Round 4: simpler (Oct 26, 2026, late evening)
+Jeremy said the site felt cookie-cutter and asked for it to be simpler. The homepage went from ten sections to five: the map hero, Recent work, What you get, "Firemark is Jeremy" (with the fire-mark story), and the free check form. It's about 40% shorter on desktop.
+- **Cut from the homepage:** the 3-step "customer's path" section (the hero already says it), the two-column offer with icons, the 4-step "How it works" route, the separate pricing panel, the "Who you'll work with" chips, and the 6-question FAQ.
+- **Merged:** the offer and price are now one plain list that ends in "What it costs: Let's talk." Who Jeremy is and why the name now share one section.
+- **Moved:** the four most useful questions now live on the contact page, next to the form. The "What happens next" steps stay there too, since they really are a sequence.
+- **About:** the 6-item "What you can count on" grid and the good-fit/not-a-fit tick lists became three short paragraphs.
+- **Nav:** Work, What you get, About, and the free check button.
+- **Kept on purpose:** the real-streets map, the search-to-result moment, the fire-mark story and the case studies. That's where the personality is.
+
+- **Cache:** site.css and site.js are now linked as `?v=4`. Bump that number in src/index.html and tools/build.py whenever either file changes, so returning visitors get the new version.

@@ -388,9 +388,27 @@ a:hover { text-decoration-thickness: 2.5px; text-decoration-color: var(--flame);
 .who-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--space-m); }
 .who-facts li { background: var(--mist); color: var(--deep); border-radius: 999px; padding: 0.45rem 0.95rem; font-weight: 600; font-size: 0.95rem; }
 
+/* What you get: one plain list, offer and price together */
+.offer-simple { display: grid; gap: var(--space-m); }
+.offer-list { margin: 0; border-top: 1px solid var(--line-strong); }
+.offer-list > div { display: grid; gap: 0.2rem; padding: 1.05rem 0; border-bottom: 1px solid var(--line-strong); }
+.offer-list dt { font-weight: 650; font-size: var(--step-1); line-height: 1.25; letter-spacing: -0.015em; font-variation-settings: "opsz" 24; color: var(--ink); }
+.offer-list dd { margin: 0; color: var(--graphite); }
+.offer-price dt { color: var(--ember); }
+.offer-cta { margin: var(--space-s) 0 0; }
+@media (min-width: 48rem) { .offer-list > div { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 1.5rem; align-items: baseline; } }
+@media (min-width: 62rem) {
+  .offer-simple { grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: var(--space-l); align-items: start; }
+  .offer-cta { grid-column: 2; margin-top: 0; }
+}
+
+.about-who { padding-bottom: var(--space-xl); }
+.about-text .small-h { margin-top: var(--space-m); margin-bottom: 0.4rem; }
+.faq-compact { margin-top: 0.5rem; }
+
 /* Why Firemark */
 .story { display: grid; gap: var(--space-l); align-items: center; }
-@media (min-width: 56rem) { .story { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); } }
+@media (min-width: 56rem) { .story { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); } .story-home { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); } }
 .then-now { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; max-width: 28rem; }
 .then-now figure { margin: 0; display: grid; justify-items: center; gap: 0.7rem; text-align: center; }
 .then-now svg.art { width: auto; height: 9rem; max-width: 100%; }

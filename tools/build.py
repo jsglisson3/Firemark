@@ -45,8 +45,7 @@ print('built index.html')
 # 2) Shared header and footer for inner pages, with links pointed at real pages
 header = re.search(r'  <header class="site-header".*?</header>\n', home, re.S).group(0)
 footer = re.search(r'  <footer class="site-footer">.*?</footer>\n', home, re.S).group(0)
-for a, b in [('href="#work"', 'href="work.html"'), ('href="#how"', 'href="index.html#how"'),
-             ('href="#pricing"', 'href="index.html#pricing"'), ('href="#check"', 'href="contact.html"')]:
+for a, b in [('href="#work"', 'href="work.html"'), ('href="#offer"', 'href="index.html#offer"'), ('href="#check"', 'href="contact.html"')]:
     header = header.replace(a, b)
 footer = footer.replace('href="#main"', 'href="#main"')
 
@@ -74,7 +73,7 @@ HEAD = '''<!doctype html>
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=2">
+  <link rel="stylesheet" href="css/site.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -100,7 +99,7 @@ def page(file, title, desc, h1, lead, body, banner='Draft preview. Contact detai
   </main>
 
 ''' + footer + '''
-  <script src="js/site.js?v=2" defer></script>
+  <script src="js/site.js?v=4" defer></script>
 </body>
 </html>
 '''
