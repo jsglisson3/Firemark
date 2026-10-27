@@ -4,7 +4,8 @@ Sources live in src/ (not published):
   src/index.html            homepage template ({{...}} slots are filled in below)
   src/partials/sprite.html  icons and the Firemark pin
   src/partials/form.html    the free check form (homepage and contact page)
-  src/partials/map.svg      the street map in the hero (traced from OpenStreetMap)
+  docs/images/map/the-colony.svg  the street map (homepage, 404, thanks), drawn from OpenStreetMap by
+                            design-system/firemark/map-source/render_full.py
   src/pages.py              content for the inner pages
   src/sites.py              the list of websites on the Work page and the homepage
 
@@ -17,7 +18,7 @@ DOMAIN = 'firemarktech.com'   # the domain, no https://
 LAUNCHED = False              # True on launch day: removes the draft banner and the noindex tag from public pages
 HIDDEN = {'brand.html', '404.html', 'thanks.html'}   # these stay hidden from search engines even after launch
 PUBLIC = ['index.html', 'work.html', 'about.html', 'contact.html', 'privacy.html']   # listed in sitemap.xml
-VERSION = '11'                # bump when docs/css/site.css or docs/js/site.js change, so visitors get the new files
+VERSION = '12'                # bump when docs/css/site.css or docs/js/site.js change, so visitors get the new files
 
 # ---- Contact details: fill these in when they exist, then rebuild ------------------
 # Anything left empty is simply left off the site (no placeholder text is ever shown).
@@ -109,9 +110,6 @@ def ld_contact():
 sprite = (SRC / 'partials' / 'sprite.html').read_text(encoding='utf-8')
 form = (SRC / 'partials' / 'form.html').read_text(encoding='utf-8')
 form = form.replace('{{WEB3FORMS_KEY}}', esc(WEB3FORMS_KEY)).replace('{{FALLBACK_EMAIL}}', esc(FALLBACK_EMAIL))
-mapsvg = (SRC / 'partials' / 'map.svg').read_text(encoding='utf-8')
-# Copies made through the Claude app can pick up a content-credentials <metadata> block; it doesn't belong inside every page.
-mapsvg = re.sub(r'<metadata>.*?</metadata>', '', mapsvg, flags=re.S).replace(' xmlns:c2pa="http://c2pa.org/manifest"', '')
 
 
 def load(name):
@@ -149,13 +147,9 @@ def site_list(sites, h='h3'):
     return '<ul class="site-list" role="list">\n' + '\n'.join(rows) + '\n      </ul>'
 
 
-# The homepage shows the whole traced area, sized and placed by CSS so the pin always sits on Main St
-map_full = mapsvg.replace('class="map-art"', 'class="map-art hero-art"').replace('viewBox="164 72 1200 720" preserveAspectRatio="xMidYMid slice"', 'viewBox="0 0 1600 900"')
-
-
 def fill(html):
     """Fills the shared {{...}} slots used by the homepage and the inner pages."""
-    return (html.replace('{{SPRITE}}', sprite).replace('{{FORM}}', form).replace('{{MAP}}', mapsvg).replace('{{MAP_FULL}}', map_full)
+    return (html.replace('{{SPRITE}}', sprite).replace('{{FORM}}', form)
             .replace('{{V}}', VERSION).replace('{{NAV_REACH}}', nav_reach()).replace('{{REACH_LINE}}', reach_line())
             .replace('{{REACH_LIST}}', reach_list()).replace('{{PERSON}}', person()).replace('{{LD_CONTACT}}', ld_contact()))
 

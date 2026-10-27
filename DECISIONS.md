@@ -157,3 +157,13 @@ Full write-up: `FIREMARK-REDESIGN-PLAN.md`. Open items: `REVIEW-v10.md`. Kept as
 - **Children removed** from the Friends of the Library screenshots (photo circles blanked) until the Friends say otherwise.
 - **Form:** "(required)/(optional)" in words, a "What would help most?" pick list, and an error title that counts the fixes.
 - Cache: `?v=10`.
+
+# Homepage top rebuilt (v11 and v12, Oct 27, 2026)
+
+Jeremy: the header, hero and map "does not look that great ... redo the entire thing". Three directions were previewed (Maps panel, Split, Phone); he picked the Maps panel and v11 shipped it. v12 pushes it further:
+
+- **The map is now the real thing.** `docs/images/map/the-colony.svg` is drawn from the full OpenStreetMap export (`design-system/firemark/map-source/render_full.py`): every building, the parks and Lewisville Lake shoreline, roads by size, the Sam Rayburn Tollway, and gray dots where real shops and restaurants are. Street names are HTML, so they use Bricolage. The old hand-traced `src/partials/map.svg` is gone; the 404 and thanks pages use the new map too.
+- **Composition:** headline, lead, button and the two promises sit on the page at left; the map fills the right side with the search box and trade buttons floating on it, as in Google Maps. Phones: map on top, words underneath.
+- **Listing card:** name, category, "Open · Closes 6 PM", and Directions / Call / Website, like a real Maps result. The trade buttons change the search, name, category and hours.
+- **Motion:** the map flies in to Main St, the search types, the pin drops and the glow pulses. Reduced motion shows the finished picture.
+- **Removed:** the five "Who...? Jeremy" cards. "Jeremy" now appears once in the About blurb, in the sample report's signature and next to the form. Footer heading "Get in touch". Header: Contact link added, the small "The Colony, Texas" line removed (the hero says it).

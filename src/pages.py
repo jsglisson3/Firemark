@@ -64,7 +64,7 @@ page('work.html', 'Work | Firemark',
 
 about_body = f'''    <section class="section section-tight about-who" aria-labelledby="who-h">
       <div class="wrap about-grid">
-        <aside class="about-card" data-reveal aria-label="Jeremy at a glance">
+        <div class="about-card" data-reveal role="group" aria-label="Jeremy at a glance">
           {person('large')}
           <dl class="facts">
             <div><dt>Based in</dt><dd>The Colony, Texas</dd></div>
@@ -73,7 +73,7 @@ about_body = f'''    <section class="section section-tight about-who" aria-label
             <div><dt>Clients</dt><dd>A handful a year</dd></div>
             <div><dt>Replies</dt><dd>Within 5 days</dd></div>
           </dl>
-        </aside>
+        </div>
         <div class="about-text" data-reveal>
           <h2 id="who-h" class="small-h">Who you'll work with</h2>
           <p class="statement">Firemark is Jeremy. He lives here in The Colony, and he's the only person you'll deal with, from the free check to the small edit you send two years from now.</p>
@@ -225,7 +225,7 @@ def map_band(card, pin=True, label=''):
                 if pin else '<span class="map-ring map-ring-empty" aria-hidden="true"></span>')
     return f'''    <figure class="hero-map map-still" aria-label="{label}">
         <div class="map-band">
-          {{{{MAP}}}}
+          <div class="hero-world"><img src="images/map/the-colony.svg" width="2793" height="1513" alt="" decoding="async"></div>
           {pin_html}
           {card}
         </div>

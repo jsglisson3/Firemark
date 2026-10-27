@@ -78,48 +78,64 @@
   </header>
 
   <main id="main">
-    <!-- Hero: the first screen is the real map around Main St and S Colony Blvd. The words sit in a panel like the one
-         Google Maps opens beside a search (a sheet under the map on phones), and your business is the pin. -->
+    <!-- Hero: a search on the left, the real map of The Colony on the right, and your business is the pin on Main St.
+         The map is drawn from OpenStreetMap (design-system/firemark/map-source/render_full.py); the labels are HTML so they use the site's type. -->
     <section class="hero" aria-labelledby="hero-h" data-hero>
+      <div class="hero-panel">
+        <h1 id="hero-h" class="hero-h"><span class="hl">Put your business</span> <span class="hl">on the map.</span></h1>
+        <p class="hero-lead">Websites and Google listings for independent businesses in The Colony, Texas, built by hand and kept running. When someone nearby searches, they find you.</p>
+        <div class="actions">
+          <a class="btn" href="#check">Get my free check</a>
+          <a class="text-link" href="#work">See the work<svg class="icon icon-down" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <dl class="promises">
+          <div><dt>7 days</dt><dd>for your free written report</dd></div>
+          <div><dt>About 45 days</dt><dd>until your new site is live</dd></div>
+        </dl>
+        <p class="map-credit hero-credit-under">Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</p>
+      </div>
+
       <figure class="hero-map">
-        {{MAP_FULL}}
+        <div class="hero-find">
+          <div class="hero-search" data-ui aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg><span data-q>bakery near me</span></div>
+          <div class="try" role="group" aria-label="Try it with your trade" data-try hidden>
+            <button type="button" class="try-btn" aria-pressed="true" data-trade="bakery" data-shop="Your bakery" data-kind="Bakery" data-hours="Closes 6 PM">Bakery</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="barber" data-shop="Your barbershop" data-kind="Barber shop" data-hours="Closes 7 PM">Barber</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="plumber" data-shop="Your plumbing company" data-kind="Plumber" data-hours="24 hours">Plumber</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="nail salon" data-shop="Your nail salon" data-kind="Nail salon" data-hours="Closes 8 PM">Nail salon</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="tacos" data-shop="Your taqueria" data-kind="Mexican restaurant" data-hours="Closes 10 PM">Tacos</button>
+          </div>
+        </div>
+        <div class="hero-world" data-world>
+          <img src="images/map/the-colony.svg" width="2793" height="1513" alt="" fetchpriority="high" decoding="async">
+          <span class="map-label map-label-road map-label-wide" style="--x:770;--y:520;--a:88deg">Main St</span>
+          <span class="map-label map-label-road map-label-narrow" style="--x:776;--y:752;--a:88deg">Main St</span>
+          <span class="map-label map-label-road map-label-wide" style="--x:985;--y:677;--a:0deg">S Colony Blvd</span>
+          <span class="map-label map-label-road map-label-far" style="--x:791;--y:1105;--a:85.3deg">Main St</span>
+          <span class="map-label map-label-road" style="--x:1420;--y:600;--a:-15deg">S Colony Blvd</span>
+          <span class="map-label map-label-road map-label-far" style="--x:2279;--y:324;--a:0.0deg">S Colony Blvd</span>
+          <span class="map-label map-label-road" style="--x:2104;--y:713;--a:88.7deg">Paige Rd</span>
+          <span class="map-label map-label-road map-label-far" style="--x:1863;--y:1277;--a:-33.7deg">Memorial Dr</span>
+          <span class="map-label map-label-road map-label-far" style="--x:2586;--y:1333;--a:-28.3deg">Sam Rayburn Tollway</span>
+          <span class="map-label map-label-water" style="--x:222;--y:800;--a:-76deg">Lewisville Lake</span>
+        </div>
         <span class="map-ring" aria-hidden="true"></span>
         <span class="map-pin" aria-hidden="true"><svg class="mark" viewBox="11.5 -0.5 77 119" focusable="false"><use href="#fm-mark"/></svg></span>
         <div class="place-card hero-card" data-ui aria-hidden="true">
-          <div class="pc-top"><b data-name>Your bakery</b><span class="pc-open">Open now</span></div>
-          <span class="pc-meta">Main St · 2 min away</span>
-          <ul class="chips" role="list"><li class="chip">Call</li><li class="chip">Directions</li><li class="chip">Website</li></ul>
+          <b class="pc-name" data-name>Your bakery</b>
+          <span class="pc-meta"><span data-kind>Bakery</span> · Main St</span>
+          <span class="pc-meta"><span class="pc-open">Open</span> · <span data-hours>Closes 6 PM</span></span>
+          <ul class="pc-actions" role="list">
+            <li class="pc-go"><span class="pc-ico"><svg class="icon"><use href="#i-maps"/></svg></span>Directions</li>
+            <li><span class="pc-ico"><svg class="icon"><use href="#i-call"/></svg></span>Call</li>
+            <li><span class="pc-ico"><svg class="icon"><use href="#i-web"/></svg></span>Website</li>
+          </ul>
         </div>
         <figcaption>
-          <span class="visually-hidden">Illustration: on the real street map around Main Street and South Colony Boulevard in The Colony, someone searches for a business like yours, and yours shows up on Main Street, open now, with buttons to call, get directions or visit the website.</span>
+          <span class="visually-hidden">Illustration: the real street map of The Colony around Main Street and South Colony Boulevard, with Lewisville Lake to the west. Someone searches for a business like yours, and yours shows up as the pin on Main Street, open now, with buttons for directions, a call or the website.</span>
           <span class="map-credit">Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</span>
         </figcaption>
       </figure>
-
-      <div class="wrap hero-wrap">
-        <div class="hero-panel">
-          <div class="hero-find">
-            <div class="hero-search" data-ui aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg><span data-q>bakery near me</span></div>
-            <div class="try" role="group" aria-label="Try it with your trade" data-try hidden>
-              <button type="button" class="try-btn" aria-pressed="true" data-trade="bakery" data-shop="Your bakery">Bakery</button>
-              <button type="button" class="try-btn" aria-pressed="false" data-trade="barber" data-shop="Your barbershop">Barber</button>
-              <button type="button" class="try-btn" aria-pressed="false" data-trade="plumber" data-shop="Your plumbing company">Plumber</button>
-              <button type="button" class="try-btn" aria-pressed="false" data-trade="nail salon" data-shop="Your nail salon">Nail salon</button>
-              <button type="button" class="try-btn" aria-pressed="false" data-trade="tacos" data-shop="Your taqueria">Tacos</button>
-            </div>
-          </div>
-          <h1 id="hero-h" class="hero-h"><span class="hl">Put your business</span> <span class="hl">on the map.</span></h1>
-          <p class="hero-lead">Websites and Google listings for independent businesses in The Colony, Texas, built by hand and kept running. When someone nearby searches, they find you.</p>
-          <div class="actions">
-            <a class="btn" href="#check">Get my free check</a>
-            <a class="text-link" href="#work">See the work<svg class="icon icon-down" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-          <dl class="promises">
-            <div><dt>7 days</dt><dd>for your free written report</dd></div>
-            <div><dt>About 45 days</dt><dd>until your new site is live</dd></div>
-          </dl>
-        </div>
-      </div>
     </section>
 
     <!-- The free check, shown as the thing itself: a page of the written report -->

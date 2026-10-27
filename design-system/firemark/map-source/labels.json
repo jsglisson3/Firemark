@@ -1,0 +1,58 @@
+[
+{
+"t": "Main St",
+"x": 767,
+"y": 353,
+"a": 87.9,
+"kind": "road"
+},
+{
+"t": "Main St",
+"x": 791,
+"y": 1105,
+"a": 85.3,
+"kind": "road"
+},
+{
+"t": "S Colony Blvd",
+"x": 1195,
+"y": 653,
+"a": -13.4,
+"kind": "road"
+},
+{
+"t": "S Colony Blvd",
+"x": 2279,
+"y": 324,
+"a": 0.0,
+"kind": "road"
+},
+{
+"t": "Paige Rd",
+"x": 2104,
+"y": 713,
+"a": 88.7,
+"kind": "road"
+},
+{
+"t": "Memorial Dr",
+"x": 1863,
+"y": 1277,
+"a": -33.7,
+"kind": "road"
+},
+{
+"t": "Sam Rayburn Tollway",
+"x": 2586,
+"y": 1333,
+"a": -28.3,
+"kind": "road"
+},
+{
+"t": "Lewisville Lake",
+"x": 110,
+"y": 640,
+"a": 0,
+"kind": "water"
+}
+]
