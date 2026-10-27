@@ -227,31 +227,24 @@ p, li, dd, dt { text-wrap: pretty; }
 @media (max-width: 20.99rem) { .header-cta.for-phone { display: none; } }
 
 /* ------------------------------------------------------------------ Hero
-   Left: a search, like the panel Google Maps opens, with the headline under it. Right: the real map of The Colony,
-   and your business is the pin on Main St. Phones: the map on top with the search floating on it, the words below. */
+   The real map of The Colony runs behind the whole top of the page and fades out under the words.
+   On it: one panel laid out like a maps app's results (the search, your trade, your listing) and your pin beside it.
+   Phones and tablets: the words first, then the map with the panel resting on it. */
 .hero {
   position: relative; display: grid; grid-template-columns: var(--panel-w) minmax(0, 1fr);
   min-height: clamp(38rem, calc(100svh - var(--header-h) - 2.25rem), 56rem);
-  --gutter: max(var(--margin), calc((100vw - var(--max)) / 2 + var(--margin)));   /* lines the panel up with the logo */
-  --panel-w: calc(var(--gutter) + clamp(29rem, 39vw, 44rem) + clamp(2rem, 4vw, 4.5rem));
+  --gutter: max(var(--margin), calc((100vw - var(--max)) / 2 + var(--margin)));   /* lines the words up with the logo */
+  --panel-w: calc(var(--gutter) + clamp(27rem, 36vw, 42rem) + clamp(2rem, 3.5vw, 4rem));
+  --find-w: 21.5rem;
   --u: max(0.72px, 0.05vw);       /* screen size of one map unit (1.125 m) */
-  --px: 62%; --py: 40%;           /* where the pin's tip sits, inside the map */
+  --px: calc(var(--panel-w) + var(--find-w) + (100% - var(--panel-w) - var(--find-w) - var(--gutter)) * 0.55);   /* the pin's tip */
+  --py: 47%;
+  --ax: 841; --ay: 714;           /* the spot on the map under the pin; each trade has its own street */
 }
 .hero-panel {
-  container-type: inline-size; display: grid; align-content: center; gap: clamp(1.25rem, 0.9rem + 1vw, 1.75rem);
-  padding: clamp(1.5rem, 1rem + 2vw, 3rem) clamp(2rem, 4vw, 4.5rem) clamp(1.5rem, 1rem + 2vw, 3rem) var(--gutter);
+  position: relative; z-index: 2; container-type: inline-size; display: grid; align-content: center; gap: clamp(1.25rem, 0.9rem + 1vw, 1.75rem);
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem) clamp(2rem, 3.5vw, 4rem) clamp(1.5rem, 1rem + 2vw, 3rem) var(--gutter);
 }
-/* The search floats on the map, as in Google Maps */
-.hero-find { position: absolute; z-index: 2; top: 1.25rem; left: 1.25rem; right: 1.25rem; display: grid; justify-items: start; gap: 0.6rem; }
-.hero-find .hero-search { width: min(31rem, 100%); }
-.hero-search { box-shadow: 0 10px 24px -14px rgba(29, 28, 26, 0.45); }   /* taste-skill-ignore: floats over the map */
-.hero .try-btn { background: var(--white); }
-.hero .try-btn:hover { background: var(--paper); }
-.hero .try-btn[aria-pressed="true"] { background: var(--ink); }
-.hero-search { display: flex; align-items: center; gap: 0.65rem; min-height: 3.25rem; padding: 0 1.2rem; background: var(--white); border-radius: var(--r-pill); font-size: 1.0625rem; }
-.hero-search .icon { width: 1.15rem; height: 1.15rem; color: var(--muted); flex: none; }
-.hero-search [data-q]::after { content: ""; display: inline-block; width: 2px; height: 1.15em; margin-left: 2px; vertical-align: -0.2em; background: var(--flame); opacity: 0; }
-.is-typing .hero-search [data-q]::after { opacity: 1; }
 .hero-h { font-size: min(12.4cqi, 6.5rem); line-height: 0.95; letter-spacing: -0.035em; max-width: none; }
 .hl { display: block; white-space: nowrap; }
 .hero-lead { font-size: clamp(1.125rem, 0.95rem + 0.55vw, 1.5rem); line-height: 1.38; letter-spacing: -0.012em; max-width: 30em; }
@@ -260,25 +253,23 @@ p, li, dd, dt { text-wrap: pretty; }
 .promises div { display: grid; gap: 0.1rem; align-content: start; }
 .promises dt { font-size: 1.5rem; font-weight: 640; letter-spacing: -0.02em; line-height: 1.15; }
 .promises dd { color: var(--muted); font-size: var(--t-small); }
+.hero-credit-under { font-size: 0.8125rem; }
+.hero .hero-map .map-credit { display: none; }
 
-/* The map: one drawing of the whole area, placed so Main St at S Colony Blvd (786, 673) lands on --px / --py */
-.hero .hero-map { position: relative; overflow: hidden; background: #F4F3F0; }
-/* No box: the map fades into the page on the side that meets the words, and at the foot */
+/* The map: one drawing of the whole area, placed so the spot (--ax, --ay) lands on the pin */
+.hero .hero-map { position: absolute; inset: 0; z-index: 0; margin: 0; overflow: hidden; background: var(--paper); }
 .hero .hero-map::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(to right, var(--paper) 0, rgba(246, 245, 243, 0) 18%), linear-gradient(to top, var(--paper) 0, rgba(246, 245, 243, 0) 14%), linear-gradient(to bottom, var(--paper) 0, rgba(246, 245, 243, 0) 7%);
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(to right, var(--paper) 0, var(--paper) var(--panel-w), rgba(246, 245, 243, 0) calc(var(--panel-w) + 16rem)),
+    linear-gradient(to top, var(--paper) 0, rgba(246, 245, 243, 0) 16%),
+    linear-gradient(to bottom, var(--paper) 0, rgba(246, 245, 243, 0) 10%);
 }
-.hero .hero-map::before { z-index: 1; }
-.hero .hero-map .map-credit { z-index: 5; }
-.hero .map-ring { z-index: 2; } .hero .map-pin { z-index: 3; } .hero .hero-card { z-index: 4; } .hero .hero-find { z-index: 5; }
 .hero-world {
   position: absolute; width: calc(2793 * var(--u)); height: calc(1513 * var(--u));
   left: calc(var(--px) - var(--ax, 786) * var(--u)); top: calc(var(--py) - var(--ay, 673) * var(--u));
   transform-origin: calc(var(--ax, 786) * var(--u)) calc(var(--ay, 673) * var(--u));
 }
-/* Each trade sits on its own street: the map glides so the new spot lands under the pin */
-.hero { --ax: 841; --ay: 714; }
-.map-label.is-under { opacity: 0; }
 .hero-world img { display: block; width: 100%; height: 100%; max-width: none; }
 .map-label {
   position: absolute; left: calc(var(--x) / 2793 * 100%); top: calc(var(--y) / 1513 * 100%);
@@ -287,74 +278,86 @@ p, li, dd, dt { text-wrap: pretty; }
 }
 .map-label-water { font-size: 0.9375rem; font-style: italic; color: #61757C; }
 .map-label-narrow { display: none; }
+.map-label.is-under { opacity: 0; }
 .hero .map-pin, .hero .map-ring { left: var(--px); top: var(--py); }
-.hero .map-pin { width: 3rem; filter: drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 6px 5px rgba(29, 28, 26, 0.28)); }
-.hero .map-ring { width: 8.5rem; height: 8.5rem; margin: -4.25rem 0 0 -4.25rem; background: rgba(236, 78, 28, 0.16); }
-.hero .hero-card { left: var(--px); top: calc(var(--py) + 3.25rem); translate: -50% 0; width: 17.5rem; display: grid; gap: 0.15rem; padding: 1rem 1.1rem 1.1rem; border-radius: 1rem; }
-.pc-name { font-size: 1.25rem; font-weight: 640; letter-spacing: -0.015em; line-height: 1.2; }
+.hero .map-ring { z-index: 2; width: 8.5rem; height: 8.5rem; margin: -4.25rem 0 0 -4.25rem; background: rgba(236, 78, 28, 0.16); }
+.hero .map-pin { z-index: 3; width: 3rem; filter: drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 6px 5px rgba(29, 28, 26, 0.28)); }
+
+/* The results panel */
+.hero-find {
+  position: absolute; z-index: 4; left: var(--panel-w); top: var(--py); translate: 0 -50%;
+  width: var(--find-w); display: grid; gap: 0.65rem; padding: 0.75rem;
+  background: var(--white); border-radius: 1.25rem;
+}
+.hero-find { border: 1px solid rgba(29, 28, 26, 0.06); box-shadow: 0 24px 48px -28px rgba(29, 28, 26, 0.38); }   /* taste-skill-ignore: the one object that floats over the map */
+.hero-search { display: flex; align-items: center; gap: 0.6rem; min-height: 3rem; padding: 0 1rem; background: var(--paper); border-radius: var(--r-pill); font-size: 1.0625rem; }
+.hero-search .icon { width: 1.1rem; height: 1.1rem; color: var(--muted); flex: none; }
+.hero-search [data-q]::after { content: ""; display: inline-block; width: 2px; height: 1.15em; margin-left: 2px; vertical-align: -0.2em; background: var(--flame); opacity: 0; }
+.is-typing .hero-search [data-q]::after { opacity: 1; }
+.hero .try { gap: 0.35rem; }
+.hero .try-btn { min-height: 2.5rem; padding-inline: 0.85rem; background: var(--paper); font-size: 0.9375rem; }
+.hero .try-btn:hover { background: var(--stone); }
+.hero .try-btn[aria-pressed="true"], .hero .try-btn[aria-pressed="true"]:hover { background: var(--ink); }
+.hero .hero-card {
+  position: static; width: auto; display: grid; gap: 0.15rem; margin-top: 0.15rem; padding: 0.95rem 0.4rem 0.3rem;
+  border-top: 1px solid var(--stone); border-radius: 0; box-shadow: none; background: none;
+}
+.pc-name { font-size: 1.3125rem; font-weight: 640; letter-spacing: -0.015em; line-height: 1.2; }
 .pc-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.85rem; text-align: center; font-size: 0.8125rem; font-weight: 620; }
 .pc-actions li { display: grid; justify-items: center; gap: 0.3rem; }
 .pc-ico { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--stone); }
 .pc-ico .icon { width: 1.1rem; height: 1.1rem; }
 .pc-go .pc-ico { background: var(--accent); color: var(--white); }
-.hero-credit-under { display: none; }
-/* Google Maps or Apple Maps: the same listing, shown the way each app lays it out (no logos, just the layout) */
-.maps-switch { display: inline-flex; gap: 0.2rem; padding: 0.25rem; border-radius: var(--r-pill); background: var(--white); }
-.maps-switch[hidden] { display: none; }
-.maps-switch button { min-height: 2.25rem; padding: 0 0.95rem; border: 0; border-radius: var(--r-pill); background: transparent; color: var(--muted); font: inherit; font-size: 0.9375rem; font-weight: 620; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
-.maps-switch button:hover { color: var(--ink); }
-.maps-switch button[aria-pressed="true"] { background: var(--stone); color: var(--ink); }
-.pc-grab { display: none; }
-.hero[data-app="apple"] .hero-card { border-radius: 1.4rem; padding-top: 1.35rem; }
-.hero[data-app="apple"] .pc-grab { display: block; position: absolute; top: 0.45rem; left: 50%; width: 2.25rem; height: 0.3rem; margin-left: -1.125rem; border-radius: var(--r-pill); background: #DDD8D0; }
-.hero[data-app="apple"] .pc-actions { gap: 0.4rem; }
-.hero[data-app="apple"] .pc-actions li { gap: 0.15rem; padding: 0.55rem 0.25rem 0.5rem; border-radius: 0.8rem; background: var(--stone); }
-.hero[data-app="apple"] .pc-ico { width: 1.6rem; height: 1.6rem; background: transparent; }
-.hero[data-app="apple"] .pc-actions .pc-go { background: var(--accent); color: var(--white); }
-.hero[data-app="apple"] .pc-go .pc-ico { background: transparent; }
-.hero .hero-map .map-credit { position: absolute; right: 0.75rem; bottom: 0.6rem; padding: 0.1rem 0.5rem; border-radius: 6px; background: rgba(242, 241, 238, 0.9); font-size: 0.8125rem; }
 
-/* Small laptops: a narrower panel, and the listing card fits beside the pin */
+/* Where it shows up: the two apps your customers use, named at the corner of the map */
+.hero-on { position: absolute; z-index: 4; right: var(--gutter); bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; margin: 0; font-size: 0.875rem; color: var(--muted); }
+.hero-on-names { display: flex; gap: 0.4rem; }
+.hero-on-names span { white-space: nowrap; padding: 0.35rem 0.8rem; border-radius: var(--r-pill); background: var(--white); color: var(--ink); font-weight: 640; }
+
+/* Small laptops: a narrower column of words and a slimmer panel */
 @media (min-width: 64rem) and (max-width: 79.99rem) {
-  .hero { --panel-w: calc(var(--gutter) + 29rem + 2.5rem); --px: 50%; }
-  .hero-panel { padding-right: 2.5rem; }
-  .hero .hero-card { width: 16rem; }
+  .hero { --panel-w: calc(var(--gutter) + 25rem + 2rem); --find-w: 19.5rem; }
+  .hero-panel { padding-right: 2rem; }
   .hero .try-btn:nth-child(4) { display: none; }
+  .hero-on-label { display: none; }
 }
-/* Laptops with short screens: tighten the panel so the button stays on the first screen */
+/* Laptops with short screens: tighten so the button stays on the first screen */
 @media (min-width: 64rem) and (max-height: 50rem) {
   .hero-panel { gap: 1rem; }
-  .hero-search { min-height: 2.75rem; }
   .hero-lead { font-size: 1.25rem; }
-  .hero .try-btn { min-height: 2.5rem; padding-inline: 0.85rem; }
+  .hero-search { min-height: 2.75rem; }
+  .hero .try-btn { min-height: 2.35rem; }
+  .pc-actions { margin-top: 0.6rem; }
 }
 
-/* Phones and tablets: the map on top with the search floating on it, the words below */
+/* Phones and tablets: the words first, then the map with the panel resting on it */
 @media (max-width: 63.99rem) {
-  .hero { display: flex; flex-direction: column; min-height: 0; --u: 0.8px; --px: 30%; --py: 17.5rem; --mh: 26.5rem; }
-  .hero .hero-map { order: -1; height: var(--mh); }
-  .hero .hero-map::before { background: linear-gradient(to top, var(--paper) 0, rgba(246, 245, 243, 0) 22%); }
-  .hero-panel { padding: 1.75rem var(--margin) 2.5rem; }
-  .hero-find { top: 0.75rem; left: 0.75rem; width: calc(100% - 1.5rem); }
-  .maps-switch button { min-height: 2rem; padding: 0 0.8rem; font-size: 0.875rem; }
-  .hero .try-btn { flex: none; }
+  .hero { display: flex; flex-direction: column; min-height: 0; --u: 0.8px; --px: 50%; --py: 7.75rem; --mh: 35rem; }
+  .hero-panel { padding: 1.5rem var(--margin) 1.75rem; }
+  .hero .hero-map { position: relative; inset: auto; height: var(--mh); }
+  .hero .hero-map::before { background: linear-gradient(to bottom, var(--paper) 0, rgba(246, 245, 243, 0) 14%), linear-gradient(to top, var(--paper) 0, rgba(246, 245, 243, 0) 10%); }
+  .hero-find { left: var(--margin); right: var(--margin); top: auto; bottom: 3.25rem; translate: none; width: auto; max-width: 26rem; margin-inline: auto; }
   .hero .try { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -0.75rem; padding-inline: 0.75rem; }
-  .hero .hero-card { translate: 0 0; left: calc(var(--px) + 1.6rem); top: calc(var(--py) - 6.75rem); width: min(14.5rem, calc(100% - var(--px) - 2.4rem)); padding: 0.8rem 0.85rem 0.9rem; }
-  .pc-name { font-size: 1.0625rem; }
-  .pc-actions { margin-top: 0.6rem; }
-  .pc-ico { width: 2.1rem; height: 2.1rem; }
-  .map-label-far, .map-label-wide { display: none; }
+  .hero .try::-webkit-scrollbar { display: none; }
+  .hero .try-btn { flex: none; }
+  .hero-on { left: var(--margin); right: var(--margin); bottom: 0.6rem; justify-content: center; font-size: 0.8125rem; }
+  .hero-on-names span { padding: 0.25rem 0.65rem; }
+  .map-label-far, .map-label-wide, .map-label-water { display: none; }
   .map-label-narrow { display: block; }
-  .hero .hero-map .map-credit { display: none; }
-  .hero-credit-under { display: block; font-size: 0.8125rem; }
-  .hero .try-btn { min-height: 2.5rem; padding-inline: 0.85rem; font-size: 0.9375rem; }
   .promises { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 34rem; }
   .promises dt { font-size: 1.25rem; }
 }
 @media (max-width: 39.99rem) { .hero .actions .btn { flex: 1 1 100%; } }
+@media (max-width: 39.99rem) { .hero-on-label { display: none; } }
 @media (max-width: 26rem) { .hero .try-btn:nth-child(4) { display: none; } }
 @media (max-width: 22rem) { .hero .try-btn:nth-child(5) { display: none; } }
-@media (min-width: 40rem) and (max-width: 63.99rem) { .hero { --px: 40%; --py: 19rem; --mh: 30.5rem; --u: 0.95px; } }
+/* Tablets: the panel on the left of the map, the pin in the open space beside it */
+@media (min-width: 40rem) and (max-width: 63.99rem) {
+  .hero { --mh: 30rem; --u: 0.95px; --find-w: 21rem; --px: calc(var(--margin) + var(--find-w) + (100% - var(--margin) - var(--find-w)) * 0.5); --py: 46%; }
+  .hero-find { right: auto; width: var(--find-w); margin: 0; top: 46%; bottom: auto; translate: 0 -50%; }
+  .hero-on { justify-content: flex-end; }
+  .hero .try { flex-wrap: wrap; overflow: visible; margin-inline: 0; padding-inline: 0; }
+}
 
 .try { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .try[hidden] { display: none; }
@@ -412,7 +415,7 @@ p, li, dd, dt { text-wrap: pretty; }
   .hero-card.is-shown { transition: opacity 0.45s ease, transform 0.6s var(--ease); }
   .hero .map-pin.is-moving { opacity: 0; translate: -50% -190%; }
   .hero .map-ring.is-moving { opacity: 0; scale: 0.3; animation: none; }
-  .hero-card.is-shown.is-moving { opacity: 0; transform: translateY(0.4rem); transition-duration: 0.2s; }
+  .hero-card.is-shown.is-moving { opacity: 0.25; transform: translateY(0.25rem); transition-duration: 0.2s; }
   .map-pin.is-bounce { animation: pin-bounce 0.55s var(--ease-drop); }
   @keyframes pin-bounce { 0% { translate: -50% -150%; } 100% { translate: -50% -94%; } }
   @keyframes rise { from { opacity: 0; transform: translateY(1.25rem); } }

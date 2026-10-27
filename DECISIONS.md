@@ -176,3 +176,9 @@ Jeremy: the header, hero and map "does not look that great ... redo the entire t
 ## V14 map blends in (Oct 27, 2026)
 - **No box around the map.** The map's colors are softer (lighter buildings, no outlines, gentler roads) and it fades into the page on the left, top and bottom, so it reads as part of the page.
 - **Google Maps / Apple Maps switch** replaces the "What customers see on..." note. It shows the same listing laid out each app's way (Apple: a sheet with a grab handle and tile buttons). No Google or Apple logos.
+
+## V15 top half rebuilt (Oct 27, 2026)
+- **The map runs behind the whole top of the page** and fades out under the words, so the hero is one picture instead of text beside a box.
+- **One panel, like a maps app's results:** the search, the five trades and your listing sit together in a single white panel; the pin is on the map beside it. The Google/Apple switch is gone.
+- **"Where customers find you: Google Maps, Apple Maps"** sits at the bottom right of the map as plain names. The official logos aren't used: Google and Apple both require permission for their logos, and the names say the same thing.
+- **Phones and tablets:** the words come first, then the map with the panel resting on it.
