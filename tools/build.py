@@ -17,7 +17,7 @@ DOMAIN = 'firemarktech.com'   # the domain, no https://
 LAUNCHED = False              # True on launch day: removes the draft banner and the noindex tag from public pages
 HIDDEN = {'brand.html', '404.html', 'thanks.html'}   # these stay hidden from search engines even after launch
 PUBLIC = ['index.html', 'work.html', 'about.html', 'contact.html', 'privacy.html']   # listed in sitemap.xml
-VERSION = '10'                # bump when docs/css/site.css or docs/js/site.js change, so visitors get the new files
+VERSION = '11'                # bump when docs/css/site.css or docs/js/site.js change, so visitors get the new files
 
 # ---- Contact details: fill these in when they exist, then rebuild ------------------
 # Anything left empty is simply left off the site (no placeholder text is ever shown).
@@ -149,9 +149,13 @@ def site_list(sites, h='h3'):
     return '<ul class="site-list" role="list">\n' + '\n'.join(rows) + '\n      </ul>'
 
 
+# The homepage shows the whole traced area, sized and placed by CSS so the pin always sits on Main St
+map_full = mapsvg.replace('class="map-art"', 'class="map-art hero-art"').replace('viewBox="164 72 1200 720" preserveAspectRatio="xMidYMid slice"', 'viewBox="0 0 1600 900"')
+
+
 def fill(html):
     """Fills the shared {{...}} slots used by the homepage and the inner pages."""
-    return (html.replace('{{SPRITE}}', sprite).replace('{{FORM}}', form).replace('{{MAP}}', mapsvg)
+    return (html.replace('{{SPRITE}}', sprite).replace('{{FORM}}', form).replace('{{MAP}}', mapsvg).replace('{{MAP_FULL}}', map_full)
             .replace('{{V}}', VERSION).replace('{{NAV_REACH}}', nav_reach()).replace('{{REACH_LINE}}', reach_line())
             .replace('{{REACH_LIST}}', reach_list()).replace('{{PERSON}}', person()).replace('{{LD_CONTACT}}', ld_contact()))
 
@@ -206,7 +210,7 @@ HEAD = '''<!doctype html>
 def page(file, title, desc, h1, lead, body, banner='Draft preview. Not yet public.', current=None, head_extra='', body_class='inner', head_class=''):
     h = header
     if current:
-        h = h.replace(f'href="{current}"', f'href="{current}" aria-current="page"', 1)
+        h = h.replace(f'<li><a href="{current}"', f'<li><a href="{current}" aria-current="page"', 1)
     canonical = '' if file == '404.html' else f'<link rel="canonical" href="https://firemarktech.com/{file}">'
     html = HEAD.format(title=title, desc=desc, canonical=canonical, sprite=sprite, banner=banner, v=VERSION, body=body_class)
     html += h + f'''

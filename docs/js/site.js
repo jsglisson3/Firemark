@@ -1,4 +1,4 @@
-/* Firemark site script (v10). Small, dependency-free, progressive: the page is complete without it. */
+/* Firemark site script (v11). Small, dependency-free, progressive: the page is complete without it. */
 (function () {
   'use strict';
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -40,34 +40,29 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* The one big moment: the map opens from the top, the search types in, the pin drops onto Main St at S Colony Blvd,
-     the glow opens and your business appears as the result. Runs once. With reduced motion (or no JavaScript)
-     the finished picture shows immediately. */
+  /* The one big moment: the search types in, the pin drops onto Main St at S Colony Blvd, the glow opens and your
+     business appears on the map. Runs once. With reduced motion (or no JavaScript) the finished picture shows immediately. */
   var hero = document.querySelector('[data-hero]');
-  var band = hero && hero.querySelector('.map-band');
-  var card = hero && hero.querySelector('.place-card');
+  var card = hero && hero.querySelector('.hero-card');
   var q = hero && hero.querySelector('[data-q]');
   var shop = hero && hero.querySelector('[data-name]');
   var pin = hero && hero.querySelector('.map-pin');
   var typeTimers = [];
   var typeQuery = function (text, start, done) {
     typeTimers.forEach(clearTimeout); typeTimers = [];
-    q.textContent = ''; card.classList.add('is-typing');
+    q.textContent = ''; hero.classList.add('is-typing');
     for (var i = 1; i <= text.length; i++) {
       (function (n) { typeTimers.push(setTimeout(function () { q.textContent = text.slice(0, n); }, start + n * 45)); })(i);
     }
-    typeTimers.push(setTimeout(function () { card.classList.remove('is-typing'); if (done) done(); }, start + text.length * 45 + 150));
+    typeTimers.push(setTimeout(function () { hero.classList.remove('is-typing'); if (done) done(); }, start + text.length * 45 + 150));
   };
-  if (hero && !reduceMotion) {
-    var ring = hero.querySelector('.map-ring');
-    var show = function (el, cls) { if (el) el.classList.add(cls || 'is-shown'); };
-    var query = q ? q.textContent : '';
-    requestAnimationFrame(function () { requestAnimationFrame(function () { show(band, 'is-open'); }); });
-    setTimeout(function () { show(card); }, 650);
-    typeQuery(query, 850, function () {
+  var ring = hero && hero.querySelector('.map-ring');
+  var show = function (el) { if (el) el.classList.add('is-shown'); };
+  if (hero && q && !reduceMotion) {
+    typeQuery(q.textContent, 500, function () {
       show(pin);
       setTimeout(function () { show(ring); }, 250);
-      setTimeout(function () { show(card, 'is-found'); }, 450);
+      setTimeout(function () { show(card); }, 450);
     });
   }
 
@@ -81,7 +76,8 @@
         Array.prototype.forEach.call(buttons, function (o) { o.setAttribute('aria-pressed', String(o === b)); });
         var text = b.getAttribute('data-trade') + ' near me';
         if (reduceMotion) { q.textContent = text; shop.textContent = b.getAttribute('data-shop'); return; }
-        card.classList.add('is-shown', 'is-found', 'is-swapping');
+        [pin, ring, card].forEach(show);
+        card.classList.add('is-swapping');
         typeQuery(text, 0, function () {
           shop.textContent = b.getAttribute('data-shop');
           card.classList.remove('is-swapping');
