@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=15">
+  <link rel="stylesheet" href="css/site.css?v=16">
 </head>
 <body class="inner">
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -54,7 +54,7 @@
   <header class="site-header" data-header>
     <div class="wrap header-inner">
       <a class="brand" href="index.html"><img src="images/brand/firemark-logo.svg" alt="Firemark home" width="176" height="36"></a>
-      <a class="btn btn-small header-cta for-phone" href="contact.html">Free check</a>
+      <a class="btn btn-small header-cta for-phone" href="contact.html">Get my report</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
         <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="menu-word" data-menu-label>Menu</span>
       </button>
@@ -66,28 +66,28 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-sheet-foot">
-          <a class="btn nav-cta" href="contact.html">Get my free check</a>
+          <a class="btn nav-cta" href="contact.html">Request my report</a>
           
           <p class="nav-place">The Colony, Texas</p>
         </div>
       </nav>
-      <a class="btn btn-small header-cta for-desktop" href="contact.html">Get my free check</a>
+      <a class="btn btn-small header-cta for-desktop" href="contact.html">Get my report</a>
     </div>
   </header>
 
   <main id="main">
     <div class="wrap page-head page-head-split">
       <h1>Privacy</h1>
-      <p class="lead">The short version: Firemark only collects what you send, and only uses it to do your free check and reply to you.</p>
+      <p class="lead">The short version: Firemark only collects what you send, and only uses it to prepare your report and reply to you.</p>
     </div>
     <section class="section section-tight" aria-label="Privacy details">
       <div class="wrap">
         <div class="prose">
-          <section><h2>What Firemark collects</h2><p>Only what you send. When you fill out the free check form, that’s your name, your business name, your email and anything else you choose to add, like a phone number, a link or a note.</p></section>
-          <section><h2>How it’s used</h2><p>To reply to you and do your free check. That’s it. Your details aren’t sold or shared for marketing, and you won’t be added to a mailing list.</p></section>
+          <section><h2>What Firemark collects</h2><p>Only what you send. When you fill out the report request form, that’s your name, your business name, your email and anything else you choose to add, like a phone number, a link or a note.</p></section>
+          <section><h2>How it’s used</h2><p>To reply to you and prepare your report. That’s it. Your details aren’t sold or shared for marketing, and you won’t be added to a mailing list.</p></section>
           <section><h2>Where it’s kept</h2><p>The form is delivered by Web3Forms, a form service, which passes your message on to Firemark’s email. What Web3Forms itself keeps is covered by the privacy policy on <a href="https://web3forms.com/">web3forms.com</a>. If the form opens your email app instead, your message goes straight from your email to Firemark.</p></section>
           <section><h2>Hosting</h2><p>The site is hosted on GitHub Pages. Like most web hosts, GitHub keeps basic technical logs, such as IP addresses, to keep the service secure. This site uses no cookies, ads or tracking.</p></section>
-          <section><h2>Deleting your details</h2><p>Ask through the <a href="contact.html">free check form</a>, or reply to any email from Jeremy. Anything Firemark has from you will be deleted.</p></section>
+          <section><h2>Deleting your details</h2><p>Ask through the <a href="contact.html">report request form</a>, or reply to any email from Jeremy. Anything Firemark has from you will be deleted.</p></section>
           <section><h2>Changes</h2><p>If this page changes, the date below changes too. Last updated October&nbsp;27, 2026.</p></section>
         </div>
       </div>
@@ -98,32 +98,38 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36" loading="lazy">
+          <a class="footer-logo" href="index.html"><img src="images/brand/firemark-logo.svg" alt="Firemark home" width="176" height="36" loading="lazy"></a>
           <p>Websites and Google listings for independent businesses. Based in The Colony, Texas, working across <span class="nb">Dallas–Fort Worth</span>.</p>
+          <p class="footer-sign">Firemark is Jeremy. Small on purpose.</p>
         </div>
         <div class="footer-col">
           <h2 class="footer-h">Get in touch</h2>
-          <ul class="reach-list" role="list"><li><a href="contact.html">Send a note with the free check form</a></li></ul>
+          <p class="footer-cta"><a class="btn btn-small" href="#report">Request my report</a></p>
+          
           <p class="footer-reply">You’ll hear back within 5 days.</p>
         </div>
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Footer">
           <h2 class="footer-h">Explore</h2>
           <ul class="footer-links" role="list">
             <li><a href="work.html">Work</a></li>
             <li><a href="index.html#offer">What you get</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Free check</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="contact.html">Visibility report</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
-      <div class="footer-base">
-        <p>© <span data-year>2026</span> Firemark. Made in The Colony, Texas.</p>
-        <p><a href="#main">Back to top</a></p>
+    </div>
+    <div class="footer-base">
+      <div class="wrap footer-base-inner">
+        <p>© <span data-year>2026</span> Firemark · Made in The Colony, Texas</p>
+        <ul class="footer-legal" role="list">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a class="to-top" href="#main">Back to top<svg class="icon icon-up" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        </ul>
       </div>
     </div>
   </footer>
 
-  <script src="js/site.js?v=15" defer></script>
+  <script src="js/site.js?v=16" defer></script>
 </body>
 </html>

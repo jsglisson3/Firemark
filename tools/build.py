@@ -3,7 +3,7 @@
 Sources live in src/ (not published):
   src/index.html            homepage template ({{...}} slots are filled in below)
   src/partials/sprite.html  icons and the Firemark pin
-  src/partials/form.html    the free check form (homepage and contact page)
+  src/partials/form.html    the report request form (homepage and contact page)
   docs/images/map/the-colony.svg  the street map (homepage, 404, thanks), drawn from OpenStreetMap by
                             design-system/firemark/map-source/render_full.py
   src/pages.py              content for the inner pages
@@ -18,11 +18,11 @@ DOMAIN = 'firemarktech.com'   # the domain, no https://
 LAUNCHED = False              # True on launch day: removes the draft banner and the noindex tag from public pages
 HIDDEN = {'brand.html', '404.html', 'thanks.html'}   # these stay hidden from search engines even after launch
 PUBLIC = ['index.html', 'work.html', 'about.html', 'contact.html', 'privacy.html']   # listed in sitemap.xml
-VERSION = '15'                # bump when docs/css/site.css or docs/js/site.js change, so visitors get the new files
+VERSION = '16'                # bump when docs/css/site.css or docs/js/site.js change, so visitors get the new files
 
 # ---- Contact details: fill these in when they exist, then rebuild ------------------
 # Anything left empty is simply left off the site (no placeholder text is ever shown).
-# The free check form is always there, so people can always reach you.
+# The report request form is always there, so people can always reach you.
 EMAIL = ''                    # e.g. 'hello@firemarktech.com'  (shows in the menu, closing section, footer, contact page)
 PHONE = ''                    # e.g. '(469) 555-0123'          (same places; tap to call on phones)
 BOOKING_URL = ''              # e.g. a Cal.com or Calendly link for "Book a 15-minute call"
@@ -76,7 +76,7 @@ def reach_list(cls='reach-list'):
     """Email, phone and booking as a list, for the footer and the contact page."""
     items = [f'<li>{x}</li>' for x in (EMAIL_LINK, PHONE_LINK, BOOKING_LINK) if x]
     if not items:
-        items = ['<li><a href="contact.html">Send a note with the free check form</a></li>']
+        return ''   # the footer's button covers it until there is an email or phone
     return f'<ul class="{cls}" role="list">' + ''.join(items) + '</ul>'
 
 
@@ -163,7 +163,7 @@ print('built index.html')
 # 2) Shared header and footer for inner pages, with links pointed at real pages
 header = re.search(r'  <header class="site-header".*?</header>\n', home, re.S).group(0)
 footer = re.search(r'  <footer class="site-footer">.*?</footer>\n', home, re.S).group(0)
-for a, b in [('href="#work"', 'href="work.html"'), ('href="#offer"', 'href="index.html#offer"'), ('href="#check"', 'href="contact.html"')]:
+for a, b in [('href="#work"', 'href="work.html"'), ('href="#offer"', 'href="index.html#offer"'), ('href="#report"', 'href="contact.html"')]:
     header = header.replace(a, b)
 
 HEAD = '''<!doctype html>

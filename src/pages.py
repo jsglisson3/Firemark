@@ -1,6 +1,6 @@
 """Content for the inner pages. tools/build.py runs this file and provides:
    page(file, title, desc, h1, lead, body, banner=..., current=None, head_extra='', body_class='inner')  writes docs/<file>
-   form, SITES, site_list(sites, h)        the free check form and the Work list (src/sites.py)
+   form, SITES, site_list(sites, h)        the report request form and the Work list (src/sites.py)
    person(), reach_line(), reach_list()    Jeremy's card and the contact lines, from the settings in tools/build.py
    CONTACT                                 {'email', 'phone', 'booking'} links, or '' while not set
 Voice: brand first ("Firemark does..."), never "we", Jeremy by first name only.
@@ -32,7 +32,7 @@ def cta_band(hid, heading):
             {steps(3)}
           </div>
           <div class="closing-act" data-reveal>
-            <a class="btn btn-wide" href="contact.html">Get my free check</a>
+            <a class="btn btn-wide" href="contact.html">Request my report</a>
             <p class="form-fine">No payment, no account. You'll hear back within 5 days.</p>
             {person()}
             {reach_line()}
@@ -76,7 +76,7 @@ about_body = f'''    <section class="section section-tight about-who" aria-label
         </div>
         <div class="about-text" data-reveal>
           <h2 id="who-h" class="small-h">Who you'll work with</h2>
-          <p class="statement">Firemark is Jeremy. He lives here in The Colony, and he's the only person you'll deal with, from the free check to the small edit you send two years from now.</p>
+          <p class="statement">Firemark is Jeremy. He lives here in The Colony, and he's the only person you'll deal with, from your first report to the small edit you send two years from now.</p>
           <p>He has spent more than 10 years in IT and online sales: leading a team of developers, testers and analysts, running large online ordering channels, and connecting the systems behind big businesses. Today he's a lead analyst for supply chain systems.</p>
           <p>Before any of that, he sold advertising to local businesses in college, walking into dozens of shops a day. That's where he learned how busy an owner's day is, and how little patience there is for jargon. Firemark brings big-business know-how to the business down the street, one at a time.</p>
         </div>
@@ -125,7 +125,7 @@ page('about.html', 'About | Firemark',
      about_body, current='about.html', head_class='page-head-split')
 
 
-# ---------------------------------------------------------------- Contact (the free check)
+# ---------------------------------------------------------------- Contact (the Local Visibility Report)
 
 ways = [x for x in (CONTACT['email'], CONTACT['phone'], CONTACT['booking']) if x]
 if ways:
@@ -134,11 +134,11 @@ else:
     other = '<h2 class="small-h">Just have a question?</h2>\n        <p>Put it in the note on the form. You don\'t need a website or a listing yet, and you\'ll hear back within 5 days.</p>'
 
 FAQ = [
-    ('What does the free check cost?', 'Nothing. No payment, no account, and nothing to buy afterwards. The report is yours to keep.'),
+    ('What does the report cost?', 'Nothing. No payment, no account, and nothing to buy afterwards. The report is yours to keep.'),
     ('I already have a Facebook page. Isn\'t that enough?', 'Facebook is great for staying in touch with people who already know you. When someone searches Google or Maps for what you do, a website and a Google listing are what show up.'),
-    ('I already have a website. Can Firemark help?', 'Start with the free check. You\'ll get an honest read on whether it\'s working or whether a fresh start makes more sense.'),
+    ('I already have a website. Can Firemark help?', 'Start with a Local Visibility Report. You\'ll get an honest read on whether it\'s working or whether a fresh start makes more sense.'),
     ('How long does a website take?', 'Most starter websites go live about 45 days after you give the go-ahead.'),
-    ('What does it cost?', 'It depends on what your business needs, so the price comes after the free check, in writing, before anything starts.'),
+    ('What does a website cost?', 'It depends on what your business needs, so the price comes after your report, in writing, before anything starts.'),
     ('Who owns the website?', 'You do. Your domain is registered in your name, and your content is yours to keep. Once your site is live, Firemark may show it as an example of recent work.'),
     ('What area do you cover?', 'Firemark is based in The Colony and works with independent businesses across Dallas–Fort Worth.'),
 ]
@@ -147,7 +147,7 @@ faq_html = '\n'.join(f'''          <details>
             <p>{a}</p>
           </details>''' for q, a in FAQ)
 
-contact_body = f'''    <section class="section section-tight" aria-label="Free check form">
+contact_body = f'''    <section class="section section-tight" aria-label="Report request form">
       <div class="wrap contact-grid">
 {form}
         <div class="contact-aside">
@@ -155,7 +155,7 @@ contact_body = f'''    <section class="section section-tight" aria-label="Free c
           {steps(3)}
           <figure class="report report-mini" data-reveal>
             <div class="report-page" data-ui>
-              <div class="report-head"><svg class="report-mark" viewBox="11.5 -0.5 77 119" aria-hidden="true" focusable="false"><use href="#fm-mark"/></svg><span class="report-brand">Firemark</span><span class="report-kind">Free check</span></div>
+              <div class="report-head"><svg class="report-mark" viewBox="11.5 -0.5 77 119" aria-hidden="true" focusable="false"><use href="#fm-mark"/></svg><span class="report-brand">Firemark</span><span class="report-kind">Local Visibility Report</span></div>
               <p class="report-title">Can customers find you?</p>
               <div class="report-block">
                 <p class="report-h">What a customer sees when they search</p>
@@ -185,19 +185,19 @@ contact_body = f'''    <section class="section section-tight" aria-label="Free c
       </div>
     </section>'''
 
-page('contact.html', 'Get your free check | Firemark',
-     'Request a free, plain-English check of how your business shows up on Google. Firemark, The Colony, Texas.',
-     'Get your free check.',
-     'Tell Jeremy about your business. Within 7 days you\'ll know how it shows up on Google: where you appear, what\'s working and what to fix first.',
+page('contact.html', 'Request your Local Visibility Report | Firemark',
+     'Request a Local Visibility Report: a plain-English review of how your business shows up on Google, Maps and the web, at no cost. Firemark, The Colony, Texas.',
+     'Get your Local Visibility Report.',
+     'Tell Jeremy about your business. Within 7 days you get a written review of how it shows up on Google and Maps: where you appear, what\'s working and what to fix first. No cost, and it\'s yours to keep.',
      contact_body, current='contact.html')
 
 
 # ---------------------------------------------------------------- Privacy
 
-delete_how = (f'Email {CONTACT["email"]} and ask' if CONTACT['email'] else 'Ask through the <a href="contact.html">free check form</a>, or reply to any email from Jeremy')
+delete_how = (f'Email {CONTACT["email"]} and ask' if CONTACT['email'] else 'Ask through the <a href="contact.html">report request form</a>, or reply to any email from Jeremy')
 privacy_sections = [
-    ('What Firemark collects', '<p>Only what you send. When you fill out the free check form, that\'s your name, your business name, your email and anything else you choose to add, like a phone number, a link or a note.</p>'),
-    ('How it\'s used', '<p>To reply to you and do your free check. That\'s it. Your details aren\'t sold or shared for marketing, and you won\'t be added to a mailing list.</p>'),
+    ('What Firemark collects', '<p>Only what you send. When you fill out the report request form, that\'s your name, your business name, your email and anything else you choose to add, like a phone number, a link or a note.</p>'),
+    ('How it\'s used', '<p>To reply to you and prepare your report. That\'s it. Your details aren\'t sold or shared for marketing, and you won\'t be added to a mailing list.</p>'),
     ('Where it\'s kept', '<p>The form is delivered by Web3Forms, a form service, which passes your message on to Firemark\'s email. What Web3Forms itself keeps is covered by the privacy policy on <a href="https://web3forms.com/">web3forms.com</a>. If the form opens your email app instead, your message goes straight from your email to Firemark.</p>'),
     ('Hosting', '<p>The site is hosted on GitHub Pages. Like most web hosts, GitHub keeps basic technical logs, such as IP addresses, to keep the service secure. This site uses no cookies, ads or tracking.</p>'),
     ('Deleting your details', f'<p>{delete_how}. Anything Firemark has from you will be deleted.</p>'),
@@ -214,7 +214,7 @@ privacy_body = '''    <section class="section section-tight" aria-label="Privacy
 page('privacy.html', 'Privacy | Firemark',
      'What Firemark collects through this website and what happens to it.',
      'Privacy',
-     'The short version: Firemark only collects what you send, and only uses it to do your free check and reply to you.',
+     'The short version: Firemark only collects what you send, and only uses it to prepare your report and reply to you.',
      privacy_body, head_class='page-head-split')
 
 
@@ -238,7 +238,7 @@ lost_body = map_band('''<nav class="place-card place-card-lost" data-ui aria-lab
             <div class="pc-result">
               <div class="pc-top"><b>No results on this street</b></div>
               <span class="pc-meta">Try one of these instead:</span>
-              <ul class="chips" role="list"><li><a class="chip" href="index.html">Home</a></li><li><a class="chip" href="work.html">Work</a></li><li><a class="chip" href="about.html">About</a></li><li><a class="chip" href="contact.html">Free check</a></li></ul>
+              <ul class="chips" role="list"><li><a class="chip" href="index.html">Home</a></li><li><a class="chip" href="work.html">Work</a></li><li><a class="chip" href="about.html">About</a></li><li><a class="chip" href="contact.html">Visibility report</a></li></ul>
             </div>
           </nav>''', pin=False, label='A street map of The Colony with an empty spot where the page should be')
 
@@ -259,8 +259,8 @@ thanks_body = map_band('''<div class="place-card" data-ui>
             </div>
           </div>''', label='The street map with the Firemark pin and a card that says your request was received')
 
-page('thanks.html', 'Thanks | Firemark', 'Your free check request is in.',
-     'Thanks. Your free check is on its way.',
+page('thanks.html', 'Thanks | Firemark', 'Your report request is in.',
+     'Thanks. Your report request is in.',
      'Jeremy will look up how your business shows up on Google and email you a short written report within 7 days.',
      thanks_body)
 
@@ -360,7 +360,7 @@ brand_body = f'''    <section class="wrap brand-block" aria-labelledby="b-logo">
             <h3>Say it like this</h3>
             <ul class="rules">
               <li>{CHECK}<span>Firemark builds websites and Google listings for independent businesses in The Colony.</span></li>
-              <li>{CHECK}<span>Get my free check</span></li>
+              <li>{CHECK}<span>Request my report</span></li>
               <li>{CHECK}<span>Your site goes live, your listing is right, and the monthly plan keeps it that way.</span></li>
             </ul>
           </div>

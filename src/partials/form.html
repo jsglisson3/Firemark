@@ -2,11 +2,11 @@
           <form class="check-form" method="post" action="https://api.web3forms.com/submit" novalidate data-check-form data-fallback-email="{{FALLBACK_EMAIL}}" aria-labelledby="form-h">
             <!-- Web3Forms: the access key comes from WEB3FORMS_KEY in tools/build.py. While it is empty, the form opens a pre-filled email instead, so nothing is lost. -->
             <input type="hidden" name="access_key" value="{{WEB3FORMS_KEY}}" data-access-key>
-            <input type="hidden" name="subject" value="Free check request from the Firemark website" data-subject>
+            <input type="hidden" name="subject" value="Local Visibility Report request from the Firemark website" data-subject>
             <input type="hidden" name="from_name" value="Firemark website">
             <input type="hidden" name="redirect" value="https://firemarktech.com/thanks.html">
             <input type="checkbox" name="botcheck" class="bot-field" tabindex="-1" aria-hidden="true">
-            <p class="form-h" id="form-h">Ask for your free check</p>
+            <p class="form-h" id="form-h">Request your report</p>
             <div class="error-summary" role="alert" tabindex="-1" aria-labelledby="err-h" data-error-summary hidden>
               <p class="error-h" id="err-h" data-error-title>Two quick fixes and it's ready to send:</p>
               <ul></ul>
@@ -44,7 +44,7 @@
               <div class="field field-full">
                 <label for="f-site">Your website or Google listing <span class="opt">(optional)</span></label>
                 <input id="f-site" name="site" type="text" inputmode="url" autocomplete="url" aria-describedby="f-site-hint">
-                <span class="hint" id="f-site-hint">Paste a link if you have one. No link is fine too. That's what the check is for.</span>
+                <span class="hint" id="f-site-hint">Paste a link if you have one. No link is fine too. That's what the report is for.</span>
               </div>
               <div class="field field-full">
                 <label for="f-note">Anything Jeremy should know? <span class="opt">(optional)</span></label>
@@ -56,8 +56,8 @@
               </div>
             </div>
             <div class="form-actions">
-              <button class="btn btn-wide" type="submit">Get my free check</button>
-              <p class="form-fine">No payment, no account. You'll hear back within 5 days, and your report arrives within 7. Your details are only used for your check and to reply to you (<a href="privacy.html">privacy</a>).</p>
+              <button class="btn btn-wide" type="submit">Request my report</button>
+              <p class="form-fine">No payment, no account. You'll hear back within 5 days, and your report arrives within 7. Your details are only used for your report and to reply to you (<a href="privacy.html">privacy</a>).</p>
               <p class="form-status" role="status" aria-live="polite" tabindex="-1" data-form-status></p>
             </div>
           </form>

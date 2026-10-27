@@ -132,7 +132,7 @@
     document.documentElement.classList.add('rv-ready');
   }
 
-  /* Free check form.
+  /* Report request form.
      Baymard: mark required and optional fields, validate when a field is left (not while typing),
      clear an error as soon as it's fixed, confirm valid fields, and still check everything on submit.
      UI UX Pro Max: on a failed submit, show a focusable error summary that links to each field. */
@@ -245,7 +245,7 @@
       var keyField = form.querySelector('[data-access-key]');
       var endpoint = keyField && keyField.value.trim() ? form.getAttribute('action') : '';
       var subjectField = form.querySelector('[data-subject]');
-      if (subjectField) subjectField.value = 'Free check request from ' + form.elements.business.value.trim();
+      if (subjectField) subjectField.value = 'Local Visibility Report request from ' + form.elements.business.value.trim();
       var data = new FormData(form);
       var fallback = form.getAttribute('data-fallback-email');
       var button = form.querySelector('button[type="submit"]');
@@ -264,7 +264,7 @@
         data.get('note') || ''
       ];
       var href = 'mailto:' + fallback +
-        '?subject=' + encodeURIComponent('Free check request: ' + data.get('business')) +
+        '?subject=' + encodeURIComponent('Local Visibility Report request: ' + data.get('business')) +
         '&body=' + encodeURIComponent(lines.join('\n'));
       var showEmailOption = function (lead) {
         status.textContent = '';
@@ -284,7 +284,7 @@
             form.reset();
             form.querySelectorAll('.is-valid').forEach(function (f) { f.classList.remove('is-valid'); });
             form.classList.add('is-sent');
-            status.textContent = 'Thanks, ' + firstName + '. Your free check is on its way. Jeremy will email it to ' + emailTo + ' within 7 days.';
+            status.textContent = 'Thanks, ' + firstName + '. Your report request is in. Jeremy will email it to ' + emailTo + ' within 7 days.';
             status.focus();
           })
           .catch(function () { showEmailOption('That didn\u2019t send.'); })
