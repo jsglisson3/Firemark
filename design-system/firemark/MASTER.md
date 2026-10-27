@@ -4,6 +4,18 @@ The single source of truth for how Firemark looks and behaves. Built with the UI
 
 UI UX Pro Max's default suggestion for this query was green and orange with Inter. It was rejected as a generic default. Its structural rules (funnel pattern, local-service map, accessibility, forms) were kept.
 
+## v10 changes (Oct 27, 2026). These win where the older sections below disagree
+- **Idea:** the map is in the headline. A word-sized tile of the real Main St and S Colony Blvd corner, with the pin, sits after "Put your business"; the full map band opens under the headline and types a search, drops the pin and shows the listing card. "Try it with your trade" retypes it (the one interactive thing). Below 40rem the tile hides.
+- **Radius:** one quiet 8px radius on panels, cards, inputs and the work frames; full pill on buttons and chips. The 28/18/14 hierarchy is retired.
+- **Type scale:** display `clamp(2.4rem, 0.9rem + 6.6vw, 7rem)`, h2 `clamp(2rem, 1.25rem + 3.1vw, 3.75rem)`, lead `clamp(1.25rem, 1.05rem + 0.75vw, 1.75rem)`, body 1.125rem, small 0.9375rem.
+- **Space:** page margin `clamp(1.25rem, 0.4rem + 3.6vw, 3.5rem)`, max width 88rem, section gap `clamp(5rem, 2.5rem + 8vw, 10rem)`.
+- **Primary button:** Ember pill, white text, no dot. Secondary is an underlined text link with an arrow.
+- **Shadows:** none, except the two interface pieces (map listing card, phone menu sheet). The phone frames in Work use an ink bezel, not a shadow.
+- **Motion:** one hero sequence, plus a light staggered reveal of section parts (opt-in: only when reduced motion is off and the script runs).
+- **Contact pieces** render only when set in `tools/build.py`. No placeholder text, ever; the build refuses `[PLACEHOLDER` and `[CONFIRM`.
+- **Form:** labels say "(required)" or "(optional)" in words; "What would help most?" pick list (checkbox pills with a square box); error summary title counts the fixes.
+- **Homepage order:** hero map, sample report, recent work, offer (Stone field), one person Q&A, closing form. The name story lives on About only.
+
 ## Pattern
 - **Funnel: problem, then solution, then action**, with a small call to action at each stop and one main CTA: **Get my free check**.
 - **Trust path:** credibility (who, where), then proof (real work), then a clear way to reach out. No fake reviews, logos or stats.
@@ -72,4 +84,4 @@ Last run Oct 26, 2026 on every page.
 - [x] Reduced motion respected; hero shows its final state
 - [x] Images have width and height, WebP, and lazy loading below the fold
 - [x] Lighthouse on a phone: performance 99–100, accessibility 100, best practices 100; SEO 100 without the draft noindex
-- [x] Every claim true; every unknown marked [PLACEHOLDER] or [CONFIRM] (listed in PICKUP.md)
+- [x] Every claim true; unknowns are left off the page and listed in REVIEW-v10.md (v10)

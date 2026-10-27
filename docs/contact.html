@@ -22,9 +22,9 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=9">
+  <link rel="stylesheet" href="css/site.css?v=10">
 </head>
-<body>
+<body class="inner">
   <a class="skip-link" href="#main">Skip to main content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
@@ -49,80 +49,90 @@
     </defs>
   </svg>
 
-  <aside class="draft-banner" aria-label="Draft notice">Draft preview. Contact details are placeholders until launch.</aside>
+  <aside class="draft-banner" aria-label="Draft notice">Draft preview. Not yet public.</aside>
 
   <header class="site-header" data-header>
     <div class="wrap header-inner">
       <a class="brand" href="index.html"><img src="images/brand/firemark-logo.svg" alt="Firemark home" width="176" height="36"></a>
-      <a class="btn btn-flame btn-small header-cta for-phone" href="contact.html" aria-current="page"><span class="cta-long">Get my free check</span><span class="cta-short">Free check</span></a>
+      <a class="btn btn-small header-cta for-phone" href="contact.html" aria-current="page">Free check</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
-        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg> <span data-menu-label>Menu</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="menu-word" data-menu-label>Menu</span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
-        <ul class="nav-list">
+        <ul class="nav-list" role="list">
           <li><a href="work.html">Work</a></li>
           <li><a href="index.html#offer">What you get</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
         <div class="nav-sheet-foot">
-          <a class="btn btn-flame nav-cta" href="contact.html">Get my free check</a>
-          <p class="nav-reach"><span class="ph">[PLACEHOLDER: email]</span><span class="nav-sep" aria-hidden="true"></span><span class="ph">[PLACEHOLDER: phone]</span></p>
+          <a class="btn nav-cta" href="contact.html">Get my free check</a>
+          
           <p class="nav-place">The Colony, Texas</p>
         </div>
       </nav>
       <p class="header-place">The Colony, Texas</p>
-      <a class="btn btn-flame btn-small header-cta for-desktop" href="contact.html"><span class="cta-long">Get my free check</span><span class="cta-short">Free check</span></a>
+      <a class="btn btn-small header-cta for-desktop" href="contact.html">Get my free check</a>
     </div>
   </header>
 
   <main id="main">
     <div class="wrap page-head">
       <h1>Get your free check.</h1>
-      <p class="lead">Tell Firemark about your business. Within 7 days you’ll know how it shows up on Google: where you appear, what’s working and what to fix first.</p>
+      <p class="lead">Tell Jeremy about your business. Within 7 days you’ll know how it shows up on Google: where you appear, what’s working and what to fix first.</p>
     </div>
-    <div class="wrap contact contact-page">
-<div class="surface">
-          <form class="check-form" method="post" action="https://api.web3forms.com/submit" novalidate data-check-form data-fallback-email="hello@firemarktech.com">
-            <!-- Web3Forms (chosen Oct 27, 2026): paste your access key below, rebuild, and the form sends to the address on your Web3Forms account.
-                 Until then the form opens a pre-filled email instead, so nothing is lost. -->
-            <input type="hidden" name="access_key" value="[PLACEHOLDER: Web3Forms access key]" data-access-key>
+    <section class="section section-tight" aria-label="Free check form">
+      <div class="wrap contact-grid">
+<div class="form-card" data-reveal>
+          <form class="check-form" method="post" action="https://api.web3forms.com/submit" novalidate data-check-form data-fallback-email="hello@firemarktech.com" aria-labelledby="form-h">
+            <!-- Web3Forms: the access key comes from WEB3FORMS_KEY in tools/build.py. While it is empty, the form opens a pre-filled email instead, so nothing is lost. -->
+            <input type="hidden" name="access_key" value="" data-access-key>
             <input type="hidden" name="subject" value="Free check request from the Firemark website" data-subject>
             <input type="hidden" name="from_name" value="Firemark website">
             <input type="hidden" name="redirect" value="https://firemarktech.com/thanks.html">
-            <input type="checkbox" name="botcheck" class="bot-field" tabindex="-1" aria-hidden="true" autocomplete="off">
+            <input type="checkbox" name="botcheck" class="bot-field" tabindex="-1" aria-hidden="true">
+            <p class="form-h" id="form-h">Ask for your free check</p>
             <div class="error-summary" role="alert" tabindex="-1" aria-labelledby="err-h" data-error-summary hidden>
-              <h2 id="err-h">Fix these to send your request</h2>
+              <p class="error-h" id="err-h" data-error-title>Two quick fixes and it’s ready to send:</p>
               <ul></ul>
             </div>
-            <p class="form-fine form-req">Fields marked <span aria-hidden="true">*</span> are required.</p>
             <div class="form-grid">
               <div class="field">
-                <label for="f-name">Your name<span class="req" aria-hidden="true">*</span><span class="visually-hidden"> (required)</span></label>
+                <label for="f-name">Your name <span class="req">(required)</span></label>
                 <input id="f-name" name="name" type="text" autocomplete="name" required>
                 <svg class="valid-mark" aria-hidden="true"><use href="#i-check-circle"/></svg>
               </div>
               <div class="field">
-                <label for="f-business">Business name<span class="req" aria-hidden="true">*</span><span class="visually-hidden"> (required)</span></label>
+                <label for="f-business">Business name <span class="req">(required)</span></label>
                 <input id="f-business" name="business" type="text" autocomplete="organization" required>
                 <svg class="valid-mark" aria-hidden="true"><use href="#i-check-circle"/></svg>
               </div>
               <div class="field">
-                <label for="f-email">Email<span class="req" aria-hidden="true">*</span><span class="visually-hidden"> (required)</span></label>
-                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+                <label for="f-email">Email <span class="req">(required)</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-hint">
+                <span class="hint" id="f-email-hint">Your report is sent here.</span>
                 <svg class="valid-mark" aria-hidden="true"><use href="#i-check-circle"/></svg>
               </div>
               <div class="field">
                 <label for="f-phone">Phone <span class="opt">(optional)</span></label>
                 <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
               </div>
+              <fieldset class="field field-full help-pick">
+                <legend>What would help most? <span class="opt">(optional, pick any)</span></legend>
+                <div class="pick-list">
+                  <label class="pick"><input type="checkbox" name="help_website" value="Yes"><span>A website</span></label>
+                  <label class="pick"><input type="checkbox" name="help_listing" value="Yes"><span>My Google listing</span></label>
+                  <label class="pick"><input type="checkbox" name="help_email" value="Yes"><span>Email at my own name</span></label>
+                  <label class="pick"><input type="checkbox" name="help_unsure" value="Yes"><span>Not sure yet</span></label>
+                </div>
+              </fieldset>
               <div class="field field-full">
-                <label for="f-site">Website or Google listing <span class="opt">(optional)</span></label>
+                <label for="f-site">Your website or Google listing <span class="opt">(optional)</span></label>
                 <input id="f-site" name="site" type="text" inputmode="url" autocomplete="url" aria-describedby="f-site-hint">
                 <span class="hint" id="f-site-hint">Paste a link if you have one. No link is fine too. That’s what the check is for.</span>
               </div>
               <div class="field field-full">
-                <label for="f-note">Anything Firemark should know? <span class="opt">(optional)</span></label>
-                <textarea id="f-note" name="note" maxlength="800"></textarea>
+                <label for="f-note">Anything Jeremy should know? <span class="opt">(optional)</span></label>
+                <textarea id="f-note" name="note" maxlength="800" rows="3"></textarea>
               </div>
               <div class="visually-hidden" aria-hidden="true">
                 <label for="f-trap">Leave this field empty</label>
@@ -130,44 +140,71 @@
               </div>
             </div>
             <div class="form-actions">
-              <button class="btn btn-flame" type="submit">Get my free check</button>
-              <p class="form-fine form-promise">No payment, no account. You’ll hear back within 5 days.</p>
-              <p class="form-fine">Your details are only used for your free check and to reply to you. See the <a href="privacy.html">privacy page</a>.</p>
+              <button class="btn btn-wide" type="submit">Get my free check</button>
+              <p class="form-fine">No payment, no account. You’ll hear back within 5 days, and your report arrives within 7. Your details are only used for your check and to reply to you (<a href="privacy.html">privacy</a>).</p>
               <p class="form-status" role="status" aria-live="polite" tabindex="-1" data-form-status></p>
             </div>
           </form>
         </div>
 
-      <div class="contact-intro">
-        <h2 class="small-h">What happens next</h2>
-        <ol class="next-steps">
+        <div class="contact-aside">
+          <h2 class="small-h">What happens next</h2>
+          <ol class="next-steps">
               <li>Jeremy looks up how your business shows up on Google today.</li>
               <li>Within 7 days you get a short written report. It’s yours to keep, whatever you decide.</li>
               <li>If a website makes sense, you get a written price before anything starts. If it doesn’t, Jeremy will say so.</li>
             </ol>
-        <h2 class="small-h">Other ways to reach Firemark</h2>
-        <ul class="contact-ways">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Email <span class="ph">[PLACEHOLDER: hello@firemarktech.com]</span></span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Call or text <span class="ph">[PLACEHOLDER: phone]</span></span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg><span><a href="#main" data-booking-link>Book a <span class="nb">15-minute</span> call</a> <span class="ph">[PLACEHOLDER: booking link]</span></span></li>
-        </ul>
-        <h2 class="small-h">Questions</h2>
-        <div class="faq faq-compact">
+          <figure class="report report-mini" data-reveal>
+            <div class="report-page" data-ui>
+              <div class="report-head"><svg class="report-mark" viewBox="11.5 -0.5 77 119" aria-hidden="true" focusable="false"><use href="#fm-mark"/></svg><span class="report-brand">Firemark</span><span class="report-kind">Free check</span></div>
+              <p class="report-title">Can customers find you?</p>
+              <div class="report-block">
+                <p class="report-h">What a customer sees when they search</p>
+                <table class="report-table">
+                  <thead><tr><th scope="col">Search</th><th scope="col">Where you showed up</th></tr></thead>
+                  <tbody>
+                    <tr><td>bakery near me</td><td><span class="flag flag-bad">Not on the first page</span></td></tr>
+                    <tr><td>bakery The Colony</td><td><span class="flag flag-mid">Below the map</span></td></tr>
+                    <tr><td>Main Street Bakery</td><td><span class="flag flag-ok">Top of the map</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="report-more">Then the three fixes that matter most, in plain English.</p>
+            </div>
+            <figcaption>Part of a sample report, for a made-up bakery.</figcaption>
+          </figure>
+          <h2 class="small-h">Just have a question?</h2>
+        <p>Put it in the note on the form. You don’t need a website or a listing yet, and you’ll hear back within 5 days.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section faq-section" aria-labelledby="faq-h">
+      <div class="wrap faq-grid">
+        <h2 id="faq-h" data-reveal>Questions owners ask</h2>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>What does the free check cost?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Nothing. No payment, no account, and nothing to buy afterwards. The report is yours to keep.</p>
+          </details>
           <details>
             <summary>I already have a Facebook page. Isn’t that enough?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <p>Facebook is great for staying in touch with people who already know you. When someone searches Google or Maps for what you do, a website and a Google listing are what show up.</p>
           </details>
           <details>
-            <summary>I already have a website. Can you help?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>I already have a website. Can Firemark help?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <p>Start with the free check. You’ll get an honest read on whether it’s working or whether a fresh start makes more sense.</p>
           </details>
           <details>
-            <summary>How long does it take?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <summary>How long does a website take?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
             <p>Most starter websites go live about 45 days after you give the go-ahead.</p>
           </details>
           <details>
+            <summary>What does it cost?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>It depends on what your business needs, so the price comes after the free check, in writing, before anything starts.</p>
+          </details>
+          <details>
             <summary>Who owns the website?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
-            <p>You do. Your domain is registered in your name, and your content is yours to keep. Once your site is live, Firemark may show it as an example of recent work. <span class="ph">[CONFIRM]</span></p>
+            <p>You do. Your domain is registered in your name, and your content is yours to keep. Once your site is live, Firemark may show it as an example of recent work.</p>
           </details>
           <details>
             <summary>What area do you cover?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
@@ -175,28 +212,25 @@
           </details>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36">
+          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36" loading="lazy">
           <p>Websites and Google listings for independent businesses. Based in The Colony, Texas, working across <span class="nb">Dallas–Fort Worth</span>.</p>
           <p class="footer-true">Firemark is Jeremy. Small on purpose.</p>
         </div>
         <div class="footer-col">
           <h2 class="footer-h">Reach Jeremy</h2>
-          <ul class="footer-links">
-            <li><span class="ph">[PLACEHOLDER: email]</span></li>
-            <li><span class="ph">[PLACEHOLDER: phone]</span></li>
-          </ul>
+          <ul class="reach-list" role="list"><li><a href="contact.html">Send a note with the free check form</a></li></ul>
           <p class="footer-reply">You’ll hear back within 5 days.</p>
         </div>
         <div class="footer-col">
           <h2 class="footer-h">Explore</h2>
-          <ul class="footer-links footer-explore">
+          <ul class="footer-links" role="list">
             <li><a href="work.html">Work</a></li>
             <li><a href="index.html#offer">What you get</a></li>
             <li><a href="about.html">About</a></li>
@@ -212,6 +246,6 @@
     </div>
   </footer>
 
-  <script src="js/site.js?v=9" defer></script>
+  <script src="js/site.js?v=10" defer></script>
 </body>
 </html>

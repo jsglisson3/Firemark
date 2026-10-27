@@ -22,9 +22,9 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=9">
+  <link rel="stylesheet" href="css/site.css?v=10">
 </head>
-<body>
+<body class="inner">
   <a class="skip-link" href="#main">Skip to main content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
@@ -54,24 +54,24 @@
   <header class="site-header" data-header>
     <div class="wrap header-inner">
       <a class="brand" href="index.html"><img src="images/brand/firemark-logo.svg" alt="Firemark home" width="176" height="36"></a>
-      <a class="btn btn-flame btn-small header-cta for-phone" href="contact.html"><span class="cta-long">Get my free check</span><span class="cta-short">Free check</span></a>
+      <a class="btn btn-small header-cta for-phone" href="contact.html">Free check</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
-        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg> <span data-menu-label>Menu</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="menu-word" data-menu-label>Menu</span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
-        <ul class="nav-list">
+        <ul class="nav-list" role="list">
           <li><a href="work.html">Work</a></li>
           <li><a href="index.html#offer">What you get</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
         <div class="nav-sheet-foot">
-          <a class="btn btn-flame nav-cta" href="contact.html">Get my free check</a>
-          <p class="nav-reach"><span class="ph">[PLACEHOLDER: email]</span><span class="nav-sep" aria-hidden="true"></span><span class="ph">[PLACEHOLDER: phone]</span></p>
+          <a class="btn nav-cta" href="contact.html">Get my free check</a>
+          
           <p class="nav-place">The Colony, Texas</p>
         </div>
       </nav>
       <p class="header-place">The Colony, Texas</p>
-      <a class="btn btn-flame btn-small header-cta for-desktop" href="contact.html"><span class="cta-long">Get my free check</span><span class="cta-short">Free check</span></a>
+      <a class="btn btn-small header-cta for-desktop" href="contact.html">Get my free check</a>
     </div>
   </header>
 
@@ -82,7 +82,7 @@
     </div>
     <section class="wrap brand-block" aria-labelledby="b-logo">
       <h2 id="b-logo">Logo</h2>
-      <p class="muted measure">One shape that reads two ways: a flame, and a map pin pointing at your spot. The charcoal body is the 1752 fire mark, and the orange-and-gold fire is lit inside it. Use the charcoal logo on light backgrounds and the paper one on charcoal. The one-color versions have the fire cut out, so they work for single-color print, a sign or a truck decal. Below 32 pixels, use the charcoal app tile instead of the bare pin.</p>
+      <p class="muted measure">One shape that reads two ways: a flame, and a map pin pointing at your spot. The charcoal body is the old fire mark, and the orange-and-gold fire is lit inside it. Use the charcoal logo on light backgrounds and the paper one on charcoal. The one-color versions have the fire cut out, so they work for single-color print, a sign or a truck decal. Below 32 pixels, use the charcoal app tile instead of the bare pin.</p>
       <div class="logo-grid">
         <figure class="logo-tile t-mist">
             <div class="logo-art"><img src="images/brand/firemark-logo.svg" alt="" loading="lazy"></div>
@@ -145,7 +145,7 @@
     <section class="section tone-white" aria-labelledby="b-color">
       <div class="wrap brand-block">
         <h2 id="b-color">Color</h2>
-        <p class="muted measure">Light stone and charcoal, with orange used sparingly: the logo’s fire, the map pin, the lit dot on main buttons, the focus ring and a few icons. Flame orange is never used for small text. Use Ember for that.</p>
+        <p class="muted measure">Light stone and charcoal, with orange used sparingly: the logo’s fire, the map pin, the main buttons (in Ember), link underlines, the focus ring and a few icons. Flame orange is never used for small text. Use Ember for that.</p>
         <ul class="swatches">
           <li class="swatch">
             <span class="chip-color" style="background:#F6F5F3"></span>
@@ -169,14 +169,14 @@
           </li>
           <li class="swatch">
             <span class="chip-color on-dark" style="background:#B23F0E"></span>
-            <strong>Ember</strong><code>#B23F0E</code><span>Small orange text and icons on light</span><span class="ratio">On paper: 5.3:1</span>
+            <strong>Ember</strong><code>#B23F0E</code><span>Buttons, small orange text and icons on light</span><span class="ratio">White text on it: 5.6:1</span>
           </li>
         </ul>
         <h3>Fire, map and lines</h3>
         <ul class="swatches mini">
           <li class="swatch">
             <span class="chip-color" style="background:#EC4E1C"></span>
-            <strong>Flame</strong><code>#EC4E1C</code><span>Logo fire, map pin, button dot, focus ring</span><span class="ratio"></span>
+            <strong>Flame</strong><code>#EC4E1C</code><span>Logo fire, map pin, focus ring</span><span class="ratio"></span>
           </li>
           <li class="swatch">
             <span class="chip-color" style="background:#FFB22E"></span>
@@ -260,7 +260,7 @@
           <div class="biz-card back">
             <img src="images/brand/firemark-symbol.svg" alt="" loading="lazy">
             <div><strong>Jeremy</strong><span>Firemark</span></div>
-            <ul><li>firemarktech.com</li><li><span class="ph">[PLACEHOLDER: email]</span></li><li><span class="ph">[PLACEHOLDER: phone]</span></li><li>The Colony, Texas</li></ul>
+            <ul><li>firemarktech.com</li><li>The Colony, Texas</li></ul>
           </div>
         </div>
       </div>
@@ -271,8 +271,8 @@
         <h2 id="b-more">Icons, shapes and motion</h2>
         <ul class="rules">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Icons come from Phosphor (regular weight, free, open license), drawn in charcoal, with Ember for ticks and a few accents.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Corners get rounder as things get bigger: 28 pixels for panels, 18 for cards, 14 for buttons, fully round for chips.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>One moving moment per page at most, like the homepage map. Anyone who turns on reduced motion sees the finished picture right away.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Two shapes only: buttons and chips are fully round, like the pins and chips on a map. Pictures, the form and panels get one small 8 pixel corner.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>One big moving moment, the homepage map: the search types in, the pin drops and the listing appears. Everything else only rises gently into place once. Anyone who turns on reduced motion sees the finished page right away.</span></li>
         </ul>
       </div>
     </section>
@@ -282,21 +282,18 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36">
+          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36" loading="lazy">
           <p>Websites and Google listings for independent businesses. Based in The Colony, Texas, working across <span class="nb">Dallas–Fort Worth</span>.</p>
           <p class="footer-true">Firemark is Jeremy. Small on purpose.</p>
         </div>
         <div class="footer-col">
           <h2 class="footer-h">Reach Jeremy</h2>
-          <ul class="footer-links">
-            <li><span class="ph">[PLACEHOLDER: email]</span></li>
-            <li><span class="ph">[PLACEHOLDER: phone]</span></li>
-          </ul>
+          <ul class="reach-list" role="list"><li><a href="contact.html">Send a note with the free check form</a></li></ul>
           <p class="footer-reply">You’ll hear back within 5 days.</p>
         </div>
         <div class="footer-col">
           <h2 class="footer-h">Explore</h2>
-          <ul class="footer-links footer-explore">
+          <ul class="footer-links" role="list">
             <li><a href="work.html">Work</a></li>
             <li><a href="index.html#offer">What you get</a></li>
             <li><a href="about.html">About</a></li>
@@ -312,6 +309,6 @@
     </div>
   </footer>
 
-  <script src="js/site.js?v=9" defer></script>
+  <script src="js/site.js?v=10" defer></script>
 </body>
 </html>

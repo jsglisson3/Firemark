@@ -145,3 +145,15 @@ Built from `design-research.md` (Awwwards and Dribbble research, 20 or more cand
 - Keyboard: desktop Tab order is skip link, logo, Work, What you get, About, the button, then the hero. On phones, Enter opens the menu, Escape closes it and returns focus, tabbing past the sheet closes it. The focus ring is the 3px Flame outline everywhere.
 - Links to parts of a page land under the sticky header (scroll padding 72px on phones, 80px on desktop), including after the smooth scroll from the header button.
 - No sideways scroll at 320, 390, 1100 or 1440. Reduced motion shows the finished map at once. No console errors or failed requests on any page.
+
+
+# Overnight redesign (v10, Oct 27, 2026)
+
+Full write-up: `FIREMARK-REDESIGN-PLAN.md`. Open items: `REVIEW-v10.md`. Kept as settled: light paper and charcoal with subtle orange, the flame pin logo, "Put your business on the map.", "Let's talk" pricing, first name only, the 7-day report, 5-day reply and about-45-day site, "Get my free check", the Stone footer with the Dallas–Fort Worth line.
+- **Map in the headline.** A word-sized tile of the real corner sits after "Put your business", and the map band below performs a search. Visitors can try their own trade.
+- **Name story off the homepage** (Jeremy, Oct 27: "not even sure if I want the whole why the name"). Replaced with "One person, start to finish." and five questions all answered "Jeremy". A short version stays on About, with the history corrected (the 1750s Philadelphia fire insurance company Franklin helped start).
+- **Sample free check report** on the homepage, captioned as a made-up bakery.
+- **No placeholder text on the page.** Contact settings in `tools/build.py`; empty means hidden; the build refuses placeholder tags. The headshot spot is a stone tile with the pin until `HEADSHOT = True`.
+- **Children removed** from the Friends of the Library screenshots (photo circles blanked) until the Friends say otherwise.
+- **Form:** "(required)/(optional)" in words, a "What would help most?" pick list, and an error title that counts the fixes.
+- Cache: `?v=10`.

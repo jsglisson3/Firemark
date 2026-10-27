@@ -1,25 +1,23 @@
 # Pick up here (Firemark v2)
 
-Last updated Oct 27, 2026, after the header, hero, closing CTA and footer build (v9).
+Last updated Oct 27, 2026, after the overnight redesign (v10).
 
 ## Where things stand
 
-The v2 site is built and checked. Everything is in `docs/`:
-- the homepage, with the map animation
-- Work (a simple list of sites, one card each), About and the free check page
-- Privacy, the 404 page, a thanks page the form lands on when JavaScript is off (`thanks.html`) and a brand sheet (`brand.html`, not linked from the site). Those last three are hidden from search.
-- the icons, the link-preview image, the sitemap and robots.txt
+v10 is a full redesign of the v9 site, built and checked, still a hidden **draft**. What changed and why: `FIREMARK-REDESIGN-PLAN.md`. What Jeremy needs to approve: `REVIEW-v10.md`.
 
-Checks on the latest build:
-- The HTML is valid.
-- The accessibility scan finds 0 issues on every page, at phone and desktop widths, with the phone menu open too (v9, Oct 27).
-- Keyboard: every control has a visible focus ring, the phone menu closes on Escape and hands focus back, and links to parts of a page land below the sticky header.
-- No sideways scrolling at any width from 320 to 1440 pixels (v9), 1920 on v8.
-- Lighthouse on a phone (v8): performance 99–100, accessibility 100, best practices 100. SEO is 100 once the draft noindex tag comes off. Run it again on v9 once it is live.
+Everything is in `docs/`:
+- the homepage: the map tile inside the headline, the map that types a search and drops the pin (with "Try it with your trade"), a sample free check report, Recent work, Get found. Stay found. (what you get, "let's talk"), One person, start to finish., and the closing form
+- Work, About (with a short "Why Firemark"), the free check page with the FAQ, Privacy, 404, thanks and the brand sheet
 
-It is still a **draft**. Every page carries a yellow draft banner and a noindex tag, so search engines skip it. Contact details are placeholders.
+Checks on the v10 build:
+- Accessibility scan (axe): 0 issues on all eight pages at phone and desktop widths, with the phone menu open, and with reduced motion on.
+- Lighthouse on a phone: homepage performance 97, accessibility 100, best practices 100. SEO is held down on purpose by the draft noindex tag.
+- HTML valid. No sideways scrolling at any width.
 
-**To continue in a new chat:** attach or paste this file plus `BRIEF.md` and `DECISIONS.md`, and say what you want to do next. If you make a Claude project for Firemark, keep it lean: those three files are enough.
+**No more [PLACEHOLDER] or [CONFIRM] tags on the page.** Contact details live in one settings block at the top of `tools/build.py` (`EMAIL`, `PHONE`, `BOOKING_URL`, `HEADSHOT`, `WEB3FORMS_KEY`, `FALLBACK_EMAIL`). Anything empty is left off the site. The build stops with an error if a `[PLACEHOLDER` or `[CONFIRM` tag would reach a page.
+
+**To continue in a new chat:** attach or paste this file plus `BRIEF.md`, `DECISIONS.md` and `REVIEW-v10.md`, and say what you want to do next.
 
 ## Add a site to Work
 
@@ -38,34 +36,20 @@ The homepage shows the first 4 sites and links to Work for the rest. Ask the bus
 - About page: keep the career facts, but general (no team size, dollar figures or project counts).
 - Headline stays "Put your business on the map." The submit button says "Get my free check" everywhere.
 - Footer: Stone (light), keeps the Dallas–Fort Worth line, no oversized wordmark.
-- Closing section: a photo of Jeremy next to the form (a marked placeholder until there is a headshot).
+- Closing section: a photo of Jeremy next to the form. Until there is a headshot, a stone tile with the flame pin stands in (set `HEADSHOT = True` in `tools/build.py` when the photo is in).
 - Form service: Web3Forms (see Set up).
 - The reasons behind the header, hero, closing CTA and footer are in `design-research.md` at the root of this folder.
 
 ## Before launch
 
-### Approve or edit these promises (yellow [CONFIRM] tags)
-- [ ] Home, How it works: "You get a clear price before anything starts."
-- [ ] Home, What it costs: "the price comes after the free check, in writing, before anything starts."
-- [ ] Home, Stay found: what the monthly plan includes ("New hours, a new photo, a menu change. Send a note and it's handled.").
-- [ ] Home, What it costs: "Domain and email accounts are billed by those providers at their regular prices."
-- [ ] Contact FAQ, Who owns the website: "You do. Your domain is registered in your name, and your content is yours to keep. Once your site is live, Firemark may show it as an example of recent work." (About repeats the ownership part.) Put the same portfolio line in your written quote or agreement.
-- [ ] Privacy: "Your details aren't sold, and you won't be added to a mailing list."
-- [x] Work: permission from GLP and from the Friends of The Colony Public Library to show their sites (given Oct 26).
-- [ ] Work: ask the Friends specifically about the library program photos in the screenshots, some of which show children.
+Work through `REVIEW-v10.md`. In short: approve the handful of promises it lists, fill in the settings block in `tools/build.py` as each thing exists (email, Web3Forms key, phone and booking link if wanted, headshot), and ask the Friends of the Library about showing their program photos (blanked out for now).
 
-### Fill in these blanks (yellow [PLACEHOLDER] tags)
-- [ ] Email address: placeholder hello@firemarktech.com. Set it up at your domain, then put it in `data-fallback-email` in `src/partials/form.html`, and replace the [PLACEHOLDER: email] tags in the phone menu, the closing section and the footer (`src/index.html`), on the contact page (`src/pages.py`) and in the homepage's structured data. Search both files for PLACEHOLDER.
-- [ ] Phone number: phone menu, closing section, footer, contact page and structured data (same search).
-- [ ] Booking link for "Book a 15-minute call" (Calendly, Cal.com or Google Calendar booking pages all work). Put the address in the `href` of the two links marked `data-booking-link`.
-- [ ] Photo: `docs/images/jeremy.webp` is a marked placeholder (a gray circle that says so). Replace that one file with a square headshot, at least 448 pixels on each side, saved as WebP under the same name (send Claude the photo and it converts it). It shows small next to the form on the homepage and larger on About. Then delete the two "[PLACEHOLDER: photo]" tags (`src/index.html` and `src/pages.py`) and rebuild.
-- [ ] Privacy page: it already names Web3Forms. Once your account exists, check how long Web3Forms keeps a copy of each message and fix the [CONFIRM] there, plus the "last updated" date. If you add analytics, add a short section saying what it collects.
 - [ ] Work links: the two live-site links go to jsglisson3.github.io, which shows your last name in the address. Fine for now; switch them to the clients' own domains once those exist.
 
 ### Set up
 - [x] **Buy the domain.** Bought 2026-10-26 at Cloudflare Registrar and connected to GitHub Pages the same day: https://firemarktech.com (and www) serve the site over HTTPS, still as a hidden draft. See **Domain** under Notes.
 - [ ] **Email at the domain** (for example Google Workspace or Microsoft 365).
-- [ ] **Form service: Web3Forms** (chosen Oct 27). Sign up at web3forms.com with the address the form should deliver to (the free plan is enough). Paste the access key it gives you into `src/partials/form.html`, as the `value` of the `access_key` field, in place of the [PLACEHOLDER] text. Rebuild (ask Claude), then send yourself a test from the live site and check it arrives. Until the key is in, the form falls back to opening a pre-filled email, so nothing is broken meanwhile. Browsers with JavaScript off are sent to `thanks.html` after submitting; everyone else sees the thanks line in place.
+- [ ] **Form service: Web3Forms** (chosen Oct 27). Sign up at web3forms.com with the address the form should deliver to (the free plan is enough). Paste the access key it gives you into `WEB3FORMS_KEY` at the top of `tools/build.py`. Rebuild (ask Claude), then send yourself a test from the live site and check it arrives. Until the key is in, the form falls back to opening a pre-filled email, so nothing is broken meanwhile. Browsers with JavaScript off are sent to `thanks.html` after submitting; everyone else sees the thanks line in place.
 - [ ] **Trademark check.** Search "Firemark" at the USPTO (tmsearch.uspto.gov) before you print cards or signs.
 - [ ] **Firemark's own Google Business Profile** as a service-area business (it can hide your home address). You'll be doing this for clients, so it's good practice.
 
@@ -78,7 +62,8 @@ The domain is already connected, so launch is just switching the draft off.
 ## Notes
 
 - **Domain:** firemarktech.com is registered at Cloudflare. Its DNS has four A records for @ (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and a CNAME for www to jsglisson3.github.io, all set to DNS only (grey cloud). Leave them grey: the orange proxy gets in the way of GitHub's certificate. GitHub Pages has the custom domain set (that's what `docs/CNAME` is) and Enforce HTTPS on. The old jsglisson3.github.io/Firemark/ address redirects to the domain. `SITE_ROOT` in `tools/build.py` is "/" to match.
-- **Edit `src/`, not `docs/*.html`.** The build overwrites the pages in `docs/`. CSS (`docs/css/site.css`) and the script (`docs/js/site.js`) are edited directly. They are linked as `?v=9`; bump that number in `src/index.html` and `tools/build.py` whenever either file changes, so returning visitors get the new version.
+- **Edit `src/`, not `docs/*.html`.** The build overwrites the pages in `docs/`. CSS (`docs/css/site.css`) and the script (`docs/js/site.js`) are edited directly. They are linked as `?v=10`; bump `VERSION` in `tools/build.py` whenever either file changes, so returning visitors get the new version.
+- **v10 (Oct 27, overnight):** full redesign. See `FIREMARK-REDESIGN-PLAN.md`.
 - **v9 (Oct 27):** the header (phone sheet menu that ends with the button, email, phone and place), the hero promises under the buttons, the Stone closing card (three steps, photo, form) that Work and About reuse in a short form, and the Stone footer. Reasons and the research behind them: `design-research.md`.
 - **v1** is still in `Documents\Firemark`. Nothing in v2 depends on it.
 - **Logo files on Windows:** SVGs copied to your computer through the Claude app may get a small `<metadata>` block (content credentials) added at the top. It's harmless, and browsers ignore it.

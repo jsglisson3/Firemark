@@ -21,3 +21,4 @@ __pycache__/
 # Scratch output from the screenshot and check tools
 *.log
 tmp/
+.taste-skill/

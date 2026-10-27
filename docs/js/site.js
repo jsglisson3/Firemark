@@ -1,4 +1,4 @@
-/* Firemark v2 site script. Small, dependency-free, progressive. */
+/* Firemark site script (v10). Small, dependency-free, progressive: the page is complete without it. */
 (function () {
   'use strict';
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -40,22 +40,73 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* The one orchestrated moment: the search types in, the pin drops onto Main St, the glow opens, and your business
-     appears as the result. Runs once. With reduced motion (or no JavaScript) the finished picture shows immediately. */
+  /* The one big moment: the map opens from the top, the search types in, the pin drops onto Main St at S Colony Blvd,
+     the glow opens and your business appears as the result. Runs once. With reduced motion (or no JavaScript)
+     the finished picture shows immediately. */
   var hero = document.querySelector('[data-hero]');
-  if (hero && !reduceMotion) {
-    var pin = hero.querySelector('.map-pin'), ring = hero.querySelector('.map-ring'), card = hero.querySelector('.place-card');
-    var q = hero.querySelector('[data-q]'), query = q ? q.textContent : '';
-    var show = function (el, cls) { if (el) el.classList.add(cls || 'is-shown'); };
-    if (q) { q.textContent = ''; hero.classList.add('hero-typing'); }
-    setTimeout(function () { show(card); }, 250);
-    for (var i = 1; i <= query.length; i++) {
-      (function (n) { setTimeout(function () { q.textContent = query.slice(0, n); }, 500 + n * 45); })(i);
+  var band = hero && hero.querySelector('.map-band');
+  var card = hero && hero.querySelector('.place-card');
+  var q = hero && hero.querySelector('[data-q]');
+  var shop = hero && hero.querySelector('[data-name]');
+  var pin = hero && hero.querySelector('.map-pin');
+  var typeTimers = [];
+  var typeQuery = function (text, start, done) {
+    typeTimers.forEach(clearTimeout); typeTimers = [];
+    q.textContent = ''; card.classList.add('is-typing');
+    for (var i = 1; i <= text.length; i++) {
+      (function (n) { typeTimers.push(setTimeout(function () { q.textContent = text.slice(0, n); }, start + n * 45)); })(i);
     }
-    var t = 500 + query.length * 45 + 200;
-    setTimeout(function () { hero.classList.remove('hero-typing'); show(pin); }, t);
-    setTimeout(function () { show(ring); }, t + 250);
-    setTimeout(function () { show(card, 'is-found'); }, t + 450);
+    typeTimers.push(setTimeout(function () { card.classList.remove('is-typing'); if (done) done(); }, start + text.length * 45 + 150));
+  };
+  if (hero && !reduceMotion) {
+    var ring = hero.querySelector('.map-ring');
+    var show = function (el, cls) { if (el) el.classList.add(cls || 'is-shown'); };
+    var query = q ? q.textContent : '';
+    requestAnimationFrame(function () { requestAnimationFrame(function () { show(band, 'is-open'); }); });
+    setTimeout(function () { show(card); }, 650);
+    typeQuery(query, 850, function () {
+      show(pin);
+      setTimeout(function () { show(ring); }, 250);
+      setTimeout(function () { show(card, 'is-found'); }, 450);
+    });
+  }
+
+  /* The live part: pick your trade and the search, the result and the pin follow. */
+  var tryBox = hero && hero.querySelector('[data-try]');
+  if (tryBox && q && shop) {
+    tryBox.hidden = false;
+    var buttons = tryBox.querySelectorAll('[data-trade]');
+    Array.prototype.forEach.call(buttons, function (b) {
+      b.addEventListener('click', function () {
+        Array.prototype.forEach.call(buttons, function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        var text = b.getAttribute('data-trade') + ' near me';
+        if (reduceMotion) { q.textContent = text; shop.textContent = b.getAttribute('data-shop'); return; }
+        card.classList.add('is-shown', 'is-found', 'is-swapping');
+        typeQuery(text, 0, function () {
+          shop.textContent = b.getAttribute('data-shop');
+          card.classList.remove('is-swapping');
+          pin.classList.remove('is-bounce'); void pin.offsetWidth; pin.classList.add('is-bounce');
+        });
+      });
+    });
+  }
+
+  /* Each section's parts rise into place once, in order (heading, words, picture). Opt-in, see site.css. */
+  var reveals = document.querySelectorAll('[data-reveal]');
+  if (reveals.length && !reduceMotion && 'IntersectionObserver' in window) {
+    Array.prototype.forEach.call(reveals, function (r) {
+      Array.prototype.forEach.call(r.children, function (c, i) { c.style.setProperty('--i', String(Math.min(i, 6))); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    /* Anything already on screen is shown straight away, so nothing ever blinks out */
+    Array.prototype.forEach.call(reveals, function (r) {
+      var box = r.getBoundingClientRect();
+      if (box.top < window.innerHeight * 0.92 && box.bottom > 0) r.classList.add('is-in');
+      else io.observe(r);
+    });
+    document.documentElement.classList.add('rv-ready');
   }
 
   /* Free check form.
@@ -109,13 +160,28 @@
       else input.removeAttribute('aria-describedby');
     };
 
+    /* As each problem is fixed, it leaves the summary; the summary goes once everything is fixed. */
+    var titleFor = function (n) { return n === 1 ? 'One quick fix and it\u2019s ready to send:' : (n === 2 ? 'Two' : 'Three') + ' quick fixes and it\u2019s ready to send:'; };
+    var refreshSummary = function () {
+      if (!summary || summary.hidden || !summaryList) return;
+      Array.prototype.slice.call(summaryList.children).forEach(function (li) {
+        var a = li.querySelector('a');
+        var input = a && document.getElementById(a.getAttribute('href').slice(1));
+        if (input && input.getAttribute('aria-invalid') !== 'true') li.remove();
+      });
+      var left = summaryList.children.length;
+      if (!left) { summary.hidden = true; return; }
+      var t = summary.querySelector('[data-error-title]');
+      if (t) t.textContent = titleFor(left);
+    };
+
     required.forEach(function (name) {
       var input = form.elements[name];
       input.addEventListener('blur', function () {
         if (input.value.trim() || input.getAttribute('aria-invalid') === 'true') setFieldState(name, errorFor(name));
       });
       input.addEventListener('input', function () {
-        if (input.getAttribute('aria-invalid') === 'true' && !errorFor(name)) setFieldState(name, '');
+        if (input.getAttribute('aria-invalid') === 'true' && !errorFor(name)) { setFieldState(name, ''); refreshSummary(); }
       });
     });
 
@@ -141,6 +207,8 @@
             li.appendChild(a);
             summaryList.appendChild(li);
           });
+          var title = summary.querySelector('[data-error-title]');
+          if (title) title.textContent = titleFor(problems.length);
           summary.hidden = false;
           summary.focus();
         } else {
@@ -152,7 +220,7 @@
 
       /* Web3Forms (v9): the form posts to its action. Until the access key is pasted in, it opens a pre-filled email instead. */
       var keyField = form.querySelector('[data-access-key]');
-      var endpoint = keyField && keyField.value && keyField.value.indexOf('PLACEHOLDER') === -1 ? form.getAttribute('action') : '';
+      var endpoint = keyField && keyField.value.trim() ? form.getAttribute('action') : '';
       var subjectField = form.querySelector('[data-subject]');
       if (subjectField) subjectField.value = 'Free check request from ' + form.elements.business.value.trim();
       var data = new FormData(form);
@@ -167,6 +235,8 @@
         'Email: ' + data.get('email'),
         'Phone: ' + (data.get('phone') || ''),
         'Website or Google listing: ' + (data.get('site') || ''),
+        'Would help most: ' + [['help_website', 'A website'], ['help_listing', 'Google listing'], ['help_email', 'Email at own name'], ['help_unsure', 'Not sure yet']]
+          .filter(function (h) { return data.get(h[0]); }).map(function (h) { return h[1]; }).join(', '),
         '',
         data.get('note') || ''
       ];

@@ -22,9 +22,9 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=9">
+  <link rel="stylesheet" href="css/site.css?v=10">
 </head>
-<body>
+<body class="inner">
   <a class="skip-link" href="#main">Skip to main content</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
@@ -49,94 +49,114 @@
     </defs>
   </svg>
 
-  <aside class="draft-banner" aria-label="Draft notice">Draft preview. Contact details are placeholders until launch.</aside>
+  <aside class="draft-banner" aria-label="Draft notice">Draft preview. Not yet public.</aside>
 
   <header class="site-header" data-header>
     <div class="wrap header-inner">
       <a class="brand" href="index.html"><img src="images/brand/firemark-logo.svg" alt="Firemark home" width="176" height="36"></a>
-      <a class="btn btn-flame btn-small header-cta for-phone" href="contact.html"><span class="cta-long">Get my free check</span><span class="cta-short">Free check</span></a>
+      <a class="btn btn-small header-cta for-phone" href="contact.html">Free check</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
-        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg> <span data-menu-label>Menu</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="menu-word" data-menu-label>Menu</span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
-        <ul class="nav-list">
+        <ul class="nav-list" role="list">
           <li><a href="work.html">Work</a></li>
           <li><a href="index.html#offer">What you get</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
         </ul>
         <div class="nav-sheet-foot">
-          <a class="btn btn-flame nav-cta" href="contact.html">Get my free check</a>
-          <p class="nav-reach"><span class="ph">[PLACEHOLDER: email]</span><span class="nav-sep" aria-hidden="true"></span><span class="ph">[PLACEHOLDER: phone]</span></p>
+          <a class="btn nav-cta" href="contact.html">Get my free check</a>
+          
           <p class="nav-place">The Colony, Texas</p>
         </div>
       </nav>
       <p class="header-place">The Colony, Texas</p>
-      <a class="btn btn-flame btn-small header-cta for-desktop" href="contact.html"><span class="cta-long">Get my free check</span><span class="cta-short">Free check</span></a>
+      <a class="btn btn-small header-cta for-desktop" href="contact.html">Get my free check</a>
     </div>
   </header>
 
   <main id="main">
-    <div class="wrap page-head">
+    <div class="wrap page-head page-head-split">
       <h1>Small on purpose.</h1>
-      <p class="lead">Firemark is based in The Colony and takes on a handful of clients a year, so each one gets full attention, start to finish.</p>
+      <p class="lead">A handful of clients a year, so each one gets full attention, start to finish.</p>
     </div>
-    <section class="about-who" aria-labelledby="who-h">
-      <div class="wrap who who-top">
-        <div class="who-photo">
-          <img src="images/jeremy.webp" width="448" height="448" loading="lazy" alt="Jeremy, who runs Firemark.">
-          <span class="ph">[PLACEHOLDER: photo]</span>
-        </div>
-        <div class="measure about-text">
-          <h2 id="who-h">Who you’ll work with</h2>
-          <p class="lead">Firemark is Jeremy, based here in The Colony. He has spent more than 10 years in IT and online sales: leading a team of developers, testers and analysts, running large online ordering channels, and connecting the systems behind large businesses. He has a degree in Management Information Systems. Firemark brings that know-how to independents, one business at a time.</p>
-          <h2 class="small-h">Who it’s for</h2>
-          <p>Independent, owner-run businesses: the barber, the bakery, the plumber, the shop on the corner. If you’re a franchise with a head office, a large online store, or you need a full agency team, Firemark probably isn’t the right fit, and you’ll hear that up front.</p>
-          <h2 class="small-h">Working with Jeremy</h2>
-          <p>Everything is in plain English. Nothing goes live until you’ve seen it and said yes. Your domain and your content are yours to keep. <span class="ph">[CONFIRM]</span></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section tone-white" aria-labelledby="story-h">
-      <div class="wrap story">
-        <div class="then-now" aria-hidden="true">
-          <figure>
-            <svg class="art" viewBox="0 0 120 140">
-              <path d="M14 10H106V78C106 106 84 122 60 132C36 122 14 106 14 78Z" fill="none" stroke="#8A857D" stroke-width="3"/>
-              <path d="M22 18H98V78C98 101 80 114 60 123C40 114 22 101 22 78Z" fill="none" stroke="#8A857D" stroke-width="1.5" opacity=".6"/>
-              <text x="60" y="80" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="26" fill="#8A857D">1752</text>
-            </svg>
-            <figcaption>Then: on the wall</figcaption>
-          </figure>
-          <svg class="arrow icon"><use href="#i-arrow"/></svg>
-          <figure>
-            <svg class="art" viewBox="0 0 77 119"><use href="#fm-mark"/></svg>
-            <figcaption>Now: on the map</figcaption>
-          </figure>
-        </div>
-        <div class="story-text measure">
-          <h2 id="story-h">Why the name</h2>
-          <p style="margin-top: var(--space-s)">In 1752, Benjamin Franklin helped start what’s now America’s oldest fire insurance company. Every building it covered got a fire mark: a plaque of four clasped hands, mounted out front where anyone could see it. It told the whole street that someone had that building’s back.</p>
-          <p>Today, people meet your business on a phone first, through a website and a Google listing. Firemark makes sure yours are there, and stay up to date.</p>
-          <p class="strong">The logo is a map pin with a fire inside: the old mark, made for the map.</p>
+    <section class="section section-tight about-who" aria-labelledby="who-h">
+      <div class="wrap about-grid">
+        <aside class="about-card" data-reveal aria-label="Jeremy at a glance">
+          <div class="person person-large">
+            <span class="person-mark" aria-hidden="true"><svg viewBox="0 0 77 119" focusable="false"><use href="#fm-mark"/></svg></span>
+            <p class="person-text"><span class="person-name">Jeremy</span><span class="person-role">Firemark, The Colony, Texas</span></p>
+          </div>
+          <dl class="facts">
+            <div><dt>Based in</dt><dd>The Colony, Texas</dd></div>
+            <div><dt>Experience</dt><dd>More than 10 years in IT and online sales</dd></div>
+            <div><dt>Education</dt><dd>BBA in Information Systems, Abilene Christian University</dd></div>
+            <div><dt>Clients</dt><dd>A handful a year</dd></div>
+            <div><dt>Replies</dt><dd>Within 5 days</dd></div>
+          </dl>
+        </aside>
+        <div class="about-text" data-reveal>
+          <h2 id="who-h" class="small-h">Who you’ll work with</h2>
+          <p class="statement">Firemark is Jeremy. He lives here in The Colony, and he’s the only person you’ll deal with, from the free check to the small edit you send two years from now.</p>
+          <p>He has spent more than 10 years in IT and online sales: leading a team of developers, testers and analysts, running large online ordering channels, and connecting the systems behind big businesses. Today he’s a lead analyst for supply chain systems.</p>
+          <p>Before any of that, he sold advertising to local businesses in college, walking into dozens of shops a day. That’s where he learned how busy an owner’s day is, and how little patience there is for jargon. Firemark brings big-business know-how to the business down the street, one at a time.</p>
         </div>
       </div>
     </section>
 
-    <section class="closing-section" aria-labelledby="about-cta-h">
+    <section class="section offer about-fit" aria-labelledby="fit-h">
       <div class="wrap">
+        <h2 id="fit-h" class="visually-hidden">Is Firemark a fit?</h2>
+        <div class="offer-cols">
+          <div class="offer-col" data-reveal>
+            <h3>Who it’s for</h3>
+            <p>Independent, owner-run businesses: the barber, the bakery, the plumber, the shop on the corner. Owners who make the decisions, are busy, and aren’t sure yet that a website is worth it.</p>
+            <p>If you’re a franchise with a head office, a large online store, or you need a full agency team, Firemark probably isn’t the right fit, and you’ll hear that up front.</p>
+          </div>
+          <div class="offer-col" data-reveal>
+            <h3>Working with Jeremy</h3>
+            <ul class="ticks" role="list">
+              <li>Everything in plain English, no jargon.</li>
+              <li>Nothing goes live until you’ve seen it and said yes.</li>
+              <li>Your domain, your content and your site are yours to keep.</li>
+              <li>One person to call, before and after launch.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section name-story" aria-labelledby="story-h">
+      <div class="wrap story" data-reveal>
+        <span class="story-mark" aria-hidden="true"><svg viewBox="11.5 -0.5 77 119" focusable="false"><use href="#fm-mark"/></svg></span>
+        <div class="story-text">
+          <h2 id="story-h">Why “Firemark”</h2>
+          <p class="statement">In the 1750s, homes insured by the fire insurance company Benjamin Franklin helped start in Philadelphia wore a plaque out front, a fire mark, so anyone on the street could see the place was looked after.</p>
+          <p>Firemark makes the same promise for your business, in the place people look now: the map on their phone. The logo is that idea, a map pin with a fire inside.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing-section" aria-labelledby="about-cta-h">
+      <div class="wrap">
+        <h2 id="about-cta-h" class="closing-title" data-reveal><span>See how your business shows up today.</span></h2>
         <div class="closing closing-short">
-          <div class="closing-intro">
-            <h2 id="about-cta-h">See how your business shows up today.</h2>
-            <p class="lead">Here’s what happens next.</p>
+          <div class="closing-intro" data-reveal>
+            <p class="statement">Here’s what happens next.</p>
             <ol class="next-steps">
               <li>Jeremy looks up how your business shows up on Google today.</li>
               <li>Within 7 days you get a short written report. It’s yours to keep, whatever you decide.</li>
+              <li>If a website makes sense, you get a written price before anything starts. If it doesn’t, Jeremy will say so.</li>
             </ol>
           </div>
-          <div class="closing-act">
-            <a class="btn btn-flame" href="contact.html">Get my free check</a>
-            <p class="alt-route">Rather email or call? <span class="ph">[PLACEHOLDER: hello@firemarktech.com]</span> or <span class="ph">[PLACEHOLDER: phone]</span>.</p>
+          <div class="closing-act" data-reveal>
+            <a class="btn btn-wide" href="contact.html">Get my free check</a>
+            <p class="form-fine">No payment, no account. You’ll hear back within 5 days.</p>
+            <div class="person person-small">
+            <span class="person-mark" aria-hidden="true"><svg viewBox="0 0 77 119" focusable="false"><use href="#fm-mark"/></svg></span>
+            <p class="person-text"><span class="person-name">Jeremy</span><span class="person-role">Firemark, The Colony, Texas</span></p>
+          </div>
+            
           </div>
         </div>
       </div>
@@ -147,21 +167,18 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36">
+          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36" loading="lazy">
           <p>Websites and Google listings for independent businesses. Based in The Colony, Texas, working across <span class="nb">Dallas–Fort Worth</span>.</p>
           <p class="footer-true">Firemark is Jeremy. Small on purpose.</p>
         </div>
         <div class="footer-col">
           <h2 class="footer-h">Reach Jeremy</h2>
-          <ul class="footer-links">
-            <li><span class="ph">[PLACEHOLDER: email]</span></li>
-            <li><span class="ph">[PLACEHOLDER: phone]</span></li>
-          </ul>
+          <ul class="reach-list" role="list"><li><a href="contact.html">Send a note with the free check form</a></li></ul>
           <p class="footer-reply">You’ll hear back within 5 days.</p>
         </div>
         <div class="footer-col">
           <h2 class="footer-h">Explore</h2>
-          <ul class="footer-links footer-explore">
+          <ul class="footer-links" role="list">
             <li><a href="work.html">Work</a></li>
             <li><a href="index.html#offer">What you get</a></li>
             <li><a href="about.html">About</a></li>
@@ -177,6 +194,6 @@
     </div>
   </footer>
 
-  <script src="js/site.js?v=9" defer></script>
+  <script src="js/site.js?v=10" defer></script>
 </body>
 </html>
