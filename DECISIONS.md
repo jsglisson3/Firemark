@@ -167,3 +167,8 @@ Jeremy: the header, hero and map "does not look that great ... redo the entire t
 - **Listing card:** name, category, "Open · Closes 6 PM", and Directions / Call / Website, like a real Maps result. The trade buttons change the search, name, category and hours.
 - **Motion:** the map flies in to Main St, the search types, the pin drops and the glow pulses. Reduced motion shows the finished picture.
 - **Removed:** the five "Who...? Jeremy" cards. "Jeremy" now appears once in the About blurb, in the sample report's signature and next to the form. Footer heading "Get in touch". Header: Contact link added, the small "The Colony, Texas" line removed (the hero says it).
+
+## V13 map feedback (Oct 27, 2026)
+- **Pin stands clear of the streets.** The flame pin has a thin white outline, and every business sits on a lot beside its street instead of on the road line.
+- **Each trade is on its own street.** Bakery on Main St, barber on S Colony Blvd, plumber on Paige Rd, nail salon on Clover Valley Dr, taco shop on Worley Dr (real OpenStreetMap streets). Picking a trade glides the map to that spot, so it doesn't look like one plaza. Spots and street names are `data-x`/`data-y`/`data-street` on the trade buttons in `src/index.html`; any street name the pin would cover hides itself.
+- **Google Maps and Apple Maps, said plainly.** A note at the top of the map reads "What customers see on Google Maps and Apple Maps", and the intro sentence names both, so the map isn't mistaken for a Firemark product. No Google or Apple logos.

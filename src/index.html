@@ -83,7 +83,7 @@
     <section class="hero" aria-labelledby="hero-h" data-hero>
       <div class="hero-panel">
         <h1 id="hero-h" class="hero-h"><span class="hl">Put your business</span> <span class="hl">on the map.</span></h1>
-        <p class="hero-lead">Websites and Google listings for independent businesses in The Colony, Texas, built by hand and kept running. When someone nearby searches, they find you.</p>
+        <p class="hero-lead">Websites, and your listing on Google Maps and Apple Maps, for independent businesses in The Colony, Texas. Built by hand and kept running, so when someone nearby searches, they find you.</p>
         <div class="actions">
           <a class="btn" href="#check">Get my free check</a>
           <a class="text-link" href="#work">See the work<svg class="icon icon-down" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -97,22 +97,24 @@
 
       <figure class="hero-map">
         <div class="hero-find">
+          <p class="hero-maps-note"><span class="mn-long">What customers see on</span><span class="mn-short">On</span> <b>Google Maps</b> and <b>Apple Maps</b></p>
           <div class="hero-search" data-ui aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg><span data-q>bakery near me</span></div>
           <div class="try" role="group" aria-label="Try it with your trade" data-try hidden>
-            <button type="button" class="try-btn" aria-pressed="true" data-trade="bakery" data-shop="Your bakery" data-kind="Bakery" data-hours="Closes 6 PM">Bakery</button>
-            <button type="button" class="try-btn" aria-pressed="false" data-trade="barber" data-shop="Your barbershop" data-kind="Barber shop" data-hours="Closes 7 PM">Barber</button>
-            <button type="button" class="try-btn" aria-pressed="false" data-trade="plumber" data-shop="Your plumbing company" data-kind="Plumber" data-hours="24 hours">Plumber</button>
-            <button type="button" class="try-btn" aria-pressed="false" data-trade="nail salon" data-shop="Your nail salon" data-kind="Nail salon" data-hours="Closes 8 PM">Nail salon</button>
-            <button type="button" class="try-btn" aria-pressed="false" data-trade="tacos" data-shop="Your taqueria" data-kind="Mexican restaurant" data-hours="Closes 10 PM">Tacos</button>
+            <button type="button" class="try-btn" aria-pressed="true" data-trade="bakery" data-x="841" data-y="714" data-street="Main St" data-shop="Your bakery" data-kind="Bakery" data-hours="Closes 6 PM">Bakery</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="barber" data-x="1409" data-y="628" data-street="S Colony Blvd" data-shop="Your barbershop" data-kind="Barber shop" data-hours="Closes 7 PM">Barber</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="plumber" data-x="2079" data-y="560" data-street="Paige Rd" data-shop="Your plumbing company" data-kind="Plumber" data-hours="24 hours">Plumber</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="nail salon" data-x="1648" data-y="466" data-street="Clover Valley Dr" data-shop="Your nail salon" data-kind="Nail salon" data-hours="Closes 8 PM">Nail salon</button>
+            <button type="button" class="try-btn" aria-pressed="false" data-trade="tacos" data-x="2000" data-y="745" data-street="Worley Dr" data-shop="Your taco shop" data-kind="Taqueria" data-hours="Closes 10 PM">Tacos</button>
           </div>
         </div>
         <div class="hero-world" data-world>
           <img src="images/map/the-colony.svg" width="2793" height="1513" alt="" fetchpriority="high" decoding="async">
-          <span class="map-label map-label-road map-label-wide" style="--x:770;--y:520;--a:88deg">Main St</span>
           <span class="map-label map-label-road map-label-narrow" style="--x:776;--y:752;--a:88deg">Main St</span>
           <span class="map-label map-label-road map-label-wide" style="--x:985;--y:677;--a:0deg">S Colony Blvd</span>
           <span class="map-label map-label-road map-label-far" style="--x:791;--y:1105;--a:85.3deg">Main St</span>
           <span class="map-label map-label-road" style="--x:1420;--y:600;--a:-15deg">S Colony Blvd</span>
+          <span class="map-label map-label-road" style="--x:1700;--y:608;--a:60deg">Clover Valley Dr</span>
+          <span class="map-label map-label-road" style="--x:1890;--y:770;--a:0deg">Worley Dr</span>
           <span class="map-label map-label-road map-label-far" style="--x:2279;--y:324;--a:0.0deg">S Colony Blvd</span>
           <span class="map-label map-label-road" style="--x:2104;--y:713;--a:88.7deg">Paige Rd</span>
           <span class="map-label map-label-road map-label-far" style="--x:1863;--y:1277;--a:-33.7deg">Memorial Dr</span>
@@ -123,7 +125,7 @@
         <span class="map-pin" aria-hidden="true"><svg class="mark" viewBox="11.5 -0.5 77 119" focusable="false"><use href="#fm-mark"/></svg></span>
         <div class="place-card hero-card" data-ui aria-hidden="true">
           <b class="pc-name" data-name>Your bakery</b>
-          <span class="pc-meta"><span data-kind>Bakery</span> · Main St</span>
+          <span class="pc-meta"><span data-kind>Bakery</span> · <span data-street>Main St</span></span>
           <span class="pc-meta"><span class="pc-open">Open</span> · <span data-hours>Closes 6 PM</span></span>
           <ul class="pc-actions" role="list">
             <li class="pc-go"><span class="pc-ico"><svg class="icon"><use href="#i-maps"/></svg></span>Directions</li>
@@ -132,7 +134,7 @@
           </ul>
         </div>
         <figcaption>
-          <span class="visually-hidden">Illustration: the real street map of The Colony around Main Street and South Colony Boulevard, with Lewisville Lake to the west. Someone searches for a business like yours, and yours shows up as the pin on Main Street, open now, with buttons for directions, a call or the website.</span>
+          <span class="visually-hidden">Illustration: the real street map of The Colony around Main Street and South Colony Boulevard, with Lewisville Lake to the west. Someone searches for a business like yours, and yours shows up as the pin on Main Street (or another street when you pick a different trade), open now, with buttons for directions, a call or the website.</span>
           <span class="map-credit">Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</span>
         </figcaption>
       </figure>

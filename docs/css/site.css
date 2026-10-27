@@ -265,9 +265,12 @@ p, li, dd, dt { text-wrap: pretty; }
 .hero .hero-map { position: relative; overflow: hidden; background: #F2F1EE; border-radius: 1.75rem 0 0 1.75rem; }
 .hero-world {
   position: absolute; width: calc(2793 * var(--u)); height: calc(1513 * var(--u));
-  left: calc(var(--px) - 786 * var(--u)); top: calc(var(--py) - 673 * var(--u));
-  transform-origin: calc(786 * var(--u)) calc(673 * var(--u));
+  left: calc(var(--px) - var(--ax, 786) * var(--u)); top: calc(var(--py) - var(--ay, 673) * var(--u));
+  transform-origin: calc(var(--ax, 786) * var(--u)) calc(var(--ay, 673) * var(--u));
 }
+/* Each trade sits on its own street: the map glides so the new spot lands under the pin */
+.hero { --ax: 841; --ay: 714; }
+.map-label.is-under { opacity: 0; }
 .hero-world img { display: block; width: 100%; height: 100%; max-width: none; }
 .map-label {
   position: absolute; left: calc(var(--x) / 2793 * 100%); top: calc(var(--y) / 1513 * 100%);
@@ -277,7 +280,7 @@ p, li, dd, dt { text-wrap: pretty; }
 .map-label-water { font-size: 0.9375rem; font-style: italic; color: #61757C; }
 .map-label-narrow { display: none; }
 .hero .map-pin, .hero .map-ring { left: var(--px); top: var(--py); }
-.hero .map-pin { width: 3rem; filter: drop-shadow(0 6px 5px rgba(29, 28, 26, 0.25)); }
+.hero .map-pin { width: 3rem; z-index: 1; filter: drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 6px 5px rgba(29, 28, 26, 0.28)); }
 .hero .map-ring { width: 8.5rem; height: 8.5rem; margin: -4.25rem 0 0 -4.25rem; background: rgba(236, 78, 28, 0.16); }
 .hero .hero-card { left: var(--px); top: calc(var(--py) + 3.25rem); translate: -50% 0; width: 17.5rem; display: grid; gap: 0.15rem; padding: 1rem 1.1rem 1.1rem; border-radius: 1rem; }
 .pc-name { font-size: 1.25rem; font-weight: 640; letter-spacing: -0.015em; line-height: 1.2; }
@@ -287,6 +290,10 @@ p, li, dd, dt { text-wrap: pretty; }
 .pc-ico .icon { width: 1.1rem; height: 1.1rem; }
 .pc-go .pc-ico { background: var(--accent); color: var(--white); }
 .hero-credit-under { display: none; }
+.hero-maps-note { justify-self: start; margin: 0 0 0.1rem; padding: 0.3rem 0.75rem; border-radius: var(--r-pill); background: rgba(255, 255, 255, 0.92); font-size: 0.875rem; color: var(--muted); }
+.hero-maps-note b { color: var(--ink); font-weight: 640; }
+.mn-short { display: none; }
+@media (max-width: 23rem) { .mn-long { display: none; } .mn-short { display: inline; } }
 .hero .hero-map .map-credit { position: absolute; right: 0.75rem; bottom: 0.6rem; padding: 0.1rem 0.5rem; border-radius: 6px; background: rgba(242, 241, 238, 0.9); font-size: 0.8125rem; }
 
 /* Small laptops: a narrower panel, and the listing card fits beside the pin */
@@ -306,10 +313,11 @@ p, li, dd, dt { text-wrap: pretty; }
 
 /* Phones and tablets: the map on top with the search floating on it, the words below */
 @media (max-width: 63.99rem) {
-  .hero { display: flex; flex-direction: column; min-height: 0; --u: 0.8px; --px: 30%; --py: 15.25rem; --mh: 24rem; }
+  .hero { display: flex; flex-direction: column; min-height: 0; --u: 0.8px; --px: 30%; --py: 17.5rem; --mh: 26.5rem; }
   .hero .hero-map { order: -1; height: var(--mh); border-radius: 0; }
   .hero-panel { padding: 1.75rem var(--margin) 2.5rem; }
   .hero-find { top: 0.75rem; left: 0.75rem; width: calc(100% - 1.5rem); }
+  .hero-maps-note { font-size: 0.8125rem; padding: 0.25rem 0.65rem; }
   .hero .try-btn { flex: none; }
   .hero .try { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -0.75rem; padding-inline: 0.75rem; }
   .hero .hero-card { translate: 0 0; left: calc(var(--px) + 1.6rem); top: calc(var(--py) - 6.75rem); width: min(14.5rem, calc(100% - var(--px) - 2.4rem)); padding: 0.8rem 0.85rem 0.9rem; }
@@ -327,7 +335,7 @@ p, li, dd, dt { text-wrap: pretty; }
 @media (max-width: 39.99rem) { .hero .actions .btn { flex: 1 1 100%; } }
 @media (max-width: 26rem) { .hero .try-btn:nth-child(4) { display: none; } }
 @media (max-width: 22rem) { .hero .try-btn:nth-child(5) { display: none; } }
-@media (min-width: 40rem) and (max-width: 63.99rem) { .hero { --px: 40%; --py: 16.5rem; --mh: 28rem; --u: 0.95px; } }
+@media (min-width: 40rem) and (max-width: 63.99rem) { .hero { --px: 40%; --py: 19rem; --mh: 30.5rem; --u: 0.95px; } }
 
 .try { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .try[hidden] { display: none; }
@@ -379,9 +387,13 @@ p, li, dd, dt { text-wrap: pretty; }
   .hero-panel > :nth-child(3) { --i: 1; } .hero-panel > :nth-child(4) { --i: 2; } .hero-panel > :nth-child(5) { --i: 3; }
   .map-pin.is-shown { transition: opacity 0.25s ease, translate 0.6s var(--ease-drop); }
   .map-ring.is-shown { transition: opacity 0.6s ease, scale 1s var(--ease); }
+  .hero-world { transition: left 0.9s cubic-bezier(0.45, 0, 0.2, 1), top 0.9s cubic-bezier(0.45, 0, 0.2, 1); }
+  .map-label { transition: opacity 0.3s ease; }
   .hero .map-ring.is-shown { animation: ring-pulse 2.8s ease-out 1s infinite; }
   .hero-card.is-shown { transition: opacity 0.45s ease, transform 0.6s var(--ease); }
-  .hero-card.is-shown.is-swapping { opacity: 0; transform: translateY(0.4rem); transition-duration: 0.16s; }
+  .hero .map-pin.is-moving { opacity: 0; translate: -50% -190%; }
+  .hero .map-ring.is-moving { opacity: 0; scale: 0.3; animation: none; }
+  .hero-card.is-shown.is-moving { opacity: 0; transform: translateY(0.4rem); transition-duration: 0.2s; }
   .map-pin.is-bounce { animation: pin-bounce 0.55s var(--ease-drop); }
   @keyframes pin-bounce { 0% { translate: -50% -150%; } 100% { translate: -50% -94%; } }
   @keyframes rise { from { opacity: 0; transform: translateY(1.25rem); } }

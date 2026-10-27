@@ -69,6 +69,17 @@
   }
 
   /* The live part: pick your trade and the search, the result and the pin follow. */
+  var street = hero && hero.querySelector('.hero-card [data-street]');
+  var labels = hero ? hero.querySelectorAll('.map-label') : [];
+  var panTimer;
+  /* Slide the map so this spot sits under the pin, and hide any street name the pin would cover */
+  var moveTo = function (x, y) {
+    hero.style.setProperty('--ax', x); hero.style.setProperty('--ay', y);
+    Array.prototype.forEach.call(labels, function (l) {
+      var dx = parseFloat(l.style.getPropertyValue('--x')) - x, dy = parseFloat(l.style.getPropertyValue('--y')) - y;
+      l.classList.toggle('is-under', Math.abs(dx) < 110 && dy > -120 && dy < 50);
+    });
+  };
   var tryBox = hero && hero.querySelector('[data-try]');
   if (tryBox && q && shop) {
     tryBox.hidden = false;
@@ -81,15 +92,24 @@
           shop.textContent = b.getAttribute('data-shop');
           if (kind) kind.textContent = b.getAttribute('data-kind');
           if (hours) hours.textContent = b.getAttribute('data-hours');
+          if (street) street.textContent = b.getAttribute('data-street');
         };
-        if (reduceMotion) { q.textContent = text; fill(); return; }
+        var x = b.getAttribute('data-x'), y = b.getAttribute('data-y');
+        if (reduceMotion) { q.textContent = text; fill(); moveTo(x, y); return; }
         [pin, ring, card].forEach(show);
-        /* The old result stays while the search types, then the card refreshes with the new one */
-        typeQuery(text, 0, function () {
-          card.classList.add('is-swapping');
+        /* The pin and card lift off, the map glides to the new street while the search types, then the new result drops in */
+        var waiting = 2;
+        var land = function () {
+          if (--waiting) return;
+          fill();
+          [pin, ring, card].forEach(function (el) { el.classList.remove('is-moving'); });
           pin.classList.remove('is-bounce'); void pin.offsetWidth; pin.classList.add('is-bounce');
-          setTimeout(function () { fill(); card.classList.remove('is-swapping'); }, 170);
-        });
+        };
+        clearTimeout(panTimer);
+        [pin, ring, card].forEach(function (el) { el.classList.add('is-moving'); });
+        moveTo(x, y);
+        panTimer = setTimeout(land, 950);
+        typeQuery(text, 0, land);
       });
     });
   }
