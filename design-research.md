@@ -1,18 +1,18 @@
 # Design research: header, hero, closing CTA and footer for Firemark
 
-Written Oct 26, 2026, for the v2 site (firemarktech.com, repo jsglisson3/Firemark, built on the v7 drop-in). This is the research and the recommendation only. Nothing has been built. Read "The decisions I need" at the end, then say go.
+Written Oct 26, 2026, for the v2 site (firemarktech.com, repo jsglisson3/Firemark, built on the v7 drop-in). Updated Oct 27 after viewing the 217 Awwwards screenshots and the Dribbble captures from your PC: the Mobile scores are now from the phone captures, section 5 covers Dribbble, and every decision is answered. The v9 build follows this document.
 
 ## What this is based on, and what it is not
 
 **Visited and read.** Every Awwwards listing the brief named (Sites of the Day, Sites of the Month, Header Design, Business & Corporate, Design Agencies, Portfolio, Nominees, Collections), then the Awwwards page and the live site for 41 candidates, plus maxibestof.one's Hero, Footer and Call to Action sections. For 29 of those live sites I read the real page content: the header, the first screen, the last section before the footer, and the footer. Every link below was opened in this session. Nothing is from memory.
 
-**Screenshots.** Your PC captured 217 screenshots of 53 of the 54 pages at 1440px and 390px (top of page, bottom of page, and the open phone menu on 33 sites). They are in `Documents\FiremarkTech\research-shots` with a `results.csv`. My connection to your PC dropped after the capture finished, so I could not look at them. The scores below come from reading each site's content and structure, not from seeing it rendered. Where a score depends on how a page looks on a phone, it is marked as a read, not a view. Flip through the `-m-top.jpg` and `-m-menu.jpg` files for the eight finalists before you say go; it will take five minutes and it is the one check I could not do.
+**Screenshots, now viewed.** Your PC captured 217 screenshots of 53 of the 54 pages at 1440px and 390px (top of page, bottom of page, and the open phone menu on 33 sites). They are in `Documents\FiremarkTech\research-shots` with a `results.csv`. On Oct 27 I viewed all of them, one contact sheet per site (desktop top and end, phone top, open menu and end), so the Mobile column is now a view, not a read, and the notes marked "seen" under each section come from the captures. Nova Dental and Garvin, whose live sites refused my fetcher, were captured by your PC and are judged from the images.
 
 **Blocked or failed, skipped as the brief asks.**
-- Dribbble: every page (search pages, tag pages and the 13 individual shots) returned empty to my fetcher. No Dribbble shot was judged. Your PC did capture the 13 shot pages as images (`dr-*-d-shot.jpg`); they are listed at the end for you to look at, but they did not shape the picks. Given the brief ranks Dribbble below live sites anyway, this costs less than it sounds.
+- Dribbble: every page returned empty to my fetcher, so your PC captured it instead (Oct 26 to 27): the ten searches the brief named, 397 results listed, the first eight shots for each of the four sections opened in full (32), plus the 13 shots from the first run. All 45 shot pages and the ten search grids were viewed and are judged in section 5. Caveats: a search grid loads only its first 16 to 20 thumbnails without scrolling, so the ranking is Dribbble's first screen; "navigation" returns app sidebars and tab bars, not website headers; "web design agency" redirects to Dribbble's agency directory (one row, no shots); and a hover menu overlays the top-left corner of every shot capture (harmless). Dribbble shots are mock-ups, so Weight, Accessibility and Buildable are judged on what is drawn, and the brief's rule stands: live sites outrank shots.
 - Awwwards Elements (`/elements/`): blocked by the site's robots rules.
 - maxibestof Header section: returned an error. Hero, Footer and CTA sections loaded.
-- Live sites that refused: Nova Dental (webflow.io, robots), Pamidor Design (robots for me, SSL error for your PC), Garvin Promotion Group (server error).
+- Live sites that refused my fetcher: Nova Dental (webflow.io, robots), Pamidor Design (robots for me, SSL error for your PC), Garvin Promotion Group (server error). Nova Dental and Garvin were captured by your PC and are covered from the images; Pamidor was not seen at all.
 - maxibestof entries are the site's own descriptions and tags, not live visits. The live URLs sit behind redirects I did not follow. They are marked "(description)" in the tables and count as supporting evidence only.
 
 **Also used.** The two skills in the repo: the frontend-design skill (for the design plan and the anti-template checks) and UI UX Pro Max (its landing-pattern and UX-guideline data: "Minimal Single Column", "Hero + Features + CTA", sticky-nav and motion rules).
@@ -22,11 +22,13 @@ Written Oct 26, 2026, for the v2 site (firemarktech.com, repo jsglisson3/Firemar
 The current v7 site is already closer to the best live examples than it is to the award showpieces. The research says keep its bones and sharpen four things:
 
 1. **Header:** wordmark, three links, one button, and a quiet "The Colony, Texas" next to the button. Sticky, thin, no tricks.
-2. **Hero:** keep the search-result map. Put the two real promises (report in 7 days, site live in about 30) in the first screen, and move the place chip up into the header.
+2. **Hero:** keep the search-result map. Put the two real promises (report in 7 days, site live in about 45) in the first screen, and move the place chip up into the header.
 3. **Closing CTA:** keep the form as the last section, but frame it as three plain lines about what happens next, with Jeremy in it, and a reply-time promise.
 4. **Footer:** light, not charcoal. Three short columns (Firemark, Reach Jeremy, Explore), a one-line "Firemark is Jeremy, in The Colony, Texas", and a baseline. The mark loads normally.
 
 Every pick is light, static, and buildable in a day or two each.
+
+The phone captures and the Dribbble set (Oct 27) changed no pick. They confirmed three things and added one: the phone header can keep a real button next to the menu toggle (Plumeform and Squared do it at 390px); the phone menu should be a short sheet that ends in the button (Wishbone); the footer stacks into two short columns with "Back to the top" (Relevo & Vinco); and the closing section's "what happens next" steps are what the best Dribbble CTAs draw as a step strip or a numbered list (Bodak, FitSitePro, Nadia Le). The captures also argue against two things: a button pinned to the bottom of the phone screen (Banham, Kohen) and a hamburger menu on desktop (Biite, Impasto, BCG).
 
 ---
 
@@ -38,24 +40,26 @@ Every pick is light, static, and buildable in a day or two each.
 - A small signal of place or availability in the header on the local and small firms: BCG shows "Gold Coast, AU" with a clock, Two26 shows business hours, Signal-A shows local time, Banham opens with "Prefer to call?" and a phone number.
 - Mega menus and promo bars belong to big companies (Comrade, Banham, LAPL, Idealworks, Kohen's 16 practice areas). Every small firm in the set keeps it to a single row.
 - On phones, a labeled toggle that reads "Menu" and flips to "Close" (LPAS, Right Hemisphere, Kohen's "Ouvrir le menu"), and the phone menu ends in the contact action (Revelatio's mobile list ends with Contact; the current Firemark menu already ends with "Get my free check").
-- Light backgrounds. The dark headers are on the dark showpieces (Emotion, Dobre).
-- Scroll behavior could not be read from page content, and the capture only has top and bottom states, so the recommendation below leans on UI UX Pro Max's sticky-nav rule (never cover content or the focused control) rather than on examples.
+- Seen in the 390px captures: Plumeform keeps the wordmark, a "Start free" pill and the toggle in one phone header; Squared keeps "Plan een call" and the toggle; Comrade keeps "Contact Us" and the toggle. Wishbone, Biite, RIO, CE Growth and BCG drop the button and show only the toggle (BCG shows nothing but a "Menu" pill). The open menus that work are short sheets or stacked cards that end in a full-width button: Wishbone (three links, a rule, "Book a call"), Biite (three rounded groups), Squared ("Mail ons" and "Plan een call" pinned at the bottom), Garvin ("Let's Talk", the phone number and the address pinned), Idealworks ("Contact Sales" pinned). Banham pins a "Book a Free Survey" pill to the bottom of every phone screen and Kohen pins a call button; both convert and both cover content, which the sticky-bar rule forbids, so Firemark keeps its button in the header. Impasto's phone menu lists opening hours for the week, a good small-business touch that Firemark does not need (no walk-in hours).
+- Seen on desktop: Biite, Impasto, BCG, LPAS, Walton and Right Hemisphere hide the whole nav behind a toggle even at 1440px. It looks tidy and costs a click on every page; Firemark's three links stay visible.
+- Light backgrounds on the small firms (Biite, Relevo & Vinco, Two26, Kigo, Right Hemisphere, Signal-A, No Jiggery). The captures show more dark first screens than the page text suggested: Wishbone's hero is a black panel, Plumeform's is deep green, Squared's is navy, Nova Dental's is a photo, Reckoner's is maroon. Their structures transfer; their colors do not, by Jeremy's rule.
+- Scroll behavior could not be read from page content, and the capture only has top and bottom states, so the recommendation below leans on UI UX Pro Max's sticky-nav rule (never cover content or the focused control) rather than on examples. The end-of-page captures do show the scrolled state on a few sites: Brikken's header becomes a centered pill, Potadot's and Belgrade Arbor's float as dark pills, Squared's turns translucent, and Wishbone's, Kigo's and Nova Dental's simply stay put with a hairline. The plain version is the one to copy.
 
 ### Shortlist (8 of 26 headers reviewed)
-Scores are 1 to 5: Clarity, Trust, Conversion, Mobile (read, not viewed), Weight, Accessibility, Buildable, Distinctive.
+Scores are 1 to 5: Clarity, Trust, Conversion, Mobile (from the 390px captures, revised Oct 27), Weight, Accessibility, Buildable, Distinctive. Where a score changed after viewing, the old value is in parentheses.
 
 | # | Site | Links | What to steal | What to skip | C | T | Cv | M | W | A | B | D |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Wishbone Advisory (Austin, TX; Nominee Oct 26, 2026) | [Awwwards](https://www.awwwards.com/sites/wishbone-advisory) / [live](https://wishboneadvisory.com) | Logo, Services / Results / About, "Book a call". Three links is enough. | Nothing. | 5 | 4 | 5 | 4 | 5 | 4 | 5 | 3 |
+| 1 | Wishbone Advisory (Austin, TX; Nominee Oct 26, 2026) | [Awwwards](https://www.awwwards.com/sites/wishbone-advisory) / [live](https://wishboneadvisory.com) | Logo, Services / Results / About, "Book a call". Three links is enough. The phone menu is a short sheet that ends in a full-width "Book a call" (seen): the best phone menu in the set. | The button hides behind the toggle on phones. | 5 | 4 | 5 | 4 | 5 | 4 | 5 | 3 |
 | 2 | CE Growth Partners (Nominee Oct 25, 2026) | [Awwwards](https://www.awwwards.com/sites/ce-growth-partners) / [live](https://cegrowthpartners.com/) | "Start a conversation." as the button label: low pressure, full stop included. | A sub-menu under Technology. | 5 | 4 | 4 | 4 | 4 | 4 | 5 | 3 |
-| 3 | BCG Building Design (Gold Coast; Nominee Oct 26, 2026) | [Awwwards](https://www.awwwards.com/sites/bcg-building-design) / [live](https://bcgbuildingdesign.com.au/) | "Gold Coast, AU" in the header. A local firm says where it is before you scroll. | The live clock; "Project Enquiry" as a nav item rather than a button. | 4 | 4 | 3 | 4 | 5 | 4 | 5 | 4 |
+| 3 | BCG Building Design (Gold Coast; Nominee Oct 26, 2026) | [Awwwards](https://www.awwwards.com/sites/bcg-building-design) / [live](https://bcgbuildingdesign.com.au/) | "Gold Coast, AU" in the header. A local firm says where it is before you scroll. | The live clock; "Project Enquiry" as a nav item rather than a button; on phones the header is a lone "Menu" pill (seen). | 4 | 4 | 3 | 3 (4) | 5 | 4 | 5 | 4 |
 | 4 | Two26 Studio (Nominee Oct 23, 2026) | [Awwwards](https://www.awwwards.com/sites/two26-studio) / [live](https://two26.studio/) | Business hours in the header. Two links and "Let's Talk". | Placeholder links (#). | 4 | 3 | 4 | 4 | 4 | 3 | 5 | 4 |
-| 5 | Revelatio Studio (SOTD Aug 12, 2026, 7.37) | [Awwwards](https://www.awwwards.com/sites/revelatio-studio) / [live](https://revelatio.studio/) | Four links + "Get in touch"; the phone menu repeats the links and ends with Contact. | Language toggle (not needed). | 4 | 4 | 4 | 4 | 3 | 4 | 4 | 3 |
+| 5 | Revelatio Studio (SOTD Aug 12, 2026, 7.37) | [Awwwards](https://www.awwwards.com/sites/revelatio-studio) / [live](https://revelatio.studio/) | Four links + "Get in touch"; the phone menu repeats the links and ends with Contact. | Language toggle (not needed); the glitch animation on the open phone menu (seen). | 4 | 4 | 4 | 3 (4) | 3 | 4 | 4 | 3 |
 | 6 | Relevo & Vinco (Porto; Nominee Oct 22, 2026, Header Design tag) | [Awwwards](https://www.awwwards.com/sites/relevo-vinco) / [live](https://relevovinco.com/) | A text wordmark with a full stop, and a button that names the thing you get: "Order a kit". | The scroll-driven scenes everywhere else on the page. | 4 | 4 | 5 | 4 | 2 | 3 | 4 | 5 |
 | 7 | LPAS (SOTD Oct 10, 2026, 7.24, Header Design tag) | [Awwwards](https://www.awwwards.com/sites/lpas) / [live](https://lpas.com/) | "Menu" flips to "Close"; the open menu groups links under three headings with socials below. | No button at all; the whole nav hides behind Menu even on desktop. | 3 | 4 | 2 | 4 | 3 | 4 | 4 | 4 |
-| 8 | Banham (London; Nominee Oct 22, 2026) | [Awwwards](https://www.awwwards.com/sites/banham-1) / [live](https://www.banham.co.uk/) | "Prefer to call?" and the number, one line above the header. | The mega menu, the utility links, two competing buttons. | 3 | 5 | 3 | 3 | 3 | 4 | 3 | 3 |
+| 8 | Banham (London; Nominee Oct 22, 2026) | [Awwwards](https://www.awwwards.com/sites/banham-1) / [live](https://www.banham.co.uk/) | "Prefer to call?" and the number, one line above the header; on phones a phone-number button inside the menu (seen). | The mega menu, the utility links, two competing buttons, and the "Book a Free Survey" pill pinned over the page on phones (seen). | 3 | 5 | 4 (3) | 4 (3) | 3 | 4 | 3 | 3 |
 
-Reviewed and cut: Comrade (promo bar + mega menu + two actions + phone), Potadot (seven items, three languages, phone and email), Kohen Avocats (16 practice-area links), LAPL (search + six mega menus), Idealworks, Reckoner (three dropdowns, no button), Right Hemisphere (CONTACT as a nav item plus MENU/CLOSE), Signal-A (time widget), Squared Media (five links, language, "Mail ons" and "Plan een call"), Biite (six links, no button), No Jiggery (a dropdown), Brikken (no nav found in the content), Bennett & Clive ("Contact" not even linked), The Line (eight links), P+Z, Impasto (seven links, no button), Son Daven (nine links). The pattern in the cuts: more than five links, or no single obvious button.
+Reviewed and cut: Comrade (promo bar + mega menu + two actions + phone), Potadot (seven items, three languages, phone and email), Kohen Avocats (16 practice-area links), LAPL (search + six mega menus), Idealworks, Reckoner (three dropdowns, no button), Right Hemisphere (CONTACT as a nav item plus MENU/CLOSE), Signal-A (time widget), Squared Media (five links, language, "Mail ons" and "Plan een call"), Biite (six links, no button), No Jiggery (a dropdown), Brikken (no nav found in the content), Bennett & Clive ("Contact" not even linked), The Line (eight links), P+Z, Impasto (seven links, no button), Son Daven (nine links). The pattern in the cuts: more than five links, or no single obvious button. Seen in the captures and not changing the cut: Comrade's phone header keeps "Contact Us"; Garvin's blue menu pins "Let's Talk" with the phone and the address; Idealworks pins "Contact Sales"; Potadot numbers its menu and adds service chips and three languages; Agrumea and Kigo keep a language toggle on phones; Henrietta stacks its menu as cards; Walton's menu is numbered report chapters; Nova Dental's navy header uses "( Book an Appointment )" in brackets as its button and pins it at the bottom of the phone menu.
 
 ### Finalists
 1. **Wishbone.** The whole structure in one line. Three links and one named action is what a busy owner can parse in a second.
@@ -79,8 +83,8 @@ Phone (390):
 ```
 | [flame-pin] Firemark                 [ Free check ]  [ ≡ Menu ] |
 ```
-- Height 56px. The button stays (it already does); below 384px the Menu button shows only its icon with the name kept for screen readers; below 335px the button hides (both already in v7).
-- The menu is a sheet that drops from under the header, not a full-screen takeover. Three links at 28px, weight 620, 56px tall each; a hairline; "Get my free check" as a full-width button; then one line in Graphite: "[PLACEHOLDER: email] · [PLACEHOLDER: phone]" written as two short links on one line, no middle dot (two `<a>`s with a space and a thin rule between them); then "The Colony, Texas".
+- Height 56px. The button stays (it already does); below 384px the Menu button shows only its icon with the name kept for screen readers; below 335px the button hides (both already in v7). Plumeform and Squared prove the shape at 390px (seen): wordmark, one pill, one toggle.
+- The menu is a sheet that drops from under the header, not a full-screen takeover (Wishbone's, seen: three links, a rule, a full-width button, and nothing else). Three links at 28px, weight 620, 56px tall each; a hairline; "Get my free check" as a full-width button; then one line in Graphite: "[PLACEHOLDER: email] · [PLACEHOLDER: phone]" written as two short links on one line, no middle dot (two `<a>`s with a space and a thin rule between them); then "The Colony, Texas".
 - "Menu" flips to "Close" with `aria-expanded`. Esc closes, tapping outside closes, choosing a link closes, and focus returns to the Menu button. The sheet is short, so the page is not scroll-locked.
 
 Motion: the sheet fades in and slides down 8px over 160ms, ease-out. Hover on links: the underline grows from 0 to 100% over 120ms. Under `prefers-reduced-motion: reduce`, everything appears instantly.
@@ -101,19 +105,20 @@ Draft copy:
 - A risk-reducer line under the buttons: Plumeform's "100 free monthly responses, no credit card". The current Firemark hero already does this ("Free, no strings.").
 - Concrete numbers that are promises, not statistics. Squared Media puts "vanaf €2.000" and "binnen 3 werkdagen" (from €2,000, within 3 working days) in the hero. Kohen promises a written analysis "sous 24 heures ouvrées". Relevo & Vinco promises a reply within two working days. This is the most useful finding for Firemark: you cannot show stats or logos, but you can state what you promise, and the best sites do exactly that.
 - The visual is the product doing its job, not a stock photo: Biite's metric panel, Plumeform's live survey, Wishbone's result cards, LAPL's "What can we help you find?" with a search field. Firemark's search card dropping a pin on real streets is the same idea, done for a local business.
-- The heavy heroes (A24's 3D discs, Emotion's WebGL, Belgrade Arbor's video, Agrumea's Three.js, Squared's 3D island) win awards and lose a phone on a parking lot. Each would cost the v7 Lighthouse 97 to 100.
+- Seen at 390px: on every shortlisted hero the headline and the first button come before the visual (Wishbone, Plumeform, Biite, Squared, RIO, LAPL); only BCG and Nova Dental lead with a photo. Biite's phone hero stacks headline, support, red button, underlined text link, then the diagram: the order the Firemark pick uses. Plumeform's survey panel and Squared's client-logo strip fall below the first phone screen, so the sentence and the button carry it.
+- The heavy heroes (A24's 3D discs, Emotion's WebGL, Belgrade Arbor's video, Agrumea's Three.js, Squared's 3D island) win awards and lose a phone on a parking lot. Each would cost the v7 Lighthouse 97 to 100. Why Zero's "Draw a zero" gesture gate and Emotion's "Enter with audio" door (both seen) are the extreme case: a screen you must get past before the site starts.
 
 ### Shortlist (8 of 29 heroes reviewed)
 
 | # | Site | Links | What to steal | What to skip | C | T | Cv | M | W | A | B | D |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Wishbone Advisory | [Awwwards](https://www.awwwards.com/sites/wishbone-advisory) / [live](https://wishboneadvisory.com) | "Book a 15-minute call" + a free second offer. The time makes the ask small. | Three stat cards under the hero. Firemark has no stats and should not invent any. | 5 | 4 | 5 | 4 | 5 | 4 | 5 | 3 |
+| 1 | Wishbone Advisory | [Awwwards](https://www.awwwards.com/sites/wishbone-advisory) / [live](https://wishboneadvisory.com) | "Book a 15-minute call" + a free second offer. The time makes the ask small. | Three stat cards under the hero. Firemark has no stats and should not invent any. The hero is a black panel (seen): keep the structure, not the color. | 5 | 4 | 5 | 4 | 5 | 4 | 5 | 3 |
 | 2 | RIO Property (Cape Town; HM Aug 11, 2026) | [Awwwards](https://www.awwwards.com/sites/rio-property) / [live](https://www.rioproperty.co.za/) | The city in the headline, stacked on four lines, and the frank subline "You're probably here to see what we actually do." | All-caps buttons, the client logo strip. | 5 | 4 | 4 | 4 | 4 | 3 | 5 | 4 |
-| 3 | Plumeform (Nominee Oct 18, 2026, Header Design tag) | [Awwwards](https://www.awwwards.com/sites/plumeform) / [live](https://plumeform.com) | The line under the button that removes the risk ("no credit card"). | SaaS demo, arrows glued to every button. | 5 | 4 | 5 | 4 | 3 | 4 | 4 | 3 |
+| 3 | Plumeform (Nominee Oct 18, 2026, Header Design tag) | [Awwwards](https://www.awwwards.com/sites/plumeform) / [live](https://plumeform.com) | The line under the button that removes the risk ("no credit card"). At 390px the header keeps the "Start free" pill next to the toggle (seen). | SaaS demo, arrows glued to every button. | 5 | 4 | 5 | 5 (4) | 3 | 4 | 4 | 3 |
 | 4 | Biite (Nominee Oct 17, 2026, Header Design tag) | [Awwwards](https://www.awwwards.com/sites/biite) / [live](https://biite.nl/) | Headline, two buttons, and a product panel instead of a photo. | The numbers in the panel (Leads 341, etc.). | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 4 |
-| 5 | Squared Media (Amsterdam; Nominee Oct 18, 2026) | [Awwwards](https://www.awwwards.com/sites/squared-media-1) / [live](https://squared-media.nl) | "From €2,000" and "live within 3 working days" in the hero. Promises as numbers. | The real-time 3D island and talking mascot. | 5 | 3 | 5 | 3 | 1 | 3 | 2 | 5 |
+| 5 | Squared Media (Amsterdam; Nominee Oct 18, 2026) | [Awwwards](https://www.awwwards.com/sites/squared-media-1) / [live](https://squared-media.nl) | "From €2,000" and "live within 3 working days" in the hero. Promises as numbers. On phones: headline, the promise lines, two buttons, "How does it work?" (seen). | The real-time 3D island and talking mascot; the client-logo strip. | 5 | 3 | 5 | 3 | 1 | 3 | 2 | 5 |
 | 6 | P+Z Fine Art Logistics (Nominee Oct 26, 2026) | [Awwwards](https://www.awwwards.com/sites/p-z-fine-art-logistics) / [live](https://www.pnzfas.com/) | Secondary action that scrolls to the proof: "See how we plan protection ↓". | 3D packing studies, video. | 4 | 4 | 4 | 3 | 2 | 3 | 3 | 4 |
-| 7 | BCG Building Design | [Awwwards](https://www.awwwards.com/sites/bcg-building-design) / [live](https://bcgbuildingdesign.com.au/) | A plain local H1 and one sentence under it. | No button in the hero at all; depends on one big photo. | 5 | 4 | 2 | 4 | 3 | 4 | 5 | 3 |
+| 7 | BCG Building Design | [Awwwards](https://www.awwwards.com/sites/bcg-building-design) / [live](https://bcgbuildingdesign.com.au/) | A plain local H1 and one sentence under it. | No button in the hero at all; depends on one big photo, which comes first on phones (seen). | 5 | 4 | 2 | 3 (4) | 3 | 4 | 5 | 3 |
 | 8 | Los Angeles Public Library (Nominee Oct 7, 2026, Header Design tag) | [Awwwards](https://www.awwwards.com/sites/los-angeles-public-library) / [live](https://www.lapl.org/) | "What can we help you find?" with a search field. A question and a box is a hero. | Everything else; it is an institution-scale site. | 4 | 5 | 3 | 4 | 4 | 5 | 4 | 2 |
 
 Supporting (descriptions on maxibestof, not live visits): [Brand Appart hero](https://maxibestof.one/sections/brand-appart-section-hero-e8taow) (cream page, centered oversized black headline, a book-a-call control in the header, an orange circle as the only accent: the closest palette to Firemark's in the whole set; its fonts PP Neue Montreal and Youth are paid, IBM Plex Mono is free on Google Fonts; Bricolage covers the role), [House of Honey](https://maxibestof.one/sections/house-of-honey-section-hero-buz5n2) (oversized wordmark, split tagline, full-width photo), [Duft und Kultur](https://maxibestof.one/sections/duft-und-kultur-section-hero-rg4au0) (full-bleed image, underlined text link as the only action).
@@ -140,13 +145,13 @@ Desktop (1440), two columns, text left (44%), map right (56%):
 | [ Get my free check ]   See the work ↓              |                                             |
 | Free, no strings. In 7 days you'll have a short     |                                             |
 | written report on how you show up on Google.        |                                             |
-| A starter site goes live in about 30 days.          |                                             |
+| A starter site goes live in about 45 days.          |                                             |
 ```
 - The pin chip "The Colony, Texas" above the headline goes away (it moved to the header). The headline is the first thing in the column.
 - Headline stays "Put your business on the map." at 620 weight, opsz 32, `clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem)`, line-height 0.98, max two lines on desktop, three on a phone. Alternate if you want the city in the H1 (the RIO/BCG pattern): "Put your business on the map in The Colony." It is longer and reads as a mouthful; my call is to keep the short one and let the map and the header carry the place.
 - Support line: as above, 19px, Graphite, max 60 characters per line.
 - Primary: "Get my free check" (Ember). Secondary: "See the work" as an underlined text link with a small down arrow icon from the sprite (not a glyph pasted on text), scrolling to Recent work. That is the P+Z move: the second action points at proof on the same page. Recent work stays the simple list you asked for (name, one line, thumbnail, link), so the hero never promises a case study it then has to deliver.
-- Promise lines, 15px, Graphite, two sentences, each on its own line on desktop: "Free, no strings. In 7 days you'll have a short written report on how you show up on Google." and "A starter site goes live in about 30 days. [CONFIRM the 30 days]". This answers the v7 QA note: "A short, plain-English report" is now said once, here, and the words change in the closing CTA and on Work and About.
+- Promise lines, 15px, Graphite, two sentences, each on its own line on desktop: "Free, no strings. In 7 days you'll have a short written report on how you show up on Google." and "A starter site goes live in about 45 days.". This answers the v7 QA note: "A short, plain-English report" is now said once, here, and the words change in the closing CTA and on Work and About.
 - Map: unchanged in content (real OSM streets, the search-to-result moment, the required "Map data © OpenStreetMap contributors" credit). Panel radius 28px. One orchestrated moment of about 1.5 seconds, transform and opacity only, then still. Reduced motion shows the final state.
 - Weight: no new assets. The heading font is the LCP element on phones (2 to 2.5 s in the v7 QA); keep the woff2 preload and do not add a photo or a second face.
 
@@ -168,7 +173,7 @@ Draft copy, in full:
 - Support: Firemark builds websites and Google listings for independent businesses in The Colony, then keeps them running. So when someone nearby searches, they find you.
 - Primary button: Get my free check
 - Secondary link: See the work
-- Promise lines: Free, no strings. In 7 days you'll have a short written report on how you show up on Google. A starter site goes live in about 30 days. [CONFIRM]
+- Promise lines: Free, no strings. In 7 days you'll have a short written report on how you show up on Google. A starter site goes live in about 45 days.
 - Map card (unchanged): bakery near me / Your bakery, Open now / On Main St, 2 min away / Call, Directions, Website.
 
 ---
@@ -183,6 +188,7 @@ Draft copy, in full:
 - One primary action and a quiet alternative ("or email", "Rather email or call?", "WhatsApp"). The weak ones offer three equal buttons (Revelatio's "Get a quote / Join our team / Just say hello").
 - Bookends: the closing echoes the hero. Reckoner repeats its hero headline word for word; P+Z's "Your next move. Let's plan it." answers its hero's "We plan the way there."
 - Biite's third bullet says it will point you to someone else if another specialist fits better. That one honest line does more for trust than any badge.
+- Seen in the captures: the closing block is a card inside a light page far more often than a dark band across it. No Jiggery's dark-green "Tell me about your project" card, Relevo & Vinco's brown inset card, Biite's stone card with the founder photo, and on Dribbble FitSitePro's split card and Azimute's band all sit inside a light page. Squared's closing is the light exception on a dark site: "EVEN PRATEN?" (shall we talk?), one orange button, the founder's email as a pill. Garvin ends with a giant "Let's Talk" band, P+Z with a red "Your next move. Let's plan it.", Brikken with a blue "Have something worth shaping? Let's build it properly." The Firemark pick, a Stone card on Paper, is the light version of the same shape.
 
 ### Shortlist (8 of 27 closing sections reviewed)
 
@@ -192,10 +198,10 @@ Draft copy, in full:
 | 2 | Relevo & Vinco | [Awwwards](https://www.awwwards.com/sites/relevo-vinco) / [live](https://relevovinco.com/) | A three-field form with a reply-time promise beside it, and a button that names the thing ("Send the brief"). | Heavy scroll animation elsewhere. | 5 | 4 | 5 | 4 | 3 | 4 | 5 | 5 |
 | 3 | Wishbone Advisory | [Awwwards](https://www.awwwards.com/sites/wishbone-advisory) / [live](https://wishboneadvisory.com) | "Let's see if we're a fit." Low pressure, and the email address right there. | Embedded calendar (no booking tool yet). | 5 | 4 | 4 | 4 | 4 | 4 | 5 | 3 |
 | 4 | CE Growth Partners | [Awwwards](https://www.awwwards.com/sites/ce-growth-partners) / [live](https://cegrowthpartners.com/) | Naming the first step in the headline ("Start with a six-week diagnostic."). | The decorative word band under it. | 5 | 4 | 4 | 4 | 4 | 4 | 5 | 3 |
-| 5 | Squared Media | [Awwwards](https://www.awwwards.com/sites/squared-media-1) / [live](https://squared-media.nl) | "Half an hour, no sales pitch", and "Plan a call with Wouter": a named person. | WhatsApp, arrows. | 4 | 4 | 5 | 3 | 3 | 3 | 4 | 4 |
+| 5 | Squared Media | [Awwwards](https://www.awwwards.com/sites/squared-media-1) / [live](https://squared-media.nl) | "Half an hour, no sales pitch", and "Plan a call with Wouter": a named person. The closing block is light and simple on phones (seen). | WhatsApp, arrows. | 4 | 4 | 5 | 4 (3) | 3 | 3 | 4 | 4 |
 | 6 | RIO Property | [Awwwards](https://www.awwwards.com/sites/rio-property) / [live](https://www.rioproperty.co.za/) | The form as the closing section, with written success and error states. | Checkbox rows. | 4 | 4 | 4 | 4 | 4 | 4 | 5 | 3 |
-| 7 | Revelatio Studio | [Awwwards](https://www.awwwards.com/sites/revelatio-studio) / [live](https://revelatio.studio/) | A photo, name and role next to "Let's talk". | Three equal buttons after it. | 4 | 4 | 3 | 4 | 3 | 4 | 4 | 4 |
-| 8 | No Jiggery (a company of one; Nominee Oct 21, 2026) | [Awwwards](https://www.awwwards.com/sites/no-jiggery) / [live](https://nojiggery.co/) | "Tell me about your project" + "Book a meeting with me". First person, one button. | Nothing to skip; it has no form, which is fine for them. | 5 | 4 | 4 | 4 | 5 | 4 | 5 | 3 |
+| 7 | Revelatio Studio | [Awwwards](https://www.awwwards.com/sites/revelatio-studio) / [live](https://revelatio.studio/) | A photo, name and role next to "Let's talk". | Three equal buttons after it; the glitch menu on phones (seen). | 4 | 4 | 3 | 3 (4) | 3 | 4 | 4 | 4 |
+| 8 | No Jiggery (a company of one; Nominee Oct 21, 2026) | [Awwwards](https://www.awwwards.com/sites/no-jiggery) / [live](https://nojiggery.co/) | "Tell me about your project" + "Book a meeting with me". First person, one button; the phone header keeps "Book a meeting" (seen). | Nothing to skip; it has no form, which is fine for them. | 5 | 4 | 4 | 4 | 5 | 4 | 5 | 3 |
 
 Reviewed and cut: Brikken ("Have something worth shaping? Let's build it properly." with a list of welcome projects; worth a line in the copy below), BCG ("Tell us about your project" to a separate page), Potadot ("Have a workflow that needs a system?"), Two26 ("Okay, that's enough website."), P+Z ("Your next move. Let's plan it."), Reckoner (hero headline repeated, then a newsletter box), Son Daven, Comrade ("Ready to Grow?"), Signal-A ("Schedule a Discovery call" to an outside booking page), Right Hemisphere, Bennett & Clive (offices + email), Kohen (a paid form), The Line (a "Let's Talk" link), and the ones that end in a newsletter instead of a conversation (Banham, Impasto, Idealworks, Plumeform's footer band). LPAS has no closing action at all.
 
@@ -218,9 +224,9 @@ Desktop (1440): one Stone panel, radius 28px, two columns 5:7.
 |    up on Google today.                      |  Website or Google listing (optional)   |
 | 2. Within 7 days you get a short written    |  Anything Firemark should know? (opt.)  |
 |    report, yours to keep, whatever you do   |  [     Get my free check     ]          |
-|    with it.                                 |  No payment, no account. [CONFIRM reply |
-| 3. If a website makes sense, you get a      |  time]: Jeremy replies within one       |
-|    written price before anything starts.   |  business day.                          |
+|    with it.                                 |  No payment, no account. You'll hear    |
+| 3. If a website makes sense, you get a      |  back within 5 days.                    |
+|    written price before anything starts.   |                                         |
 |    If it doesn't, Jeremy will say so.       |                                         |
 |                                             |                                         |
 | [photo] Jeremy, The Colony                  |                                         |
@@ -228,9 +234,10 @@ Desktop (1440): one Stone panel, radius 28px, two columns 5:7.
 ```
 - Headline: 620 weight, `clamp(1.9rem, 1.3rem + 2vw, 2.8rem)`. It answers the hero ("Put your business on the map." becomes "Let's get your business on the map.").
 - The three lines are a real sequence, so numbers are right here (the frontend-design skill's rule: number things only when they are steps). Numbers in Ember, 620 weight; text in Charcoal, 17px.
-- The person block: a 56px round photo [PLACEHOLDER: photo of Jeremy] with "Jeremy, The Colony" and the "Rather email or call?" line. If you would rather not use a photo, drop the image and keep the name line; the mark does not belong here (it is in the header and footer already).
-- Form column: unchanged fields, white surface inside the stone panel, labels visible, validation on blur, error summary on failed submit (all already in v7). The submit button becomes "Get my free check" so the action keeps one name from header to hero to menu to form (v7 has "Request my free check" on the form and "Get my free check" everywhere else; pick one, and the shorter one is already in five places). Under the button, one 15px line: "No payment, no account. Jeremy replies within one business day. [CONFIRM]".
-- Success state, in place of the form: "Thanks, {name}. Your free check is on its way. Jeremy will email it to {email} within 7 days." Error state stays as v7 has it.
+- The person block: a 56px round photo of Jeremy with "Jeremy, The Colony" and the "Rather email or call?" line. Decided Oct 27: photo. There is no headshot yet, so the build ships a clearly marked placeholder image (a Stone circle with the words "Photo of Jeremy placeholder" drawn on it) at `docs/images/jeremy.webp`, 448px square, the same file the About page shows larger, and the name line carries a visible [PLACEHOLDER: photo] tag; swapping that one file and deleting the tag is the whole change. The mark does not belong here (it is in the header and footer already). Execora's founder photo in the hero (Dribbble, section 5) and Biite's at the close are the two arguments for it; Firemark puts it at the close, next to the form, where the decision is made.
+- Form column: unchanged fields, white surface inside the stone panel, labels visible, validation on blur, error summary on failed submit (all already in v7). The submit button becomes "Get my free check" so the action keeps one name from header to hero to menu to form (v7 has "Request my free check" on the form and "Get my free check" everywhere else; pick one, and the shorter one is already in five places). Under the button, one 15px line: "No payment, no account. You'll hear back within 5 days."
+- Where the form goes: Web3Forms (the answer given in the project chat, Oct 27). The form posts to `https://api.web3forms.com/submit` with a hidden `access_key` set to `[PLACEHOLDER: Web3Forms access key]` (sign up with the address the requests should arrive at, paste the key into `src/partials/form.html`, rebuild), a hidden `subject` ("Free check request from {business}"), a `from_name` ("Firemark website"), and Web3Forms' own `botcheck` honeypot next to the v7 honeypot field. With JavaScript on, the page sends the form with `fetch` and shows the success state below in place; with JavaScript off, the form posts normally and a hidden `redirect` field brings the person back to `/thanks/`, a one-paragraph page with the same words. No account for the visitor, no cookie set by the form, nothing stored on the site.
+- Success state, in place of the form: "Thanks, {name}. Your free check is on its way. Jeremy will email it to {email} within 7 days." Error state stays as v7 has it; if Web3Forms cannot be reached, the error summary says so and shows the email address, so no one is stuck.
 
 Phone (390): headline, the three lines, then the form, then the person block and the email/call line. Panel radius 20px, side padding 20px, fields full width, button 48px.
 
@@ -245,7 +252,7 @@ Draft copy, in full:
 - Person line: Jeremy, The Colony
 - Alt route: Rather email or call? [PLACEHOLDER: email] or [PLACEHOLDER: phone].
 - Submit: Get my free check
-- Under the button: No payment, no account. Jeremy replies within one business day. [CONFIRM]
+- Under the button: No payment, no account. You'll hear back within 5 days.
 - Success: Thanks, {name}. Your free check is on its way. Jeremy will email it to {email} within 7 days.
 
 Motion: none, except the form's existing valid-field check and the error summary receiving focus. Under reduced motion, no change.
@@ -260,6 +267,7 @@ Motion: none, except the form's existing valid-field check and the error summary
 - The local businesses put place and reach in the footer: Relevo & Vinco's "Visit" column has the street address and opening hours; Impasto lists hours for every day; Potadot's address links to Google Maps and it lists the states it serves; Son Daven has the address with a map link; BCG writes "Gold Coast, QLD"; No Jiggery writes "Based in Fremantle Australia".
 - A one-line story in the footer: Relevo & Vinco "pressed by hand and by press in Porto since 2014"; No Jiggery "an established company of one, founded by Sarah Jee"; Banham "Trusted, Since 1926"; Two26 "Handmade by humans. Well, digitally."; Wishbone "Built with intention." Bennett & Clive and No Jiggery put the founder's name in the footer.
 - Columns named as actions read better than "Links" or "Company": The Line's "Reach out" and "Find us".
+- Seen at 390px: Relevo & Vinco's footer becomes two columns (Workshop and Pages, Contact and Visit) with the hours and "Back to the top", under two screens tall; Kigo, Squared, Biite and Nova Dental stack labelled groups (Pages / Services / Contact, Pagina's / Volg ons / Contact, Navigatie / Expertise / Contact, Menu / Contact Us) with the email and phone as plain links, Biite with small icons; The Line collapses its groups into accordions, which hides the contact behind a tap; Wishbone's 24 links run three screens. Labelled contact cells are the most common light pattern in both sets (Skipmatrix's "Phone number" and "Email", Minima's "Call us" and "Open time", Reckoner's "General Inquiries", Right Hemisphere's "Email:" and "Call:"). Firemark's "Reach Jeremy" heading does that job for two lines.
 - A baseline row with the copyright on the left and small items on the right, and a "Back to top" link (LPAS, The Line, Relevo & Vinco, LAPL).
 - The oversized wordmark at the bottom (Ofform, Dobre, Squared, Signal-A's marquee) is the 2025 to 2026 agency signature. It is a look, not a job, and three of the four live on dark pages.
 
@@ -267,18 +275,18 @@ Motion: none, except the form's existing valid-field check and the error summary
 
 | # | Site | Links | What to steal | What to skip | C | T | Cv | M | W | A | B | D |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Relevo & Vinco | [Awwwards](https://www.awwwards.com/sites/relevo-vinco) / [live](https://relevovinco.com/) | Wordmark, one-line story, Pages, Contact (email + phone), Visit (address + hours), ©, Back to the top. The complete local-business footer in a few lines. | Nothing. | 5 | 5 | 4 | 4 | 5 | 4 | 5 | 4 |
-| 2 | The Line Studio (SOTM Nov 2024, 7.76, Footer highlighted) | [Awwwards](https://www.awwwards.com/sites/thelinestudio-com) / [live](https://thelinestudio.com/) | Columns named "Reach out" and "Find us"; Site Credits, Privacy and "Up" on the baseline. | Eight nav links. | 5 | 4 | 4 | 4 | 4 | 4 | 5 | 3 |
+| 1 | Relevo & Vinco | [Awwwards](https://www.awwwards.com/sites/relevo-vinco) / [live](https://relevovinco.com/) | Wordmark, one-line story, Pages, Contact (email + phone), Visit (address + hours), ©, Back to the top. The complete local-business footer in a few lines; at 390px it is two short columns with the hours and "Back to the top" (seen). | Nothing. | 5 | 5 | 4 | 5 (4) | 5 | 4 | 5 | 4 |
+| 2 | The Line Studio (SOTM Nov 2024, 7.76, Footer highlighted) | [Awwwards](https://www.awwwards.com/sites/thelinestudio-com) / [live](https://thelinestudio.com/) | Columns named "Reach out" and "Find us"; Site Credits, Privacy and "Up" on the baseline. | Eight nav links; accordion groups on phones (seen). | 5 | 4 | 4 | 4 | 4 | 4 | 5 | 3 |
 | 3 | No Jiggery | [Awwwards](https://www.awwwards.com/sites/no-jiggery) / [live](https://nojiggery.co/) | "An established company of one, founded by Sarah Jee" and "Based in Fremantle Australia". Honest, specific, one line each. | The membership badge (nothing to show yet). | 5 | 5 | 3 | 4 | 5 | 4 | 5 | 3 |
 | 4 | Bennett & Clive (SOTD Mar 12, 2024, 7.71, Footer & Contact highlighted) | [Awwwards](https://www.awwwards.com/sites/bennett-clive) / [live](https://bennettandclive.com) | The footer is the contact card: offices, "Work with us", the email, the founder's name. Light, typographic. | Three offices. | 4 | 5 | 4 | 4 | 5 | 4 | 5 | 3 |
 | 5 | Potadot | [Awwwards](https://www.awwwards.com/sites/potadot-web-system-solutions) / [live](https://potadot.com.my/) | Address that links to Google Maps; a service-area list; "Est. 2022, Butterworth, Penang". | Five columns and the middle dots. | 4 | 4 | 3 | 3 | 4 | 4 | 4 | 3 |
 | 6 | Wishbone Advisory | [Awwwards](https://www.awwwards.com/sites/wishbone-advisory) / [live](https://wishboneadvisory.com) | Email, phone and street address all present; "Built with intention." as the last line. | 24 links in three columns. | 4 | 4 | 3 | 3 | 5 | 4 | 5 | 2 |
 | 7 | Ofform (description) | [maxibestof](https://maxibestof.one/sections/ofform-section-footer-wwlja1) | A light footer with three tiny columns and an oversized wordmark, proving the big-type footer works on white. | Suisse Int'l is a paid face; Bricolage would do the same job. Decide whether a huge wordmark is "cookie cutter" for you (see decisions). | 4 | 3 | 2 | 3 | 5 | 3 | 5 | 5 |
-| 8 | Son Daven (SOTM Jun 2026; Footer, Location, Contact Block highlighted) | [Awwwards](https://www.awwwards.com/sites/son-daven) / [live](https://sondaven.com/en) | Address with a map link, and a two-field form that lives in the footer. | The FAQ accordion and sales offices in the footer. | 3 | 4 | 4 | 3 | 3 | 3 | 3 | 4 |
+| 8 | Son Daven (SOTM Jun 2026; Footer, Location, Contact Block highlighted) | [Awwwards](https://www.awwwards.com/sites/son-daven) / [live](https://sondaven.com/en) | Address with a map link, and a two-field form that lives in the footer. | The FAQ accordion and sales offices in the footer; a loading screen and a cookie banner before anything else on phones (seen). | 3 | 4 | 4 | 2 (3) | 3 | 3 | 3 | 4 |
 
 Supporting (descriptions): [Dobre Agency](https://maxibestof.one/sections/dobre-agency-section-footer-la6wfl) (near-black, thin contact row with "Melbourne", full-width cream wordmark: the dark agency look to avoid), [Wisq](https://maxibestof.one/sections/wisq-section-footer-oc4qac) (navy on white, three columns, compliance badges, dotted rule), [Balmoral Running](https://maxibestof.one/sections/balmoral-running-section-footer-hz9mwc) (white, three sentence-case link columns, one newsletter field, thin baseline), [Susanne Kaufmann](https://maxibestof.one/sections/susanne-kaufmann-section-footer-iny00p) (pale field, five groups, all caps: too much), [Wenatal](https://maxibestof.one/sections/wenatal-section-footer-i6vv91) (burgundy rounded panel: a color idea, not for this brand).
 
-Reviewed and cut: Squared (three columns plus a giant "SQUARED"), Biite (numbered expertise column, company registration numbers), BCG, LPAS (two office blocks, "Website by Naam"), Impasto (hours for all seven days), Two26, Brikken (one line: logo, company number, socials), Comrade (six columns and "4.8 Rated from 218+ Reviews"), Banham (five columns and eight policies), Idealworks, Reckoner, Revelatio, Signal-A, Plumeform, LAPL, Right Hemisphere (five columns), CE Growth (logo, six links, email, legal), P+Z (no legal line at all).
+Reviewed and cut: Squared (three columns plus a giant "SQUARED"), Biite (numbered expertise column, company registration numbers), BCG, LPAS (two office blocks, "Website by Naam"), Impasto (hours for all seven days), Two26, Brikken (one line: logo, company number, socials), Comrade (six columns and "4.8 Rated from 218+ Reviews"), Banham (five columns and eight policies), Idealworks, Reckoner, Revelatio, Signal-A, Plumeform, LAPL, Right Hemisphere (five columns), CE Growth (logo, six links, email, legal), P+Z (no legal line at all), and from the captures: Nova Dental (a light footer with Menu and Contact Us columns under a navy page; a concept site with a placeholder address), Kigo (Pages / Services / Contact plus an award badge), Garvin (a giant "Let's Talk" band), Walton (a black report footer).
 
 ### Finalists
 1. **Relevo & Vinco.** Everything a local customer looks for in a footer, in four short groups.
@@ -294,14 +302,14 @@ Desktop (1440), Stone background, 1px Line hairline on top, no charcoal:
 | [flame-pin] Firemark            Reach Jeremy                 Explore                        |
 | Websites and Google listings    [PLACEHOLDER: email]         Work                           |
 | for independent businesses      [PLACEHOLDER: phone]         What you get                   |
-| in The Colony, Texas.           Replies within one           About                          |
-|                                 business day. [CONFIRM]      Free check                     |
+| in The Colony, Texas.           You'll hear back within      About                          |
+|                                 5 days.                      Free check                     |
 | Firemark is Jeremy, in                                       Privacy                        |
 | The Colony, Texas.                                                                           |
 |                                                                                              |
 | © 2026 Firemark. Made in The Colony, Texas.                                   Back to top ↑ |
 ```
-- Column 1: the full-color lockup (mark + capital-F wordmark) at 32px tall, then one sentence, then the true line "Firemark is Jeremy, in The Colony, Texas." in Charcoal, 600 weight. Drop "working across Dallas–Fort Worth" from the footer sentence; it is in the About copy and the footer reads better short. [CONFIRM you still want DFW here.]
+- Column 1: the full-color lockup (mark + capital-F wordmark) at 32px tall, then one sentence, then the true line "Firemark is Jeremy, in The Colony, Texas." in Charcoal, 600 weight. The sentence keeps "working across Dallas–Fort Worth" (your call, Oct 26).
 - Column 2, "Reach Jeremy": email and phone as links (each at least 44px tall on phones), then the reply-time line. Column heading at 16px, 620 weight (keep the `<h2 class="footer-h">` pattern already in v7).
 - Column 3, "Explore": the five links, 16px, 48px line height on phones.
 - Baseline: 14px Graphite. If the OSM map is ever shown in the footer, its credit goes here; today it stays with the hero map.
@@ -314,7 +322,7 @@ Phone (390), one column, short:
 | Firemark is Jeremy, in The Colony, Texas.|
 | Reach Jeremy                             |
 | email · phone (two links, stacked)       |
-| Replies within one business day.         |
+| You'll hear back within 5 days.          |
 | Explore                                  |
 | Work  What you get  About  Free check    |
 | Privacy                                  |
@@ -322,15 +330,132 @@ Phone (390), one column, short:
 | Back to top ↑                            |
 ```
 - "Explore" links flow as a wrapped row rather than a stack, so the footer stays under one screen.
+- Model: Relevo & Vinco at 390px (seen). If the wrapped row feels cramped in the build, "Reach Jeremy" and "Explore" sit side by side as two short columns under the full-width sentence, which is the same height.
 
 Draft copy, in full:
-- Sentence: Websites and Google listings for independent businesses in The Colony, Texas.
+- Sentence: Websites and Google listings for independent businesses. Based in The Colony, Texas, working across Dallas–Fort Worth.
 - True line: Firemark is Jeremy, in The Colony, Texas.
-- Heading 2: Reach Jeremy. Items: [PLACEHOLDER: email], [PLACEHOLDER: phone], "Replies within one business day." [CONFIRM]
+- Heading 2: Reach Jeremy. Items: [PLACEHOLDER: email], [PLACEHOLDER: phone], "You'll hear back within 5 days."
 - Heading 3: Explore. Items: Work, What you get, About, Free check, Privacy.
 - Baseline: © 2026 Firemark. Made in The Colony, Texas. / Back to top
 
 Motion: none. Link hover: underline in 120ms. Reduced motion: no transition.
+
+---
+
+## 5. Dribbble (captured from your PC, viewed Oct 27)
+
+Your PC ran the ten searches the brief named and opened the first eight shots for each of the four sections (32 pages, full length), plus the 13 shots from the first run. I viewed every one. Shots are drawings, not sites, so they are scored on what is drawn, and the brief's rule stands: a live site that wins clients outranks a shot that wins likes. Links go to the shot page. Scores are the same eight, 1 to 5.
+
+### What the Dribbble set has in common
+- Most "header" and "hero" shots are e-commerce or SaaS mock-ups, and three of the eight headers are one designer (Mayeen) exploring the same layout. The reusable parts: a centered pill that holds the links so the row reads as wordmark, pill, button (Cupcoffee); a solid primary next to a plain text link (DayDay, Keyvo); one highlighted word in the headline (DayDay).
+- Heroes sell with trust chips Firemark cannot use: "30k+ clients" (Execora), a TrustPilot score (Enlango), "Trusted by 26,000" (District47), "Number #1" (Rivaldi). Strip those and what is left is the Firemark shape: one sentence, one button, one quiet alternative, and a promise with a number in it (TSH's "in just 2 weeks", Fiscal's "Next group starts in 3 days").
+- The "call to action" search is noisy: two app tab bars and two printed business cards in the top eight. The four real ones share an eyebrow or a step strip, a short headline, one button, and a back-to-top control near the footer. The "CTA section" search (first run) was cleaner.
+- Footers are the strongest group. Six of eight are light, labelled, three or four groups, with a contact cell that names the channel. Azimute puts a "book a free assessment" band directly above the footer card: the same two-step ending Firemark uses (Stone CTA card, then Stone footer).
+- The dark ghost wordmark (Graphy, momente, Neringa) is the same agency signature seen on Awwwards, and it is out by decision 8.
+- Ben Furfie's "Small business website" wireframe (first run) is the plainest statement of the brief in either set: its placeholder copy reads "This is the problem that you solve" and "explain a little bit more about what you do, keep it to two sentences or less". The Firemark hero support line is two sentences.
+
+### Headers (search "website header")
+
+| # | Shot | Designer | What to steal | What to skip | C | T | Cv | M | W | A | B | D |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | [Website Header Animation](https://dribbble.com/shots/26784275-Website-Header-Animation) | Divan Raj | One row with the button at the far right. | Dark fashion store; the animation. | 3 | 2 | 2 | 2 | 2 | 2 | 3 | 4 |
+| 2 | [Cupcoffee header exploration](https://dribbble.com/shots/27645837-Cupcoffee-E-commerce-Website-Header-Exploration) | Mayeen | Light page; a centered pill holds the links, so the row reads wordmark, pill, button. The best-balanced header in the Dribbble set. | Cart button, shop copy. | 4 | 3 | 3 | 3 | 4 | 3 | 4 | 4 |
+| 3 | [VeloSphere crypto header](https://dribbble.com/shots/24261234-VeloSphere-Cryptocurrency-Website-Header) | Plainthing Studio | Nothing Firemark needs. | Dark purple, crypto, 3D coin. | 3 | 2 | 3 | 3 | 2 | 2 | 3 | 3 |
+| 4 | [Real Estate Website Header](https://dribbble.com/shots/16914512-Real-Estate-Website-Header) | Sajon | The local pitch in the first line ("local real estate professionals"). | 2021; a typo in the headline ("You're"); stock photo. | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 2 |
+| 5 | [E-commerce header exploration (DayDay)](https://dribbble.com/shots/27661997-E-commerce-Website-Header-Exploration) | Mayeen | A black pill button next to a plain text link; one highlighted word in the headline. | A hamburger on desktop. | 3 | 3 | 4 | 3 | 4 | 3 | 4 | 4 |
+| 6 | [Skincare header exploration](https://dribbble.com/shots/27680978-Skincare-E-Commerce-Website-Header-Exploration) | Mayeen | Same layout on lavender; proves it works on a pale ground. | Shop copy. | 4 | 3 | 3 | 3 | 4 | 3 | 4 | 3 |
+| 7 | [Website Header Animation](https://dribbble.com/shots/8229223-Website-Header-Animation) | Marcato Studio | Nothing. | 2019; a soft-drink brand animation. | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 4 |
+| 8 | [Keyvo Website](https://dribbble.com/shots/27214788-Keyvo-Website) | Heyo | A built Framer site, not a drawing: a ghost button and a solid one as a pair. | SaaS copy. | 4 | 3 | 4 | 3 | 3 | 3 | 4 | 3 |
+
+Nothing here beats Wishbone or CE Growth. The one detail worth keeping is Cupcoffee's pill as a way to group links, which Brikken does live on scroll; Firemark's three links do not need grouping.
+
+### Heroes (search "hero section")
+
+| # | Shot | Designer | What to steal | What to skip | C | T | Cv | M | W | A | B | D |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | [Consulting Agency Hero (Execora)](https://dribbble.com/shots/27138715-Consulting-Agency-Hero-Section-Modern-Strategy-Landing-Page-UI) | Creliq | A real, smiling founder photo in the first screen; "Book a Call →" with "Contact Us" and a phone icon beside it. | The "30k+" client chip (invented social proof). | 4 | 4 | 4 | 3 | 4 | 4 | 5 | 3 |
+| 2 | [Mindly wellness hero](https://dribbble.com/shots/26895790-Mindly-Wellness-Platform-Hero-Section-Concept) | Bato | Calm pastel ground, one sentence, one button. | Serif display face; app copy. | 3 | 3 | 3 | 3 | 4 | 3 | 4 | 3 |
+| 3 | [TSH - Hero Section](https://dribbble.com/shots/26821717-TSH-Hero-Section) | widehue | A time promise as the headline: "Kickstart your project in just 2 weeks". | The arrow glued into the sentence. | 5 | 4 | 4 | 3 | 4 | 3 | 4 | 4 |
+| 4 | [Enlango hero](https://dribbble.com/shots/26771349-Enlango-English-Learning-Hero-Section) | Elux Space | "Get Started – For Free!": the free thing named on the button. | TrustPilot chip and student counts. | 4 | 2 | 4 | 3 | 4 | 3 | 4 | 2 |
+| 5 | [Project management hero (Veris)](https://dribbble.com/shots/27368334-Project-management-website-hero-section) | Zain's Studio | A clean two-column layout. | Everything else is a product tour. | 3 | 3 | 3 | 3 | 4 | 3 | 4 | 2 |
+| 6 | [Syngri - Hero section](https://dribbble.com/shots/25134285-Syngri-Hero-section) | Syngri | The author's own note: they replaced flashy graphics with clear text. | The dark 3D background they kept anyway. | 3 | 3 | 3 | 2 | 2 | 2 | 2 | 4 |
+| 7 | [Financial Payment hero (Alva)](https://dribbble.com/shots/24832880-Financial-Payment-Landing-Hero-Section) | Xenity Studio | Nothing new. | Fintech dashboard mock. | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| 8 | [Fiscal multi-option hero](https://dribbble.com/shots/25327658-Fiscal-Multi-Option-Hero-Section-for-Financial-Courses) | Outcrowd | Paper ground with red and black; a dated chip ("Next group starts in 3 days!") as the urgency line. | Two option cards competing in the hero. | 4 | 3 | 4 | 3 | 4 | 3 | 4 | 4 |
+
+Execora and TSH are the two that matter. Execora is the case for a real face on the page (Firemark puts it at the close, by your Oct 27 decision). TSH makes a delivery time the headline; Firemark keeps "Put your business on the map." and puts the two promises (7 days, about 45 days) in the lines under the button, which is the Squared and Relevo & Vinco pattern already in the pick.
+
+### Closing CTAs (search "call to action")
+
+| # | Shot | Designer | What to steal | What to skip | C | T | Cv | M | W | A | B | D |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | [Elite Coaching Footer & Final Call (Aura)](https://dribbble.com/shots/27166580-Elite-Coaching-Footer-Final-Call-UI-Fitness-Coaching) | FitSitePro | Light page, one closing card, a back-to-top circle beside the footer. | The dark split card; the "The final step" eyebrow (Firemark uses no eyebrows). | 4 | 3 | 4 | 3 | 4 | 3 | 5 | 3 |
+| 2 | [CTA for an AI platform (transform9)](https://dribbble.com/shots/27332273-Website-Design-Call-to-Action-CTA-for-AI-Powered-Platform) | tubik | "Get a call" and "Book a demo" as two labelled cells. | Dark; the giant wordmark. | 4 | 3 | 4 | 3 | 3 | 3 | 4 | 4 |
+| 3 | [Ultimate Tab Bar CTA Button](https://dribbble.com/shots/6473978-Ultimate-Tab-Bar-Call-To-Action-Button) | Oleg Frolov | Off target: an app tab bar. | All of it. | 2 | 2 | 2 | 4 | 3 | 2 | 3 | 4 |
+| 4 | [Hot Tab Bar CTA Button](https://dribbble.com/shots/6212663-Hot-Tab-Bar-Call-To-Action-Button) | Oleg Frolov | Off target: the same. | All of it. | 2 | 2 | 2 | 4 | 3 | 2 | 3 | 4 |
+| 5 | [Starvy AI SaaS CTA](https://dribbble.com/shots/25650961-Starvy-AI-SaaS-Website-Call-to-Action-CTA) | Illiyin Studio | CTA and footer drawn as one framed panel, so the page ends once. | Dark; SaaS copy. | 4 | 3 | 4 | 3 | 3 | 3 | 4 | 3 |
+| 6 | [Call to Action from Portfolio](https://dribbble.com/shots/25464676-Call-to-Action-from-Portfolio-Mouse-over-Animation) | Eduard Bodak | Paper ground; a "Define · Design · Build · Run" step strip above the ask. The steps are the pitch. | Giant type; a cursor-following button (fails on touch and under reduced motion). | 4 | 4 | 3 | 2 | 3 | 2 | 3 | 5 |
+| 7 | [Call to Action Business Card](https://dribbble.com/shots/27126750-Call-to-Action-Business-Card) | Vista | Off target: a printed card. | All of it. | 2 | 2 | 2 | 1 | 3 | 2 | 2 | 2 |
+| 8 | [Call To Action Business Card](https://dribbble.com/shots/27126714-Call-To-Action-Business-Card) | Vista | Off target: the same. | All of it. | 2 | 2 | 2 | 1 | 3 | 2 | 2 | 2 |
+
+Four of the eight are off target, so the next three real ones in the same results are worth a look if you want a second pass (listed in `search-results.csv`, not opened): [Quantumn CTA](https://dribbble.com/shots/27684659-Quantumn-Call-to-Action), [Proxy service CTA](https://dribbble.com/shots/27381917-Proxy-service-call-to-action-section-with-gradient-mesh), [Studio.909 Final CTA](https://dribbble.com/shots/26402162-Studio-909-Design-Development-Agency-Call-To-Action-Final-CTA). What the four real ones add to the Biite pick: Bodak's step strip and FitSitePro's one-card ending are both the "what happens next" idea; Firemark's three numbered lines are the plain-text version.
+
+### Footers (search "footer")
+
+| # | Shot | Designer | What to steal | What to skip | C | T | Cv | M | W | A | B | D |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | [Graphy SaaS footer](https://dribbble.com/shots/25878447-Graphy-SaaS-Website-footer-design) | Andrés Soria | A light footer card with three short groups. | The ghost wordmark. | 4 | 3 | 3 | 3 | 4 | 3 | 4 | 4 |
+| 2 | [Footer component - SquareUi](https://dribbble.com/shots/26232392-Footer-component-SquareUi) | Rabii Mhamdi | External links marked with ↗; a "Made with" line. | Kit styling. | 4 | 3 | 3 | 3 | 4 | 3 | 5 | 3 |
+| 3 | [Website Footer Design](https://dribbble.com/shots/23387145-Website-Footer-Design) | Afrity Islam Polok | Phone and email with small icons. | The blue newsletter block. | 3 | 3 | 3 | 3 | 4 | 3 | 4 | 2 |
+| 4 | [Clothing Footer Section (momente)](https://dribbble.com/shots/27037686-Clothing-Footer-Section) | Obayedul Islam | Nothing. | Dark; ghost wordmark. | 3 | 2 | 2 | 3 | 3 | 2 | 4 | 3 |
+| 5 | [Footer for B2B Life Sciences SaaS](https://dribbble.com/shots/27221728-Footer-design-for-B2B-Life-Sciences-SaaS) | Equal | Nothing. | Gradient panel. | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| 6 | [Skipmatrix.com - CTA + Footer](https://dribbble.com/shots/25440392-Skipmatrix-com-CTA-Footer) | DesignMe | Contact cells labelled "Phone number" and "Email"; a CTA card directly above the footer. | Stock photo. | 4 | 4 | 4 | 4 | 4 | 4 | 5 | 3 |
+| 7 | [Azimute website footer](https://dribbble.com/shots/26024034-Azimute-Website-footer-design) | Andrés Soria | A "book a free assessment" band ("Agende já uma avaliação gratuita") directly above a white footer card with Company / Navigation / Contact, small icons for email, phone and city, then © and policies. The closest thing in either set to the Firemark ending. | The blue; the socials row. | 5 | 4 | 5 | 4 | 4 | 4 | 5 | 4 |
+| 8 | [Minima Footer & Contact Section](https://dribbble.com/shots/27643961-Minima-Footer-Contact-Section) | Outline2Design | Contact cells labelled Locations / Call us / Contact us / Open time. | Dark green. | 4 | 4 | 4 | 3 | 3 | 3 | 4 | 4 |
+
+Azimute is the one shot that would make the Awwwards shortlist: a free first step as a band, then a light, labelled footer. It confirms the pick (Stone CTA card, a gap of Paper, Stone footer) rather than changing it.
+
+### The 13 shots from the first run
+
+Searches "CTA section", "landing page", "agency website", "small business website" and "web design agency"; files `dr-<id>-d-top.jpg`.
+
+| Shot | Designer | What it is | Keep or skip | C | T | Cv | M | W | A | B | D |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| [Header navigation / menu (EasyWeek)](https://dribbble.com/shots/21935626-Header-navigation-menu) | Kate Motrych | A dark pill header with a mega menu listing small-business trades (beauty salon, barbershop, car service, fitness, photo studio). | Skip the mega menu. The trade list is a reminder of who Firemark serves. | 4 | 3 | 3 | 2 | 3 | 3 | 3 | 3 |
+| [Header Navigation](https://dribbble.com/shots/19520859-Header-Navigation) | Juliette Lagache | A SaaS mega-menu dropdown on blue, with "Get started" and "Book a demo". | Skip. | 3 | 3 | 3 | 2 | 3 | 3 | 3 | 4 |
+| [Digital Agency's Hero Section Concept](https://dribbble.com/shots/23321827-Digital-Agency-s-Hero-Section-Concept) | Rivaldi Sulthon Sidqi | Dark, 3D illustration, "Number #1 Digital Agency in Indonesia". | Skip: an unprovable claim as the headline. | 3 | 1 | 3 | 2 | 2 | 2 | 3 | 3 |
+| [Website hero section](https://dribbble.com/shots/22994751-Website-hero-section) | Shantanu Khanna | Dark, "We add the Creative Magic", two photo cards, testimonial quotes in the hero. | Skip: the quotes do the work and Firemark has none to show. | 3 | 2 | 2 | 3 | 3 | 2 | 4 | 3 |
+| [Website Hero Section - District47](https://dribbble.com/shots/24300732-Website-Hero-Section-District47-Agency) | Zeeshan Khalid | Dark SaaS hero with a sign-up form and "Trusted by over 26,000" plus logos. | Skip. | 3 | 2 | 3 | 2 | 3 | 3 | 4 | 2 |
+| [Landing Page Website Photography Service](https://dribbble.com/shots/20235514-Landing-Page-Website-Photography-Service) | Paperpillar | Paper ground, serif, a photo grid, an awards list. A one-person service landing page. | Skip; nothing new, but it is light and calm. | 4 | 3 | 3 | 3 | 3 | 3 | 4 | 4 |
+| [Small business website](https://dribbble.com/shots/3123681-Small-business-website) | Ben Furfie | A grey wireframe whose placeholder copy is advice: "This is the problem that you solve", "keep it to two sentences or less", "Why your clients love you", "See how". | Keep the discipline: one problem, two sentences, one button. | 5 | 3 | 3 | 4 | 5 | 4 | 5 | 1 |
+| [Minimal - Design Agency Responsive Page](https://dribbble.com/shots/23555844-Minimal-Design-Agency-Responsive-Page-Website) | Muhammad Izza Recka Putra | Black and white phone screens: "Get in touch", "Our office", "Our contact" as labelled cells. | Keep the labelled cells idea for phones. | 4 | 3 | 3 | 4 | 4 | 3 | 4 | 3 |
+| [Digitant - Call to Action Section](https://dribbble.com/shots/22843763-Digitant-Call-to-Action-CTA-Section) | Dipa UI/UX | Dark; "Ready to move with Digitant?", "Start Free Trial ↗", a keyboard-shortcut hint. | Skip. | 4 | 2 | 3 | 3 | 3 | 3 | 4 | 3 |
+| [30 Days of Art: CTA and Simple Footer](https://dribbble.com/shots/11475978-30-Days-of-Art-4-Call-to-Action-CTA-and-Simple-Footer) | Nadia Le | "Is this course for you? Absolutely." with three "what you get" items, then a green band "Ready to get started?" with one outlined "Register →". | Keep: answer the doubt in the headline, list what you get, one button, the band right above the footer. | 5 | 4 | 4 | 4 | 5 | 4 | 5 | 2 |
+| [Minimal footer – Untitled UI](https://dribbble.com/shots/21694589-Minimal-footer-Untitled-UI) | Jordan Hughes | An FAQ accordion, a "Join 2,000+ subscribers" card, then a deep-blue three-column footer. | The kit pattern. Firemark's FAQ already lives on Contact; no newsletter. | 4 | 3 | 3 | 4 | 4 | 4 | 5 | 2 |
+| [Simple Footer Design for Agency Website](https://dribbble.com/shots/24161794-Simple-Footer-Design-for-Agency-Website) | Ajay Shekhawat | A peach footer: phone and email in one chip at the top, a "Leave your number" button, one row of links, the address, a tax number, and "Glad you made it this far! Here are some pics from our home city" with a photo strip. | Keep the spirit (contact first, hometown last); skip the photo strip (weight). | 4 | 4 | 4 | 3 | 3 | 3 | 4 | 4 |
+| [Neringa Website Footer Design](https://dribbble.com/shots/17531323-Neringa-Website-Footer-Design) | Juste Navickaite | 2021; a giant wordmark over a marquee of venue names. | Skip (decision 8). | 2 | 2 | 2 | 2 | 3 | 2 | 4 | 4 |
+
+### What Dribbble adds to the picks
+1. Nothing in the four picks changes. The strongest shots (Azimute, Nadia Le, Skipmatrix, Execora, TSH, Bodak) each confirm a part that is already there: a free first step as the ending, a numbered "what you get", labelled contact lines, a real face, a time promise, steps as the pitch.
+2. Two small things carried into the build: the closing section's three numbered lines get a little more air between them (the step-strip idea), and the footer's "Reach Jeremy" lines stay two plain links with no icons (Azimute's and Biite's icons are pleasant but add artwork for two lines).
+3. What to avoid is clearer: invented chips (client counts, ratings, "number one"), a dark ghost wordmark, a hamburger on desktop, and any control that follows the cursor.
+
+### The ten searches
+
+| Search | File | Results listed | First result |
+|---|---|---|---|
+| hero section | `dribbble\search-hero-section.jpg` | 45 | [Consulting Agency Hero Section – Modern Strategy Landing Page UI](https://dribbble.com/shots/27138715-Consulting-Agency-Hero-Section-Modern-Strategy-Landing-Page-UI) by Creliq UX/UI Design Agency |
+| website header | `dribbble\search-website-header.jpg` | 43 | [Website Header Animation](https://dribbble.com/shots/26784275-Website-Header-Animation) by Divan Raj |
+| navigation | `dribbble\search-navigation.jpg` | 42 | [Inventory management navigation — Untitled UI](https://dribbble.com/shots/22457422-Inventory-management-navigation-Untitled-UI) by Jordan Hughes® |
+| footer | `dribbble\search-footer.jpg` | 43 | [Graphy – SaaS Website footer design](https://dribbble.com/shots/25878447-Graphy-SaaS-Website-footer-design) by Andrés Soria |
+| call to action | `dribbble\search-call-to-action.jpg` | 45 | [Elite Coaching Footer & Final Call UI - Fitness Coaching](https://dribbble.com/shots/27166580-Elite-Coaching-Footer-Final-Call-UI-Fitness-Coaching) by FitSitePro - Custom Wordpress Solutions for Fitness Coaches |
+| CTA section | `dribbble\search-cta-section.jpg` | 46 | [E-visa Application Website: CTA Section](https://dribbble.com/shots/21258754-E-visa-Application-Website-CTA-Section) by Louis Nguyen |
+| landing page | `dribbble\search-landing-page.jpg` | 44 | [ChronoTask - Landing Page](https://dribbble.com/shots/25000009-ChronoTask-Landing-Page) by Outcrowd |
+| agency website | `dribbble\search-agency-website.jpg` | 44 | [Corporate Agency Website UI Kit](https://dribbble.com/shots/25025717-Corporate-Agency-Website-UI-Kit) by Omotive |
+| small business website | `dribbble\search-small-business-website.jpg` | 44 | [Business Core — Professional Small Business Website](https://dribbble.com/shots/27645612-Business-Core-Professional-Small-Business-Website) by Forless |
+| web design agency | `dribbble\search-web-design-agency.jpg` | 0 | Redirects to Dribbble's agency directory ("Hire a top web design company"); no shots. |
+
+The "navigation" results are app sidebars and tab bars (Untitled UI kits, dashboards), not website headers; none were opened. "CTA section" and "small business website" are the two searches most worth a second scroll on your PC if you ever want more; "agency website" is mostly UI kits.
 
 ---
 
@@ -352,18 +477,19 @@ Motion: none. Link hover: underline in 120ms. Reduced motion: no transition.
 
 **Accessibility.** Every control at least 44px on phones; the header never covers a focused control (`scroll-padding-top`); the menu button has a name, `aria-expanded`, and returns focus; the form keeps its labels, blur validation and focus-managed error summary; contrast stays at 4.5:1 or better on Stone (Graphite is 6.3:1).
 
-## The decisions I need
+## The decisions, and where they stand (Oct 27, 2026)
 
-1. **Footer: light (recommended) or charcoal?** The research and your "light over dark" rule say Stone. Charcoal gives the reverse mark a stage. I can build the switch so it is one attribute either way.
-2. **Hero headline:** keep "Put your business on the map." (recommended) or "Put your business on the map in The Colony."?
-3. **The 30-day promise** in the hero: confirm the wording "A starter site goes live in about 30 days," or tell me the real range.
-4. **Reply time** in the closing section and footer: "within one business day," or something else, or leave it out.
-5. **A photo of Jeremy** in the closing section: yes (send one), or name only.
-6. **Submit button:** "Get my free check" everywhere (recommended) or "Request my free check" everywhere.
-7. **"Working across Dallas–Fort Worth"** in the footer sentence: keep or drop.
-8. **Big wordmark footer:** the research found it on three of the four agency footers; I left it out as "cookie cutter". Say so if you want it anyway.
+1. **Footer color:** decided. Stone (options page: https://claude.ai/artifact/MpD1iX9JGPr5bTqXSPiGRo).
+2. **Hero headline:** decided. "Put your business on the map." stays.
+3. **Starter-site promise:** decided. "A starter site goes live in about 45 days."
+4. **Reply time:** decided. "You'll hear back within 5 days." (the report itself stays "within 7 days").
+5. **Photo of Jeremy** in the closing section: decided Oct 27. Photo. A clearly marked placeholder image ships until there is a headshot.
+6. **Submit button:** undecided; building with "Get my free check" everywhere until told otherwise.
+7. **Footer sentence:** decided. Keeps "working across Dallas–Fort Worth".
+8. **Oversized wordmark:** decided. Left out.
+9. **Form service:** Web3Forms (answered in the project chat, Oct 27). The build posts to it; the access key is a [PLACEHOLDER] in `src/partials/form.html` until you paste yours.
 
-Once you answer, the build goes into Firemark-v2 (not the original Firemark folder) on top of v7: `src/index.html`, `src/pages.py` (the `cta_band` and the shared header/footer), `src/partials/form.html`, `docs/css/site.css`, rebuilt `docs/`, and the `?v=` bumped to 8. The original Firemark folder is not touched.
+Everything is answered, so the build goes into Firemark-v2 (not the original Firemark folder) on top of v8: `src/index.html`, `src/pages.py` (the `cta_band` and the shared header/footer), `src/partials/form.html` wired for Web3Forms, a `thanks.html` page, a placeholder `docs/images/jeremy.webp`, `docs/css/site.css`, rebuilt `docs/`, and the `?v=` bumped to 9 (v8 is the list-style Work page). The original Firemark folder is not touched.
 
 ---
 
@@ -378,26 +504,17 @@ Live URLs: https://wishboneadvisory.com · https://biite.nl/ · https://nojigger
 
 Awwwards pages: /sites/wishbone-advisory · /sites/biite · /sites/no-jiggery · /sites/bcg-building-design · /sites/right-hemisphere-1 · /sites/avocats-en-droit-de-la-famille · /sites/rio-property · /sites/potadot-web-system-solutions · /sites/comrade-digital-marketing · /sites/squared-media-1 · /sites/revelatio-studio · /sites/brikken-co · /sites/signal-a-studio · /sites/lpas · /sites/idealworks · /sites/reckoner-capital-management · /sites/banham-1 · /sites/los-angeles-public-library · /sites/son-daven · /sites/ce-growth-partners · /sites/two26-studio · /sites/relevo-vinco · /sites/p-z-fine-art-logistics · /sites/plumeform · /sites/impasto-forno-antico · /sites/bennett-clive · /sites/thelinestudio-com · /sites/emotion-agency-1 · /sites/belgrade-arbor (all under https://www.awwwards.com)
 
-Reviewed on Awwwards only and excluded as showpieces (3D, WebGL, scroll-jacking or video-led): A24 (/sites/a24), Why Zero (/sites/why-zero), Agrumea Farm (/sites/agrumea-farm), Kigo Studio (/sites/kigo-studio), Gray. (/sites/gray), Henrietta Said (/sites/henrietta-said), Where Opportunity Takes Root (/sites/where-opportunity-takes-root), Dropbox Brand (/sites/dropbox-brand), Pamidor Design (/sites/pamidor-design, live site refused), Garvin Promotion Group (/sites/garvin-promotion-group, live site errored), Nova Dental (/sites/nova-dental, live site refused).
+Reviewed on Awwwards only and excluded as showpieces (3D, WebGL, scroll-jacking or video-led): A24 (/sites/a24), Why Zero (/sites/why-zero), Agrumea Farm (/sites/agrumea-farm), Kigo Studio (/sites/kigo-studio), Gray. (/sites/gray), Henrietta Said (/sites/henrietta-said), Where Opportunity Takes Root (/sites/where-opportunity-takes-root), Dropbox Brand (/sites/dropbox-brand), Pamidor Design (/sites/pamidor-design, live site refused), Garvin Promotion Group (/sites/garvin-promotion-group, live site errored), Nova Dental (/sites/nova-dental, live site refused). All but Pamidor were seen in the captures, which confirm the exclusions: A24's floating bottom pill nav and 3D discs, Why Zero's gesture gate, Agrumea's orange overlay menu, Kigo's blossoms, Gray's text-only nav, Henrietta's stacked-card menu, Walton's chapter menu, Dropbox Brand's cookie banner. Garvin and Nova Dental turned out to be ordinary business sites rather than showpieces; their footers and closings are noted in sections 3 and 4.
 
 maxibestof section pages read: Hero (38 entries), Footer (37), Call to Action (29); the Header section errored. Entries described above: Brand Appart, House of Honey, Duft und Kultur (hero); Dobre, Ofform, Wisq, Wenatal, Susanne Kaufmann, Balmoral Running (footer).
 
-## Appendix B: the Dribbble shots your PC captured (not judged)
+## Appendix B: the research-shots folder
 
-These loaded as images on your PC but returned nothing to me, so they did not influence the picks. Files are `research-shots\dr-<id>-d-shot.jpg`.
-- https://dribbble.com/shots/23321827-Digital-Agency-s-Hero-Section-Concept
-- https://dribbble.com/shots/22994751-Website-hero-section
-- https://dribbble.com/shots/24300732-Website-Hero-Section-District47-Agency
-- https://dribbble.com/shots/21694589-Minimal-footer-Untitled-UI
-- https://dribbble.com/shots/24161794-Simple-Footer-Design-for-Agency-Website
-- https://dribbble.com/shots/17531323-Neringa-Website-Footer-Design
-- https://dribbble.com/shots/22843763-Digitant-Call-to-Action-CTA-Section
-- https://dribbble.com/shots/11475978-30-Days-of-Art-4-Call-to-Action-CTA-and-Simple-Footer
-- https://dribbble.com/shots/21935626-Header-navigation-menu
-- https://dribbble.com/shots/19520859-Header-Navigation
-- https://dribbble.com/shots/23555844-Minimal-Design-Agency-Responsive-Page-Website
-- https://dribbble.com/shots/20235514-Landing-Page-Website-Photography-Service
-- https://dribbble.com/shots/3123681-Small-business-website
+Everything your PC captured is in `Documents\FiremarkTech\research-shots`:
+- `<site>-d-top.jpg` and `<site>-d-end.jpg` (1440px), `<site>-m-top.jpg`, `<site>-m-menu.jpg` and `<site>-m-end.jpg` (390px) for 40 sites, indexed in `results.csv`.
+- `dribbble\search-<term>.jpg`: the ten search pages; `dribbble\search-results.csv` lists the 397 results (term, rank, title, designer, URL).
+- `dribbble\<section>-<rank>-<id>-full.jpg`: the 32 shot pages at full length; `dribbble\shots.csv` indexes them.
+- `dr-<id>-d-top.jpg`: the 13 first-run shot pages. (The matching `dr-<id>-d-shot.jpg` files are scrolled past the image and show only the description; ignore them.)
 
 ## Appendix C: fonts seen on the examples and free stand-ins
 

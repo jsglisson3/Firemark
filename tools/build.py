@@ -14,7 +14,7 @@ import pathlib, re, subprocess, sys, importlib.util, html as htmlesc
 # ---- Launch settings: the only lines you should need to change ----
 DOMAIN = 'firemarktech.com'   # the domain you bought, no https:// (for example 'firemarktech.co')
 LAUNCHED = False              # True on launch day: removes the draft banner and the noindex tag from public pages
-HIDDEN = {'brand.html', '404.html'}   # these stay hidden from search engines even after launch
+HIDDEN = {'brand.html', '404.html', 'thanks.html'}   # these stay hidden from search engines even after launch
 PUBLIC = ['index.html', 'work.html', 'about.html', 'contact.html', 'privacy.html']   # listed in sitemap.xml
 # ---------------------------------------------------------------------
 ROBOTS_META = '  <meta name="robots" content="noindex, nofollow">\n'
@@ -102,7 +102,7 @@ HEAD = '''<!doctype html>
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=8">
+  <link rel="stylesheet" href="css/site.css?v=9">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -128,7 +128,7 @@ def page(file, title, desc, h1, lead, body, banner='Draft preview. Contact detai
   </main>
 
 ''' + footer + '''
-  <script src="js/site.js?v=8" defer></script>
+  <script src="js/site.js?v=9" defer></script>
 </body>
 </html>
 '''

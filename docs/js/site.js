@@ -17,6 +17,10 @@
     };
     toggle.addEventListener('click', function () { setOpen(toggle.getAttribute('aria-expanded') !== 'true'); });
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+    /* Tapping outside the sheet closes it */
+    document.addEventListener('click', function (e) {
+      if (toggle.getAttribute('aria-expanded') === 'true' && !nav.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
+    });
     var closeIfOutside = function (e) {
       var next = e.relatedTarget;
       if (toggle.getAttribute('aria-expanded') === 'true' && next && !nav.contains(next) && next !== toggle) setOpen(false);
@@ -146,10 +150,16 @@
       }
       if (summary) summary.hidden = true;
 
+      /* Web3Forms (v9): the form posts to its action. Until the access key is pasted in, it opens a pre-filled email instead. */
+      var keyField = form.querySelector('[data-access-key]');
+      var endpoint = keyField && keyField.value && keyField.value.indexOf('PLACEHOLDER') === -1 ? form.getAttribute('action') : '';
+      var subjectField = form.querySelector('[data-subject]');
+      if (subjectField) subjectField.value = 'Free check request from ' + form.elements.business.value.trim();
       var data = new FormData(form);
-      var endpoint = form.getAttribute('data-endpoint');
       var fallback = form.getAttribute('data-fallback-email');
       var button = form.querySelector('button[type="submit"]');
+      var firstName = (data.get('name') || '').trim().split(/\s+/)[0];
+      var emailTo = (data.get('email') || '').trim();
       /* A pre-filled email with the same details, used when there is no form service or a send fails, so no lead is lost. */
       var lines = [
         'Name: ' + data.get('name'),
@@ -180,7 +190,9 @@
             if (!r.ok) throw new Error('bad status');
             form.reset();
             form.querySelectorAll('.is-valid').forEach(function (f) { f.classList.remove('is-valid'); });
-            status.textContent = 'Request sent. You\u2019ll get your free check within 7 days.';
+            form.classList.add('is-sent');
+            status.textContent = 'Thanks, ' + firstName + '. Your free check is on its way. Jeremy will email it to ' + emailTo + ' within 7 days.';
+            status.focus();
           })
           .catch(function () { showEmailOption('That didn\u2019t send.'); })
           .then(function () { button.disabled = false; });

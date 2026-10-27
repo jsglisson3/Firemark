@@ -7,38 +7,40 @@ What the site says, page by page, and the words it uses for things. The live tex
 - A sharp neighbor who's great at this: plain English, short sentences, talking to "you."
 - Brand first: "Firemark builds…" Never "we" (it's one person) and never "I" on the site. Jeremy appears by first name only.
 - No hype words: solutions, leverage, cutting-edge, seamless, elevate.
-- Errors say what happened and how to fix it. Buttons say what happens next ("Request my free check," not "Submit").
+- Errors say what happened and how to fix it. Buttons say what happens next ("Get my free check," not "Submit").
 
 ## Names for things (use these exact words everywhere)
 
 | Thing | Name on the site |
 |---|---|
 | The main call to action | **Get my free check** (button), **Free check** (phone header, footer link) |
-| The form's button | **Request my free check** |
-| The report | a short, plain-English report on how your business shows up on Google |
+| The form's button | **Get my free check**, the same words as the main call to action, on every page |
+| The report | a short written report on how your business shows up on Google |
+| The promises | the report **within 7 days**; a reply **within 5 days**; a starter site live in **about 45 days**; "No payment, no account." |
 | The one-time project | **Get found**: a starter project (website, Google Business Profile, email at your own domain) |
 | The monthly plan | **Stay found**: a small monthly care plan (hosting and updates, small edits, one person to call) |
 | The area | The Colony first. "Across Dallas–Fort Worth" in the footer, FAQ and contact page |
 
 ## Pages
 
-**Home** (`index.html`)
-1. Hero: "Put your business on the map." The map animation shows a search for "bakery near me" finding "Your bakery."
-2. The problem: "Your next customer is searching right now." Three steps: they search, they compare, they call or show up.
-3. The offer: "Get found. Stay found." Two columns, three items each.
-4. How it works: four stops. Free check, a real conversation, built for you, on the map.
-5. Recent work: GLP Home Options and the Friends of The Colony Public Library concept (labeled as a volunteer concept).
-6. Who you'll work with: "Firemark is Jeremy, based here in The Colony." Three facts.
-7. Why "Firemark"? The 1752 fire mark story, then and now.
-8. What it costs: "Let's talk." The price comes after the free check, in writing, before anything starts.
-9. Questions owners ask: six FAQs.
-10. Get your free check: ways to reach out and the form.
+**Home** (`index.html`, five sections since v4; header, hero, closing and footer redone in v9)
+1. Hero: "Put your business on the map." The map animation shows a search for "bakery near me" finding "Your bakery." Two buttons (Get my free check, See the work), then the two promises: "Free, no strings. In 7 days you'll have a short written report on how you show up on Google." and "A starter site goes live in about 45 days."
+2. Recent work: the newest four sites from `src/sites.py`, one card each, then a link to all the work.
+3. What you get: one plain list that ends in "What it costs: Let's talk."
+4. Firemark is Jeremy: who he is, and the fire mark story.
+5. The closing card: "Let's get your business on the map." "Here's what happens next." and the three steps, Jeremy's photo with "Rather email or call?", and the form. The form ends with "Get my free check" and "No payment, no account. You'll hear back within 5 days."
 
-**Work** (`work.html`): "Two sites, built by hand." For each site: the job, what was built, the details, a link, and one close-up screenshot.
+**Header** (every page): Work, What you get, About, "The Colony, Texas", and the button. The phone menu ends with the button, the email, the phone and "The Colony, Texas".
 
-**About** (`about.html`): "Small on purpose." Who Firemark is for (and who it isn't), six promises (one marked [CONFIRM]), who you'll work with, why the name.
+**Footer** (every page): "Websites and Google listings for independent businesses. Based in The Colony, Texas, working across Dallas–Fort Worth." then "Firemark is Jeremy. Small on purpose." Columns: Reach Jeremy (email, phone, "You'll hear back within 5 days.") and Explore (Work, What you get, About, Free check, Privacy). Baseline: "© 2026 Firemark. Made in The Colony, Texas." and "Back to top".
 
-**Free check** (`contact.html`): "Get your free check." What happens next in three steps, other ways to reach out, and the form.
+**Work** (`work.html`): a simple list of sites, one card each (screenshot, name, one line, link). Ends with the short closing card: "Want a site like these? Start with the free check."
+
+**About** (`about.html`): "Small on purpose." Who you'll work with (who it's for, working with Jeremy), why the name. Ends with the short closing card: "See how your business shows up today."
+
+**Free check** (`contact.html`): "Get your free check." Lead: "Tell Firemark about your business. Within 7 days you'll know how it shows up on Google: where you appear, what's working and what to fix first." What happens next in three steps, other ways to reach out, questions, and the form.
+
+**Thanks** (`thanks.html`, hidden from search): "Thanks. Your free check is on its way." Where the form lands when JavaScript is off; otherwise the same words appear in place of the form.
 
 **Privacy** (`privacy.html`): a plain-English draft. What's collected, how it's used, where it's kept, hosting, deleting your details, changes.
 

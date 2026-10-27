@@ -126,3 +126,22 @@ The logo is now the flame pin with a capital-F "Firemark" wordmark. Full notes, 
 # Work as a simple list (v8, Oct 26, 2026)
 
 Jeremy plans to keep adding sites and can't write a case study for each, so Work and the homepage's "Recent work" are now a plain list: one card per site with a screenshot, the name, one short line (what kind of business, where) and a link. The case-study write-ups (the job, what was built, the feature screenshots) are gone. The list comes from `src/sites.py`, so adding a site is one copied block plus a screenshot (steps in PICKUP.md). The homepage shows the first 4; Work shows all. Concepts keep the "not the official site" tag. CSS and JS are now `?v=8`.
+
+
+# Header, hero, closing CTA and footer (v9, Oct 27, 2026)
+
+Built from `design-research.md` (Awwwards and Dribbble research, 20 or more candidates per section, scored and linked). Jeremy's calls from Oct 26 and 27 are in the build:
+- **Header:** logo, three links (Work, What you get, About), "The Colony, Texas" in small text from 64rem, and the orange button. The header blurs what scrolls under it, with a solid Paper fallback. On phones the Menu button opens a Paper sheet under the header: the three links large, then a full-width "Get my free check", the email and phone, and the place. Escape closes it and hands focus back to the Menu button; so does a tap outside, or tabbing past it.
+- **Hero:** headline stays "Put your business on the map." The chip above it is gone. Under the two buttons sit the two promises: the written report within 7 days, and a starter site live in about 45 days (changed from 30 on Oct 26). "See the work" carries a small down arrow, the one arrow on the site, because it points where the page goes.
+- **Closing CTA:** one Stone card at the end of the homepage: "Let's get your business on the map.", "Here's what happens next." with the three numbered steps (a real sequence), a round photo of Jeremy with "Rather email or call?", and the form in a white card. Work and About end with a shorter card: heading, two steps and the button. The submit button says "Get my free check" on every page, with "No payment, no account. You'll hear back within 5 days." under it.
+- **Photo:** Jeremy chose a photo over name-only (Oct 27). Until there is a headshot, `docs/images/jeremy.webp` is a gray circle that says it is a placeholder, and the name line carries a [PLACEHOLDER: photo] tag. The earlier stand-in was a stock photo of a stranger; it is gone. One file serves the homepage (small) and About (large).
+- **Footer:** Stone, not charcoal (Jeremy picked A Stone from three options). Three columns: the logo with the Dallas–Fort Worth line and "Firemark is Jeremy. Small on purpose."; Reach Jeremy (email, phone, "You'll hear back within 5 days."); Explore (Work, What you get, About, Free check, Privacy). The baseline keeps the year and "Back to top". No oversized wordmark.
+- **Form service: Web3Forms.** The form posts to Web3Forms with a hidden access key (a [PLACEHOLDER] until Jeremy pastes his), a subject line that names the business, two honeypots, and a redirect to `thanks.html` for browsers without JavaScript. With JavaScript the thanks line shows in place. Until the key is in, the script falls back to the pre-filled email. The privacy page names Web3Forms, with a [CONFIRM] on how long it keeps messages.
+- **Nothing dark anymore.** The homepage is Paper with Stone bands (What you get, the closing card, the footer). The dark story band from v3 is gone, and so is the CSS for sections that no longer exist (`tone-deep`, `btn-ghost`, the old cta-band, pricing, route and FAQ grid rules).
+- Cache: `?v=9`.
+
+## Checks run (v9)
+- axe-core: 0 violations on all eight pages at 390px and 1440px, and on the homepage with the phone menu open.
+- Keyboard: desktop Tab order is skip link, logo, Work, What you get, About, the button, then the hero. On phones, Enter opens the menu, Escape closes it and returns focus, tabbing past the sheet closes it. The focus ring is the 3px Flame outline everywhere.
+- Links to parts of a page land under the sticky header (scroll padding 72px on phones, 80px on desktop), including after the smooth scroll from the header button.
+- No sideways scroll at 320, 390, 1100 or 1440. Reduced motion shows the finished map at once. No console errors or failed requests on any page.

@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/site.css?v=8">
+  <link rel="stylesheet" href="css/site.css?v=9">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -63,9 +63,14 @@
           <li><a href="work.html">Work</a></li>
           <li><a href="index.html#offer">What you get</a></li>
           <li><a href="about.html">About</a></li>
-          <li class="nav-phone-only"><a href="contact.html">Get my free check</a></li>
         </ul>
+        <div class="nav-sheet-foot">
+          <a class="btn btn-flame nav-cta" href="contact.html">Get my free check</a>
+          <p class="nav-reach"><span class="ph">[PLACEHOLDER: email]</span><span class="nav-sep" aria-hidden="true"></span><span class="ph">[PLACEHOLDER: phone]</span></p>
+          <p class="nav-place">The Colony, Texas</p>
+        </div>
       </nav>
+      <p class="header-place">The Colony, Texas</p>
       <a class="btn btn-flame btn-small header-cta for-desktop" href="contact.html"><span class="cta-long">Get my free check</span><span class="cta-short">Free check</span></a>
     </div>
   </header>
@@ -79,7 +84,7 @@
       <div class="prose">
         <section><h2>What Firemark collects</h2><p>Only what you send. When you fill out the free check form, that’s your name, your business name, your email and anything else you choose to add, like a phone number, a link or a note.</p></section>
         <section><h2>How it’s used</h2><p>To reply to you and do your free check. That’s it. Your details aren’t sold, and you won’t be added to a mailing list. <span class="ph">[CONFIRM]</span></p></section>
-        <section><h2>Where it’s kept</h2><p><span class="ph">[PLACEHOLDER: the form service, once chosen, and where it stores messages. Until then, the form opens an email to Firemark instead.]</span></p></section>
+        <section><h2>Where it’s kept</h2><p>The form is delivered by Web3Forms, a form service, which passes your message to Firemark’s email. <span class="ph">[CONFIRM: whether Web3Forms keeps a copy, and for how long, once the account is set up]</span></p></section>
         <section><h2>Hosting</h2><p>The site is hosted on GitHub Pages. Like most web hosts, GitHub keeps basic technical logs, such as IP addresses, to keep the service secure.</p></section>
         <section><h2>Deleting your details</h2><p>Email <span class="ph">[PLACEHOLDER: hello@firemarktech.com]</span> and ask. Anything Firemark has from you will be deleted.</p></section>
         <section><h2>Changes</h2><p>If this page changes, the date below changes too. Last updated <span class="ph">[PLACEHOLDER: date at launch]</span>.</p></section>
@@ -91,24 +96,26 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/brand/firemark-logo-reverse.svg" alt="Firemark" width="176" height="36" loading="lazy">
+          <img src="images/brand/firemark-logo.svg" alt="Firemark" width="176" height="36">
           <p>Websites and Google listings for independent businesses. Based in The Colony, Texas, working across <span class="nb">Dallas–Fort Worth</span>.</p>
+          <p class="footer-true">Firemark is Jeremy. Small on purpose.</p>
         </div>
-        <div>
-          <h2 class="footer-h">Explore</h2>
-          <ul class="footer-links">
-            <li><a href="work.html">Work</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Free check</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="footer-h">Get in touch</h2>
+        <div class="footer-col">
+          <h2 class="footer-h">Reach Jeremy</h2>
           <ul class="footer-links">
             <li><span class="ph">[PLACEHOLDER: email]</span></li>
             <li><span class="ph">[PLACEHOLDER: phone]</span></li>
-            <li>The Colony, Texas</li>
+          </ul>
+          <p class="footer-reply">You’ll hear back within 5 days.</p>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-h">Explore</h2>
+          <ul class="footer-links footer-explore">
+            <li><a href="work.html">Work</a></li>
+            <li><a href="index.html#offer">What you get</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Free check</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
           </ul>
         </div>
       </div>
@@ -119,6 +126,6 @@
     </div>
   </footer>
 
-  <script src="js/site.js?v=8" defer></script>
+  <script src="js/site.js?v=9" defer></script>
 </body>
 </html>

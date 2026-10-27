@@ -9,12 +9,33 @@ CHECK = '<svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>'
 CROSS = '<svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>'
 
 
-def cta_band(hid, heading, text, tone='tone-stone'):
-    return f'''    <section class="cta-band {tone}" aria-labelledby="{hid}">
+REACH = '<p class="alt-route">Rather email or call? <span class="ph">[PLACEHOLDER: hello@firemarktech.com]</span> or <span class="ph">[PLACEHOLDER: phone]</span>.</p>'
+STEPS = [
+    'Jeremy looks up how your business shows up on Google today.',
+    'Within 7 days you get a short written report. It\'s yours to keep, whatever you decide.',
+    'If a website makes sense, you get a written price before anything starts. If it doesn\'t, Jeremy will say so.',
+]
+
+
+def steps(n=3):
+    return '<ol class="next-steps">\n' + '\n'.join(f'              <li>{s}</li>' for s in STEPS[:n]) + '\n            </ol>'
+
+
+def cta_band(hid, heading):
+    """The closing section on Work and About: the same card as the homepage, without the form (v9, design-research.md)."""
+    return f'''    <section class="closing-section" aria-labelledby="{hid}">
       <div class="wrap">
-        <h2 id="{hid}">{heading}</h2>
-        <p class="lead measure">{text}</p>
-        <a class="btn btn-flame" href="contact.html">Get my free check</a>
+        <div class="closing closing-short">
+          <div class="closing-intro">
+            <h2 id="{hid}">{heading}</h2>
+            <p class="lead">Here's what happens next.</p>
+            {steps(2)}
+          </div>
+          <div class="closing-act">
+            <a class="btn btn-flame" href="contact.html">Get my free check</a>
+            {REACH}
+          </div>
+        </div>
       </div>
     </section>'''
 
@@ -25,7 +46,7 @@ work_body = f'''    <div class="wrap work-page">
       {site_list(SITES, h='h2')}
       <p class="case-note"><span class="ph">[CONFIRM with the Friends that the library program photos in the screenshot are OK to show, since some include children.]</span></p>
     </div>
-{cta_band("work-cta-h", "Want a site like these for your business?", "Start with a free check. Firemark looks at how your business shows up on Google today and sends a short, plain-English report.")}'''
+{cta_band("work-cta-h", "Want a site like these? Start with the free check.")}'''
 
 page('work.html', 'Work | Firemark',
      'Websites Firemark has designed and built by hand for independent businesses and local groups.',
@@ -39,8 +60,8 @@ page('work.html', 'Work | Firemark',
 about_body = f'''    <section class="about-who" aria-labelledby="who-h">
       <div class="wrap who who-top">
         <div class="who-photo">
-          <img src="images/jeremy-placeholder.webp" width="200" height="200" loading="lazy" alt="Jeremy, who runs Firemark.">
-          <span class="ph">[PLACEHOLDER: photo, optional]</span>
+          <img src="images/jeremy.webp" width="448" height="448" loading="lazy" alt="Jeremy, who runs Firemark.">
+          <span class="ph">[PLACEHOLDER: photo]</span>
         </div>
         <div class="measure about-text">
           <h2 id="who-h">Who you'll work with</h2>
@@ -53,7 +74,7 @@ about_body = f'''    <section class="about-who" aria-labelledby="who-h">
       </div>
     </section>
 
-    <section class="section tone-stone" aria-labelledby="story-h">
+    <section class="section tone-white" aria-labelledby="story-h">
       <div class="wrap story">
         <div class="then-now" aria-hidden="true">
           <figure>
@@ -79,7 +100,7 @@ about_body = f'''    <section class="about-who" aria-labelledby="who-h">
       </div>
     </section>
 
-{cta_band("about-cta-h", "See how your business shows up.", "Start with a free check. You'll get a short, plain-English report, and you decide what to do with it.", tone='tone-white')}'''
+{cta_band("about-cta-h", "See how your business shows up today.")}'''
 
 page('about.html', 'About | Firemark',
      'Firemark helps independent businesses in The Colony, Texas get found online. One person, start to finish, with a handful of clients a year.',
@@ -94,11 +115,7 @@ contact_body = f'''    <div class="wrap contact contact-page">
 {form}
       <div class="contact-intro">
         <h2 class="small-h">What happens next</h2>
-        <ol class="next-steps">
-          <li><span><strong>You send the form.</strong> It takes about a minute.</span></li>
-          <li><span><strong>Firemark looks you up the way a customer would:</strong> on Google Search and Maps, on a phone.</span></li>
-          <li><span><strong>You get a short report in plain English:</strong> where you show up, what's working and what to fix first. It's free, and it's yours to keep.</span></li>
-        </ol>
+        {steps(3)}
         <h2 class="small-h">Other ways to reach Firemark</h2>
         <ul class="contact-ways">
           <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Email <span class="ph">[PLACEHOLDER: hello@firemarktech.com]</span></span></li>
@@ -117,7 +134,7 @@ contact_body = f'''    <div class="wrap contact contact-page">
           </details>
           <details>
             <summary>How long does it take?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
-            <p>Most starter websites go live about 30 days after you give the go-ahead.</p>
+            <p>Most starter websites go live about 45 days after you give the go-ahead.</p>
           </details>
           <details>
             <summary>Who owns the website?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
@@ -134,7 +151,7 @@ contact_body = f'''    <div class="wrap contact contact-page">
 page('contact.html', 'Get your free check | Firemark',
      'Request a free, plain-English check of how your business shows up on Google. Firemark, The Colony, Texas.',
      'Get your free check.',
-     'Tell Firemark about your business. Within 7 days, you\'ll get a short, plain-English report on how it shows up on Google.',
+     'Tell Firemark about your business. Within 7 days you\'ll know how it shows up on Google: where you appear, what\'s working and what to fix first.',
      contact_body, current='contact.html')
 
 
@@ -143,7 +160,7 @@ page('contact.html', 'Get your free check | Firemark',
 privacy_sections = [
     ('What Firemark collects', '<p>Only what you send. When you fill out the free check form, that\'s your name, your business name, your email and anything else you choose to add, like a phone number, a link or a note.</p>'),
     ('How it\'s used', '<p>To reply to you and do your free check. That\'s it. Your details aren\'t sold, and you won\'t be added to a mailing list. <span class="ph">[CONFIRM]</span></p>'),
-    ('Where it\'s kept', '<p><span class="ph">[PLACEHOLDER: the form service, once chosen, and where it stores messages. Until then, the form opens an email to Firemark instead.]</span></p>'),
+    ('Where it\'s kept', '<p>The form is delivered by Web3Forms, a form service, which passes your message to Firemark\'s email. <span class="ph">[CONFIRM: whether Web3Forms keeps a copy, and for how long, once the account is set up]</span></p>'),
     ('Hosting', '<p>The site is hosted on GitHub Pages. Like most web hosts, GitHub keeps basic technical logs, such as IP addresses, to keep the service secure.</p>'),
     ('Deleting your details', '<p>Email <span class="ph">[PLACEHOLDER: hello@firemarktech.com]</span> and ask. Anything Firemark has from you will be deleted.</p>'),
     ('Changes', '<p>If this page changes, the date below changes too. Last updated <span class="ph">[PLACEHOLDER: date at launch]</span>.</p>'),
@@ -177,6 +194,21 @@ page('404.html', 'Page not found | Firemark', 'That page could not be found.',
      'This page isn’t on the map.',
      'The link may be old, or the address may have a typo. One of these should get you back on track.',
      lost_body)
+
+
+# ---------------------------------------------------------------- Thanks (where the form lands without JavaScript)
+
+thanks_body = '''    <div class="wrap lost">
+      <ul class="lost-links">
+        <li><a href="index.html">Back to the homepage</a></li>
+        <li><a href="work.html">See the work</a></li>
+      </ul>
+    </div>'''
+
+page('thanks.html', 'Thanks | Firemark', 'Your free check request is in.',
+     'Thanks. Your free check is on its way.',
+     'Jeremy will look up how your business shows up on Google and email you a short written report within 7 days.',
+     thanks_body)
 
 
 # ---------------------------------------------------------------- Brand sheet (not linked from the site)
