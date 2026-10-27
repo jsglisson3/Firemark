@@ -114,6 +114,23 @@
     });
   }
 
+  /* Google Maps or Apple Maps: the card refreshes in the other app's layout */
+  var apps = hero && hero.querySelector('[data-apps]');
+  if (apps && card) {
+    apps.hidden = false;
+    var appButtons = apps.querySelectorAll('[data-app]');
+    Array.prototype.forEach.call(appButtons, function (b) {
+      b.addEventListener('click', function () {
+        if (b.getAttribute('aria-pressed') === 'true') return;
+        Array.prototype.forEach.call(appButtons, function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        var set = function () { hero.setAttribute('data-app', b.getAttribute('data-app')); };
+        if (reduceMotion) { set(); return; }
+        show(card); card.classList.add('is-moving');
+        setTimeout(function () { set(); card.classList.remove('is-moving'); }, 200);
+      });
+    });
+  }
+
   /* Each section's parts rise into place once, in order (heading, words, picture). Opt-in, see site.css. */
   var reveals = document.querySelectorAll('[data-reveal]');
   if (reveals.length && !reduceMotion && 'IntersectionObserver' in window) {

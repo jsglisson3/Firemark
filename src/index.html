@@ -97,7 +97,10 @@
 
       <figure class="hero-map">
         <div class="hero-find">
-          <p class="hero-maps-note"><span class="mn-long">What customers see on</span><span class="mn-short">On</span> <b>Google Maps</b> and <b>Apple Maps</b></p>
+          <div class="maps-switch" role="group" aria-label="Show the listing as it looks in" data-apps hidden>
+            <button type="button" aria-pressed="true" data-app="google">Google Maps</button>
+            <button type="button" aria-pressed="false" data-app="apple">Apple Maps</button>
+          </div>
           <div class="hero-search" data-ui aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg><span data-q>bakery near me</span></div>
           <div class="try" role="group" aria-label="Try it with your trade" data-try hidden>
             <button type="button" class="try-btn" aria-pressed="true" data-trade="bakery" data-x="841" data-y="714" data-street="Main St" data-shop="Your bakery" data-kind="Bakery" data-hours="Closes 6 PM">Bakery</button>
@@ -124,6 +127,7 @@
         <span class="map-ring" aria-hidden="true"></span>
         <span class="map-pin" aria-hidden="true"><svg class="mark" viewBox="11.5 -0.5 77 119" focusable="false"><use href="#fm-mark"/></svg></span>
         <div class="place-card hero-card" data-ui aria-hidden="true">
+          <span class="pc-grab" aria-hidden="true"></span>
           <b class="pc-name" data-name>Your bakery</b>
           <span class="pc-meta"><span data-kind>Bakery</span> · <span data-street>Main St</span></span>
           <span class="pc-meta"><span class="pc-open">Open</span> · <span data-hours>Closes 6 PM</span></span>

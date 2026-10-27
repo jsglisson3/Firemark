@@ -83,17 +83,17 @@ for rel in r.iter('relation'):
             G['water'].append(d(rdp([PN(n) for n in ring]), True))
 POI = [p for p in POI if math.hypot(p[0] - AX, p[1] - AY) > 26]   # keep the corner clear for the Firemark pin
 STYLE = '''
-.land{fill:#F2F1EE}.retail{fill:#F0EBE4}.parking{fill:#ECE9E3}.park{fill:#E2E9D6}.wood{fill:#D9E3CC}.pitch{fill:#D8E2C9}
-.water{fill:#CFDCE0}.stream{fill:none;stroke:#CFDCE0;stroke-width:3;stroke-linecap:round}
-.bld{fill:#E4DFD7;stroke:#DCD6CC;stroke-width:.6}
+.land{fill:#F4F3F0}.retail{fill:#F1EEE9}.parking{fill:#EFEDE9}.park{fill:#E8EDE0}.wood{fill:#E3EADA}.pitch{fill:#E2E9D8}
+.water{fill:#D8E3E7}.stream{fill:none;stroke:#D8E3E7;stroke-width:3;stroke-linecap:round}
+.bld{fill:#EAE6DF}
 .case,.fill{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.path{fill:none;stroke:#DAD4CA;stroke-width:1.2;stroke-dasharray:3 3}
-.svc.case{stroke:#E1DBD1;stroke-width:4.5}.svc.fill{stroke:#FFFFFF;stroke-width:3}
-.minor.case{stroke:#DCD5CA;stroke-width:8}.minor.fill{stroke:#FFFFFF;stroke-width:6}
-.ter.case{stroke:#D5CDC0;stroke-width:11}.ter.fill{stroke:#FFFFFF;stroke-width:8.5}
-.sec.case{stroke:#CFC6B8;stroke-width:15}.sec.fill{stroke:#FFFFFF;stroke-width:12}
-.mway.case{stroke:#E3C3A2;stroke-width:17}.mway.fill{stroke:#F6DFC4;stroke-width:13}
-.poi{fill:#9C958B;stroke:#FFFFFF;stroke-width:2.5}
+.path{fill:none;stroke:#E3DED6;stroke-width:1.2;stroke-dasharray:3 3}
+.svc.case{stroke:#E8E3DB;stroke-width:4.5}.svc.fill{stroke:#FCFBF9;stroke-width:3}
+.minor.case{stroke:#E5DFD6;stroke-width:8}.minor.fill{stroke:#FCFBF9;stroke-width:6}
+.ter.case{stroke:#DED7CC;stroke-width:11}.ter.fill{stroke:#FFFFFF;stroke-width:8.5}
+.sec.case{stroke:#D6CEC2;stroke-width:15}.sec.fill{stroke:#FFFFFF;stroke-width:12}
+.mway.case{stroke:#E8CDB0;stroke-width:17}.mway.fill{stroke:#F7E4CE;stroke-width:13}
+.poi{fill:#B9B2A8;stroke:#FFFFFF;stroke-width:2.5}
 '''
 o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}"><style>{STYLE}</style>',
      f'<rect class="land" width="{W}" height="{H}"/>']

@@ -172,3 +172,7 @@ Jeremy: the header, hero and map "does not look that great ... redo the entire t
 - **Pin stands clear of the streets.** The flame pin has a thin white outline, and every business sits on a lot beside its street instead of on the road line.
 - **Each trade is on its own street.** Bakery on Main St, barber on S Colony Blvd, plumber on Paige Rd, nail salon on Clover Valley Dr, taco shop on Worley Dr (real OpenStreetMap streets). Picking a trade glides the map to that spot, so it doesn't look like one plaza. Spots and street names are `data-x`/`data-y`/`data-street` on the trade buttons in `src/index.html`; any street name the pin would cover hides itself.
 - **Google Maps and Apple Maps, said plainly.** A note at the top of the map reads "What customers see on Google Maps and Apple Maps", and the intro sentence names both, so the map isn't mistaken for a Firemark product. No Google or Apple logos.
+
+## V14 map blends in (Oct 27, 2026)
+- **No box around the map.** The map's colors are softer (lighter buildings, no outlines, gentler roads) and it fades into the page on the left, top and bottom, so it reads as part of the page.
+- **Google Maps / Apple Maps switch** replaces the "What customers see on..." note. It shows the same listing laid out each app's way (Apple: a sheet with a grab handle and tile buttons). No Google or Apple logos.

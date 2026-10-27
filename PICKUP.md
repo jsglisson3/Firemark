@@ -62,7 +62,7 @@ The domain is already connected, so launch is just switching the draft off.
 ## Notes
 
 - **Domain:** firemarktech.com is registered at Cloudflare. Its DNS has four A records for @ (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and a CNAME for www to jsglisson3.github.io, all set to DNS only (grey cloud). Leave them grey: the orange proxy gets in the way of GitHub's certificate. GitHub Pages has the custom domain set (that's what `docs/CNAME` is) and Enforce HTTPS on. The old jsglisson3.github.io/Firemark/ address redirects to the domain. `SITE_ROOT` in `tools/build.py` is "/" to match.
-- **Edit `src/`, not `docs/*.html`.** The build overwrites the pages in `docs/`. CSS (`docs/css/site.css`) and the script (`docs/js/site.js`) are edited directly. They are linked as `?v=13`; bump `VERSION` in `tools/build.py` whenever either file changes, so returning visitors get the new version.
+- **Edit `src/`, not `docs/*.html`.** The build overwrites the pages in `docs/`. CSS (`docs/css/site.css`) and the script (`docs/js/site.js`) are edited directly. They are linked as `?v=14`; bump `VERSION` in `tools/build.py` whenever either file changes, so returning visitors get the new version.
 - **v10 (Oct 27, overnight):** full redesign. See `FIREMARK-REDESIGN-PLAN.md`.
 - **v11 and v12 (Oct 27):** homepage top rebuilt around the real map of The Colony. See the end of `DECISIONS.md`.
 - **v9 (Oct 27):** the header (phone sheet menu that ends with the button, email, phone and place), the hero promises under the buttons, the Stone closing card (three steps, photo, form) that Work and About reuse in a short form, and the Stone footer. Reasons and the research behind them: `design-research.md`.

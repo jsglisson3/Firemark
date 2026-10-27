@@ -262,7 +262,15 @@ p, li, dd, dt { text-wrap: pretty; }
 .promises dd { color: var(--muted); font-size: var(--t-small); }
 
 /* The map: one drawing of the whole area, placed so Main St at S Colony Blvd (786, 673) lands on --px / --py */
-.hero .hero-map { position: relative; overflow: hidden; background: #F2F1EE; border-radius: 1.75rem 0 0 1.75rem; }
+.hero .hero-map { position: relative; overflow: hidden; background: #F4F3F0; }
+/* No box: the map fades into the page on the side that meets the words, and at the foot */
+.hero .hero-map::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to right, var(--paper) 0, rgba(246, 245, 243, 0) 18%), linear-gradient(to top, var(--paper) 0, rgba(246, 245, 243, 0) 14%), linear-gradient(to bottom, var(--paper) 0, rgba(246, 245, 243, 0) 7%);
+}
+.hero .hero-map::before { z-index: 1; }
+.hero .hero-map .map-credit { z-index: 5; }
+.hero .map-ring { z-index: 2; } .hero .map-pin { z-index: 3; } .hero .hero-card { z-index: 4; } .hero .hero-find { z-index: 5; }
 .hero-world {
   position: absolute; width: calc(2793 * var(--u)); height: calc(1513 * var(--u));
   left: calc(var(--px) - var(--ax, 786) * var(--u)); top: calc(var(--py) - var(--ay, 673) * var(--u));
@@ -280,7 +288,7 @@ p, li, dd, dt { text-wrap: pretty; }
 .map-label-water { font-size: 0.9375rem; font-style: italic; color: #61757C; }
 .map-label-narrow { display: none; }
 .hero .map-pin, .hero .map-ring { left: var(--px); top: var(--py); }
-.hero .map-pin { width: 3rem; z-index: 1; filter: drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 6px 5px rgba(29, 28, 26, 0.28)); }
+.hero .map-pin { width: 3rem; filter: drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 6px 5px rgba(29, 28, 26, 0.28)); }
 .hero .map-ring { width: 8.5rem; height: 8.5rem; margin: -4.25rem 0 0 -4.25rem; background: rgba(236, 78, 28, 0.16); }
 .hero .hero-card { left: var(--px); top: calc(var(--py) + 3.25rem); translate: -50% 0; width: 17.5rem; display: grid; gap: 0.15rem; padding: 1rem 1.1rem 1.1rem; border-radius: 1rem; }
 .pc-name { font-size: 1.25rem; font-weight: 640; letter-spacing: -0.015em; line-height: 1.2; }
@@ -290,10 +298,20 @@ p, li, dd, dt { text-wrap: pretty; }
 .pc-ico .icon { width: 1.1rem; height: 1.1rem; }
 .pc-go .pc-ico { background: var(--accent); color: var(--white); }
 .hero-credit-under { display: none; }
-.hero-maps-note { justify-self: start; margin: 0 0 0.1rem; padding: 0.3rem 0.75rem; border-radius: var(--r-pill); background: rgba(255, 255, 255, 0.92); font-size: 0.875rem; color: var(--muted); }
-.hero-maps-note b { color: var(--ink); font-weight: 640; }
-.mn-short { display: none; }
-@media (max-width: 23rem) { .mn-long { display: none; } .mn-short { display: inline; } }
+/* Google Maps or Apple Maps: the same listing, shown the way each app lays it out (no logos, just the layout) */
+.maps-switch { display: inline-flex; gap: 0.2rem; padding: 0.25rem; border-radius: var(--r-pill); background: var(--white); }
+.maps-switch[hidden] { display: none; }
+.maps-switch button { min-height: 2.25rem; padding: 0 0.95rem; border: 0; border-radius: var(--r-pill); background: transparent; color: var(--muted); font: inherit; font-size: 0.9375rem; font-weight: 620; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+.maps-switch button:hover { color: var(--ink); }
+.maps-switch button[aria-pressed="true"] { background: var(--stone); color: var(--ink); }
+.pc-grab { display: none; }
+.hero[data-app="apple"] .hero-card { border-radius: 1.4rem; padding-top: 1.35rem; }
+.hero[data-app="apple"] .pc-grab { display: block; position: absolute; top: 0.45rem; left: 50%; width: 2.25rem; height: 0.3rem; margin-left: -1.125rem; border-radius: var(--r-pill); background: #DDD8D0; }
+.hero[data-app="apple"] .pc-actions { gap: 0.4rem; }
+.hero[data-app="apple"] .pc-actions li { gap: 0.15rem; padding: 0.55rem 0.25rem 0.5rem; border-radius: 0.8rem; background: var(--stone); }
+.hero[data-app="apple"] .pc-ico { width: 1.6rem; height: 1.6rem; background: transparent; }
+.hero[data-app="apple"] .pc-actions .pc-go { background: var(--accent); color: var(--white); }
+.hero[data-app="apple"] .pc-go .pc-ico { background: transparent; }
 .hero .hero-map .map-credit { position: absolute; right: 0.75rem; bottom: 0.6rem; padding: 0.1rem 0.5rem; border-radius: 6px; background: rgba(242, 241, 238, 0.9); font-size: 0.8125rem; }
 
 /* Small laptops: a narrower panel, and the listing card fits beside the pin */
@@ -314,10 +332,11 @@ p, li, dd, dt { text-wrap: pretty; }
 /* Phones and tablets: the map on top with the search floating on it, the words below */
 @media (max-width: 63.99rem) {
   .hero { display: flex; flex-direction: column; min-height: 0; --u: 0.8px; --px: 30%; --py: 17.5rem; --mh: 26.5rem; }
-  .hero .hero-map { order: -1; height: var(--mh); border-radius: 0; }
+  .hero .hero-map { order: -1; height: var(--mh); }
+  .hero .hero-map::before { background: linear-gradient(to top, var(--paper) 0, rgba(246, 245, 243, 0) 22%); }
   .hero-panel { padding: 1.75rem var(--margin) 2.5rem; }
   .hero-find { top: 0.75rem; left: 0.75rem; width: calc(100% - 1.5rem); }
-  .hero-maps-note { font-size: 0.8125rem; padding: 0.25rem 0.65rem; }
+  .maps-switch button { min-height: 2rem; padding: 0 0.8rem; font-size: 0.875rem; }
   .hero .try-btn { flex: none; }
   .hero .try { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -0.75rem; padding-inline: 0.75rem; }
   .hero .hero-card { translate: 0 0; left: calc(var(--px) + 1.6rem); top: calc(var(--py) - 6.75rem); width: min(14.5rem, calc(100% - var(--px) - 2.4rem)); padding: 0.8rem 0.85rem 0.9rem; }
