@@ -4,6 +4,25 @@ The single source of truth for how Firemark looks and behaves. Built with the UI
 
 UI UX Pro Max's default suggestion for this query was green and orange with Inter. It was rejected as a generic default. Its structural rules (funnel pattern, local-service map, accessibility, forms) were kept.
 
+## v17 feel pass (Oct 27, 2026): charcoal orange. These win where the sections below disagree
+Jeremy's brief: warm, sharp, handmade by a local pro. An ember glowing on charcoal, about 60% paper and stone, 30% charcoal, 10% orange. Words, structure and features did not change. Every value lives in `:root` in `docs/css/site.css`.
+- **Charcoal bands:** the homepage has two, the "What it costs" card and the closing section with the form. Work and About have one (their closing section). Contact, Privacy, 404 and thanks stay light. Each band has an ember hairline along its top edge (`--ember-line`, it spreads out from the middle as it scrolls in where the browser supports scroll timelines) and a low glow from the top-right corner (`--glow-band`).
+- **Orange on charcoal:** text and icons use `--flame` (4.6:1) or `--gold` (9.5:1), never `--accent` (2.9:1). Buttons on charcoal are `--flame` with `--ink` text (4.6:1). Secondary text on charcoal is `--on-ink-muted` (8.5:1). The white form card keeps its own `--accent` button.
+- **Elevation:** `--e1` (resting chips, FAQ rows, pills), `--e2` (the desktop work shot, open FAQ), `--e3` (the report sheet, the form, button hover), `--e4` (the hero results panel, the cost card, the phone menu), plus `--e-phone` for the phone mockup and `--e-on-ink` for panels on charcoal. All are warm (`--sh`, a charcoal-brown), each a contact shadow plus an ambient one. Replaces the v10 "no shadows" rule.
+- **Hover:** a lift of `--lift` (2px) and the next shadow step, faded in on a pseudo-element so box-shadow never animates. The ember glow (`--glow-btn`) is only on the primary button's hover, the hero pin (`--glow-pin`) and the charcoal bands.
+- **Touch:** lifts sit inside `@media (hover: hover)` so taps on phones don't leave things raised.
+- **Links:** underline in `--accent` at 1.5px, 3px on hover. Arrows in `--accent` (`--flame` on charcoal).
+- **The ember dash:** on wide screens a 2.25rem flame rule sits before the sentence beside a section heading (Recent work, Get found, One person, inner page heads), and the split heads hug their headline instead of pinning the sentence to the far right.
+- **Focus:** one ring everywhere, `--focus-ring` (3px flame) at `--focus-offset` (2px). Selection is `--selection` (ember tint). Caret and checkboxes use `--accent`.
+- **Form:** fields on `--field` with a faint inset, white with an ink border on hover and focus.
+- **Header:** a hairline and soft shadow fade in only after the page scrolls (existing JS adds `.is-scrolled`).
+- **Motion tokens:** `--t-fast` 0.18s (colour), `--t-mid` 0.28s (hover lifts), `--t-move` 0.6s (things that travel), `--ease-out`, `--stagger` 70ms, `--rise` 1rem. The hero's own choreography timings were left alone.
+- **Map:** the hero map image gets `--map-warm` (sepia 0.07, saturation 0.95) so the grey OSM drawing sits in the warm paper. The pin gives off a little heat (`--glow-pin-halo`) over the radial `--glow-pin` ring. Choreography untouched.
+- **Reduced motion:** every transition and animation jumps to its end state; hover lifts are off.
+- **Paper:** the sample report sheet has a second sheet peeking out under it (`--e-stack`, pure box-shadow). On About, "Working with Jeremy" sits on a raised white sheet (e2) on the stone band.
+- **No grain:** a faint paper grain was tried and removed. It was invisible on its own but darkened the paper by about 4 levels, which left seams against flat paper surfaces (the header, the hero, the FAQ band).
+- **Known exception:** the checked pick box's tick is an inline SVG data URI with the accent hex in it (a CSS variable can't reach inside a data URI).
+
 ## v10 changes (Oct 27, 2026). These win where the older sections below disagree
 - **Idea:** the map is in the headline. A word-sized tile of the real Main St and S Colony Blvd corner, with the pin, sits after "Put your business"; the full map band opens under the headline and types a search, drops the pin and shows the listing card. "Try it with your trade" retypes it (the one interactive thing). Below 40rem the tile hides.
 - **Radius:** one quiet 8px radius on panels, cards, inputs and the work frames; full pill on buttons and chips. The 28/18/14 hierarchy is retired.
